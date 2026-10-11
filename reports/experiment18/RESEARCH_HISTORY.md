@@ -13,6 +13,11 @@
 Across Experiments 16, 17, and 18, our investigation shifted from broad first-blocker isolation to fine-grained boundary diagnostics of Mini Hivo's autonomous coding pipeline:
 
 ```
+[Experiment 15: Environment Validation & Positive Control]
+  └─ Colab T4 Live Run (`arena_q_restart`): 4/4 Child PASS, 4/4 Root PASS, Root verified: True.
+     * Established that the cloud Colab runtime executes complete Mini Hivo tasks end-to-end.
+       │
+       ▼
 [Experiment 16: Cross-Domain First-Blocker Isolation]
   ├─ Python Clamp: Blocked before mutation (context insufficient, 0 tool steps).
   └─ Timer Pause: Reached legal mutation (3/3), but formal verification failed (2/3) due to
@@ -36,7 +41,33 @@ Across Experiments 16, 17, and 18, our investigation shifted from broad first-bl
 
 ---
 
-## 2. Experiment 16 — Cross-Domain First-Blocker Isolation
+## 2. Experiment 15 — Positive Control & Environment Validation
+
+To establish that the Google Colab environment (NVIDIA Tesla T4, Ollama `gemma4:e4b`) could reliably execute Mini Hivo tasks end-to-end, an approved historical-control task from Experiment 15—`arena_q_restart`—was reproduced under real Worker execution:
+
+| Execution Check | Measured Outcome |
+|---|---|
+| Host Preflight | **PASS** |
+| Context Authorization | **PASS** |
+| First Legal Mutation | Step 3 (cleanly applied) |
+| Child Browser Verification | **4/4 PASS** (`keyboard_movement`, `restart_resets_state`, `goal_win_state`, `touch_control`) |
+| Root Browser Verification | **4/4 PASS** |
+| Root Verified Status | **True** |
+| Repairer Invocations | 0 |
+| Final Worker Status | `done` |
+
+### Browser Verifier Controls
+Sensitivity checks were conducted against known application states:
+- **Game Verifier:** Correctly failed a known-broken implementation (`FAIL`) and passed the Worker-fixed implementation (`PASS`).
+- **Timer Verifier Audit:** Confirmed an automated verification coverage gap:
+  - Broken Pause (no interval clear): `FAIL`
+  - Incomplete Pause (`clearInterval(interval);` without `interval = null;`): **PASS**
+  - Correct Pause (`clearInterval(interval); interval = null;`): **PASS**
+  - **Coverage Gap:** The compound transition `Start` → `Pause` → `Start (resume)` is omitted from the configured Timer verification suite. Because `interval` remains a non-null timer ID, `start()` exits early. An incomplete implementation was accepted.
+
+---
+
+## 3. Experiment 16 — Cross-Domain First-Blocker Isolation
 
 ### Research Objective
 Experiment 16 tested whether Mini Hivo encountered common, cross-domain blockers when executing tasks in different domains (Countdown Timer web application vs. Python integer clamping module) under identical harness policies (`contract_fallback`, `strict` semantic evidence, `evidence_bound` mutation grounding, 28-step budget, using model tag `gemma4:e4b`).
@@ -70,7 +101,7 @@ Investigation revealed that `infer_web_profile()` performed substring searches a
 
 ---
 
-## 3. Experiment 17 — Deterministic Classification Repair
+## 4. Experiment 17 — Deterministic Classification Repair
 
 ### The Classification Hypothesis
 The profile misclassification identified in Experiment 16 was caused by unconstrained string matching over serialized metadata (including hashes, timestamps, and contract IDs). The hypothesis was:
@@ -96,7 +127,7 @@ Experiment 17 was strictly a deterministic checkpoint on frozen contract artifac
 
 ---
 
-## 4. Experiment 18A — Context Sufficiency Diagnostics on Windows
+## 5. Experiment 18A — Context Sufficiency Diagnostics on Windows
 
 ### Motivation
 With the classification fix deterministically verified, Experiment 18 sought to observe whether live Worker runs would now pass all boundaries. However, running Timer trials on Windows resulted in early stoppages before any mutations could be authorized. Experiment 18A investigated whether this stoppage was caused by harness timeouts, model reasoning failure, or a context sufficiency failure.
@@ -128,7 +159,7 @@ While the schema/validator discrepancy was confirmed, Experiment 18A did **not**
 
 ---
 
-## 5. Experiment 18B — Colab T4 Live Execution
+## 6. Experiment 18B — Colab T4 Live Execution
 
 ### Motivation and Setup
 To eliminate local hardware resource constraints and evaluate the `field_scoped` policy in live Worker execution, the frozen Timer task was reconstructed in Google Colab using a cloud GPU (NVIDIA Tesla T4).
@@ -170,9 +201,33 @@ Because the underlying weight artifacts differed, comparisons between Windows an
 - Terminal Outcome: Halted at `MUTATION_TARGET_UNRESOLVED`.
 - Counters: 3 mutation attempts, 1 applied, 2 rejected, 0 bounded refreshes. Formal browser verification was never reached.
 
+### Confirmed Tool-Contract & Recovery Interface Mismatch
+Inspection of the active agent configuration revealed an interface conflict:
+- **Configured Target Locator:** `target_locator_policy = "evidence_directed"`
+- **Offered Tool Schema Projected to Worker:**
+  - `read_file`: **AVAILABLE**
+  - `read_file_range`: **UNAVAILABLE** (removed from schema by locator configuration)
+  - `read_candidate_span`: **AVAILABLE**
+- **The Conflict:** When the Worker's second edit failed at Step 5 (`MUTATION_ANCHOR_REQUIRED`), the controller instructed the Worker:
+  > *"Call read_file_range on the same file for at most 80 lines around the intended location, then retry once with the exact observed text."*
+- However, `read_file_range` was **not present** in the active tool schema offered to the Worker!
+- Furthermore, the locator candidate span was stale because it reflected the pre-edit source hash.
+- **Scientific Interpretation:** This is a confirmed, reproducible tool-contract and recovery instruction inconsistency. However, it has **not yet been proven** to be the sole cause of Worker failure because `read_file` remained available and the Worker attempted no read tool whatsoever.
+
+### Deterministic Mutation-Grounding Recovery Controls
+To determine whether mutation grounding safely recovers after a valid source refresh, deterministic harness tests were run on the identical 17-line Timer fixture:
+
+| Experimental Condition | Attempts | Applied | Rejected | Refreshes | Terminal State | Result |
+|---|---:|---:|---:|---:|---|---|
+| Without Refresh (original reproduction) | 3 | 1 | 2 | 0 | `MUTATION_TARGET_UNRESOLVED` | Terminal Rejection |
+| With `read_file_range` Refresh | 3 | 2 | 1 | 1 | None | **PASS (Fully Grounded)** |
+| With `read_file` Refresh (17-line fixture) | 3 | 2 | 1 | 1 | None | **PASS (Fully Grounded)** |
+
+Both valid refresh mechanisms allowed the second mutation (`interval = null`) to apply cleanly without weakening grounding invariants.
+
 ---
 
-## 6. Controlled Production-Verifier Replay
+## 7. Controlled Production-Verifier Replay
 
 ### Motivation
 Because the live `field_scoped` run halted at mutation grounding before reaching verification, live execution did not demonstrate whether the classifier fix worked in an actual browser. To isolate this question, a controlled replay was conducted using byte-identical patched source (SHA-256: `b18903dd1d6d13bfeb33ed012fa2a728f7c31a5899baf5efe3ac28ab58a8161e`) across separate workspaces.
@@ -194,7 +249,7 @@ This confirmed that Experiment 17's `field_scoped` classifier successfully repai
 
 ---
 
-## 7. Independent Behavioral Acceptance Test
+## 8. Independent Behavioral Acceptance Test
 
 ### Motivation
 The Worker patch applied in Experiment 18B (`function pause() { clearInterval(interval); }`) passed all three configured checks in Mini Hivo's Timer verifier. However, does passing those three checks mean the Timer actually works according to user expectations?
@@ -232,7 +287,7 @@ This demonstrates a **verification coverage gap** and a **behavioral false accep
 
 ---
 
-## 8. Cross-Experiment Chronological Matrix
+## 9. Cross-Experiment Chronological Matrix
 
 | Dimension | Experiment 16 | Experiment 17 | Experiment 18A | Experiment 18B (Live) | Experiment 18B (Replay) |
 |---|---|---|---|---|---|
@@ -249,7 +304,7 @@ This demonstrates a **verification coverage gap** and a **behavioral false accep
 
 ---
 
-## 9. Comprehensive Evidence & Artifact Inventory
+## 10. Comprehensive Evidence & Artifact Inventory
 
 | Artifact / Identifier | Category | Location / Path | Key Hashes / Identifiers | Status & Custody |
 |---|---|---|---|---|
@@ -271,7 +326,7 @@ This demonstrates a **verification coverage gap** and a **behavioral false accep
 
 ---
 
-## 10. Cross-Experiment Conclusions & Scientific Distinctions
+## 11. Cross-Experiment Conclusions & Scientific Distinctions
 
 To maintain strict scientific integrity, we clearly divide our findings into four categories:
 
@@ -294,8 +349,9 @@ To maintain strict scientific integrity, we clearly divide our findings into fou
 
 ---
 
-## 11. Navigation & Related Documents
+## 12. Navigation & Related Documents
 
+- [Experiment 18B Research Handoff](EXPERIMENT18B_HANDOFF.md)
 - [Experiment 18 Primary Report](experiment18-report.md)
 - [Experiment 18 Findings JSON](experiment18-findings.json)
 - [Experiment 16 Report](../experiment16/experiment16-report.md)

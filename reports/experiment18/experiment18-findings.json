@@ -12,6 +12,19 @@
     "mutation_grounding_policy": "evidence_bound",
     "semantic_evidence_policy": "strict"
   },
+  "experiment15_positive_control": {
+    "task_id": "arena_q_restart",
+    "environment": "Google Colab, NVIDIA Tesla T4",
+    "host_preflight": "PASS",
+    "context_authorization": "PASS",
+    "first_legal_mutation_step": 3,
+    "child_behavioral_verification": "4/4 PASS",
+    "root_behavioral_verification": "4/4 PASS",
+    "root_verified": true,
+    "repairer_calls": 0,
+    "worker_status": "done",
+    "note": "Proves the tested Colab environment executes complete tasks end-to-end to Root verification."
+  },
   "experiment16_timer": {
     "completed_trials": 3,
     "context_sufficient": 3,
@@ -80,7 +93,39 @@
       "bounded_refreshes": 0,
       "first_blocker": "MUTATION_GROUNDING/MUTATION_TARGET_UNRESOLVED",
       "formal_child_browser_calls": 0,
-      "root_verified": false
+      "root_verified": false,
+      "target_locator_policy": "evidence_directed",
+      "offered_tools": ["read_file", "read_candidate_span"],
+      "unavailable_tools": ["read_file_range"],
+      "controller_instructed_tool": "read_file_range",
+      "tool_contract_mismatch_confirmed": true
+    },
+    "deterministic_grounding_controls": {
+      "without_refresh": {
+        "mutation_attempts": 3,
+        "applied": 1,
+        "rejected": 2,
+        "refreshes": 0,
+        "terminal_reason": "MUTATION_TARGET_UNRESOLVED",
+        "passed": false
+      },
+      "with_read_file_range_refresh": {
+        "mutation_attempts": 3,
+        "applied": 2,
+        "rejected": 1,
+        "refreshes": 1,
+        "terminal_reason": null,
+        "passed": true
+      },
+      "with_read_file_refresh": {
+        "fixture_lines": 17,
+        "mutation_attempts": 3,
+        "applied": 2,
+        "rejected": 1,
+        "refreshes": 1,
+        "terminal_reason": null,
+        "passed": true
+      }
     },
     "verification_replay_1": {
       "environment_valid": false,
@@ -120,6 +165,9 @@
     "18a_true_insufficient_context_proven": false,
     "hardware_caused_18a_vs_18b_difference_proven": false,
     "second_edit_rejected_due_to_stale_source": true,
+    "tool_contract_mismatch_confirmed": true,
+    "tool_contract_mismatch_sole_cause_proven": false,
+    "grounding_recovery_proven_with_source_refresh": true,
     "verification_coverage_gap_observed": true
   },
   "unresolved_hypotheses": {
@@ -140,5 +188,10 @@
     "Windows and Colab used different model artifacts.",
     "Two complete Windows Timer trials, one complete cloud trial per policy, and one valid controlled browser replay do not estimate general reliability.",
     "The independent manual resume test needs separately saved raw output for repeatability."
+  ],
+  "related_documents": [
+    "reports/experiment18/EXPERIMENT18B_HANDOFF.md",
+    "reports/experiment18/RESEARCH_HISTORY.md",
+    "reports/experiment18/experiment18-report.md"
   ]
 }

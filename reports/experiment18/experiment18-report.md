@@ -134,8 +134,10 @@ Experiment 18B evaluated live execution on a Tesla T4 GPU in Google Colab across
      ```
    - The second mutation was rejected with `MUTATION_ANCHOR_REQUIRED` because the Worker used a source hash from before the first edit.
    - The controller explicitly instructed the Worker to execute a bounded `read_file_range` (max 80 lines) to refresh its anchor.
-   - Instead of reading the file, the Worker immediately retried `edit_file`, triggering terminal blocker `MUTATION_TARGET_UNRESOLVED`.
+   - **Tool-Contract Inconsistency:** Under the active `target_locator_policy="evidence_directed"`, the Worker's active schema offered `read_file` and `read_candidate_span`, but `read_file_range` was unavailable. The locator candidate span was also stale after the first edit.
+   - Instead of using available `read_file` to refresh, the Worker immediately retried `edit_file`, triggering terminal blocker `MUTATION_TARGET_UNRESOLVED`.
    - Mutation counters: Attempts: 3, Applied: 1, Rejected: 2, Bounded source refreshes: 0. Formal child browser verification was never reached.
+   - **Deterministic Recovery Controls:** Subsequent deterministic tests confirmed that executing a source refresh (either `read_file_range` or `read_file` on the 17-line fixture) successfully recovers the second mutation (2 applied, 1 rejected, 1 refresh, PASS) without weakening grounding invariants.
 
 ---
 
@@ -186,8 +188,8 @@ This represents an **observed false acceptance**: an incomplete implementation p
 
 1. **Finding A — Context Request Schema/Validator Mismatch:**
    In `hivo/context_sufficiency.py`, `context_sufficiency_schema()` advertises an unrestricted string for `needed_evidence[].kind`, whereas `validate_evidence_request()` enforces `EVIDENCE_REQUEST_KINDS`. In 18A, this discrepancy caused immediate validation errors when the Worker requested `code_snippet`, `function_signature`, or `variable_scope`.
-2. **Finding B — Stale Mutation Anchor and Recovery Noncompliance:**
-   Applying an edit invalidates the Worker's prior source observation hash. In 18B `field_scoped`, the Worker attempted a subsequent edit with a stale hash (`MUTATION_ANCHOR_REQUIRED`), failed to follow explicit recovery instructions to refresh its observation via `read_file_range`, and triggered terminal rejection `MUTATION_TARGET_UNRESOLVED`.
+2. **Finding B — Stale Mutation Anchor and Recovery Interface Conflict:**
+   Applying an edit invalidates the Worker's prior source observation hash. In 18B `field_scoped`, the Worker attempted a subsequent edit with a stale hash (`MUTATION_ANCHOR_REQUIRED`). The controller instructed the Worker to call `read_file_range`, but under `target_locator_policy="evidence_directed"`, that tool was omitted from the Worker's active schema while `read_file` remained available. The Worker retried `edit_file` without reading, triggering `MUTATION_TARGET_UNRESOLVED`. Deterministic controls confirmed that source refresh safely resolves mutation grounding.
 3. **Finding C — Verifier Classification Repair Confirmed in Production Replay:**
    Experiment 17's `field_scoped` classifier eliminates false Game profile selection on Timer contracts at the production verifier boundary (`mini.verify_browser_application`), allowing all three Timer checks to pass without environment error.
 4. **Finding D — Verification Coverage Gap (Behavioral False Acceptance):**
@@ -236,6 +238,7 @@ The following items are explicit hypotheses for subsequent investigation, **not*
 - [Experiment 16 Report](../experiment16/experiment16-report.md) — Cross-domain first-blocker diagnosis isolating Timer misclassification.
 - [Experiment 17 Classification Protocol](../experiment17/classification-protocol.md) — Deterministic evaluation of `field_scoped` classifier.
 - [Experiment 17 Runbook](../experiment17/RUNBOOK.md) — Operational instructions for classification testing.
+- [Experiment 18B Research Handoff](EXPERIMENT18B_HANDOFF.md) — Self-contained synthesis of Experiment 18B recovery, tool-contract mismatch, and positive-control findings.
 - [Comprehensive Research History (Experiments 16–18)](RESEARCH_HISTORY.md) — Detailed chronological progression and cross-experiment boundary analysis.
 - Production modules: [`hivo/context_sufficiency.py`](../../hivo/context_sufficiency.py), [`hivo/mutation_grounding.py`](../../hivo/mutation_grounding.py), [`hivo/verification.py`](../../hivo/verification.py).
 - Machine-readable evidence: [`experiment18-findings.json`](experiment18-findings.json).
