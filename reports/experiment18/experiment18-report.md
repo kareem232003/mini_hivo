@@ -236,5 +236,6 @@ The following items are explicit hypotheses for subsequent investigation, **not*
 - [Experiment 16 Report](../experiment16/experiment16-report.md) — Cross-domain first-blocker diagnosis isolating Timer misclassification.
 - [Experiment 17 Classification Protocol](../experiment17/classification-protocol.md) — Deterministic evaluation of `field_scoped` classifier.
 - [Experiment 17 Runbook](../experiment17/RUNBOOK.md) — Operational instructions for classification testing.
+- [Comprehensive Research History (Experiments 16–18)](RESEARCH_HISTORY.md) — Detailed chronological progression and cross-experiment boundary analysis.
 - Production modules: [`hivo/context_sufficiency.py`](../../hivo/context_sufficiency.py), [`hivo/mutation_grounding.py`](../../hivo/mutation_grounding.py), [`hivo/verification.py`](../../hivo/verification.py).
 - Machine-readable evidence: [`experiment18-findings.json`](experiment18-findings.json).
