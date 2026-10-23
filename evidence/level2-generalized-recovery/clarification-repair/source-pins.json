@@ -1,0 +1,8 @@
+{
+  "mini.py": "0cd452d7463a4a4c06f5f7b816ae3edd29c1ba7332896ff93b9145013ab530e1",
+  "hivo/artifact_progress.py": "f23708f9170cd10ff9f4cb4ba5f7fd7373536a7518ca5448d7f53f2f8b2dbc28",
+  "hivo/literal_clarification.py": "745a2b452b6e73e9f8c80e58d8ffdf4c939c0149a4bd9feed7b9e20804c9ee4a",
+  "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+  "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+  "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+}

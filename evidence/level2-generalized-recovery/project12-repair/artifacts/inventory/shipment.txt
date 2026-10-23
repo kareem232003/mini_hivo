@@ -1,0 +1,3 @@
+Shipment: SH-2026
+Items: 12
+Status: Pending

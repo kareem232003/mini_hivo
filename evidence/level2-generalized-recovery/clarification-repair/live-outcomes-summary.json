@@ -1,0 +1,169 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END_ATTEMPTS",
+  "cases": [
+    {
+      "case": "json-resumption",
+      "cohort": "live-cli-final",
+      "driver_passed": false,
+      "turn_statuses": [
+        "clarification_required",
+        "failed"
+      ],
+      "metrics": {
+        "run_id": "20261022T225422-3d682d67",
+        "status": "failed",
+        "root_verified": false,
+        "model_calls": 2,
+        "tool_calls": 0,
+        "falsifier_calls": 0,
+        "impact_contract_authorizations": 0,
+        "impact_contract_comparisons": 0,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 169.03
+      },
+      "interrupted": false,
+      "process_exit": 0,
+      "host_preflight_status": "PASS",
+      "host_preflight_reason": null,
+      "accepted_answers": 1,
+      "last_failure_reason": null,
+      "trace_confirmed_answer_count": 1,
+      "latest_trace_run_id": "20261022T225422-3d682d67",
+      "latest_trace_boundary": {
+        "kind": "status",
+        "role": "Coordinator"
+      },
+      "metrics_describe_latest_trace": true,
+      "boundary": "ENVIRONMENT_ERROR: local Ollama timeout before Builder tools"
+    },
+    {
+      "case": "level1",
+      "cohort": "live-cli-final",
+      "driver_passed": true,
+      "turn_statuses": [
+        "done"
+      ],
+      "metrics": {
+        "run_id": "20261022T230703-c63e9980",
+        "status": "done",
+        "root_verified": true,
+        "model_calls": 9,
+        "tool_calls": 6,
+        "falsifier_calls": 1,
+        "impact_contract_authorizations": 1,
+        "impact_contract_comparisons": 1,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 476.59
+      },
+      "interrupted": false,
+      "process_exit": 0,
+      "independent_inspection_passed": true,
+      "matches_final_source": false
+    },
+    {
+      "case": "original-confirmation",
+      "cohort": "live-cli-final",
+      "driver_passed": false,
+      "turn_statuses": [],
+      "metrics": {},
+      "interrupted": false,
+      "process_exit": 2,
+      "host_preflight_status": "FAIL",
+      "host_preflight_reason": "CRITICAL_MEMORY_HEADROOM",
+      "boundary": "HOST_PREFLIGHT_FAILED: CRITICAL_MEMORY_HEADROOM"
+    },
+    {
+      "case": "structured",
+      "cohort": "live-cli-final",
+      "driver_passed": true,
+      "turn_statuses": [
+        "done"
+      ],
+      "metrics": {
+        "run_id": "20261022T225748-a38c9d71",
+        "status": "done",
+        "root_verified": true,
+        "model_calls": 9,
+        "tool_calls": 7,
+        "falsifier_calls": 1,
+        "impact_contract_authorizations": 1,
+        "impact_contract_comparisons": 1,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 518.12
+      },
+      "interrupted": false,
+      "process_exit": 0,
+      "independent_inspection_passed": true,
+      "matches_final_source": false
+    },
+    {
+      "case": "json-resumption",
+      "cohort": "live-cli-retry",
+      "driver_passed": false,
+      "turn_statuses": [
+        "clarification_required",
+        "failed"
+      ],
+      "metrics": {
+        "run_id": "20261022T232911-4d8ce697",
+        "status": "failed",
+        "root_verified": false,
+        "model_calls": 2,
+        "tool_calls": 0,
+        "falsifier_calls": 0,
+        "impact_contract_authorizations": 0,
+        "impact_contract_comparisons": 0,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 181.22
+      },
+      "interrupted": false,
+      "process_exit": 0,
+      "host_preflight_status": "PASS",
+      "host_preflight_reason": null,
+      "accepted_answers": 1,
+      "last_failure_reason": null,
+      "trace_confirmed_answer_count": 1,
+      "latest_trace_run_id": "20261022T232911-4d8ce697",
+      "latest_trace_boundary": {
+        "kind": "status",
+        "role": "Coordinator"
+      },
+      "metrics_describe_latest_trace": true,
+      "boundary": "ENVIRONMENT_ERROR: local Ollama timeout before Builder tools"
+    },
+    {
+      "case": "original-confirmation",
+      "cohort": "live-cli-retry",
+      "driver_passed": false,
+      "turn_statuses": [
+        "clarification_required"
+      ],
+      "metrics": {
+        "run_id": "20261022T231710-a834c0f2",
+        "status": "clarification_required",
+        "root_verified": false,
+        "model_calls": 0,
+        "tool_calls": 0,
+        "falsifier_calls": 0,
+        "impact_contract_authorizations": 0,
+        "impact_contract_comparisons": 0,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 0.01
+      },
+      "interrupted": true,
+      "process_exit": null,
+      "host_preflight_status": "PASS",
+      "host_preflight_reason": null,
+      "accepted_answers": 0,
+      "last_failure_reason": null,
+      "trace_confirmed_answer_count": 1,
+      "latest_trace_run_id": "20261022T231710-80240587",
+      "latest_trace_boundary": {
+        "kind": "model_request",
+        "role": "Builder"
+      },
+      "metrics_describe_latest_trace": false,
+      "boundary": "OUTER_WALL_LIMIT_INTERRUPTION: no completed application outcome for interrupted turn; driver metrics may describe the preceding clarification turn"
+    }
+  ]
+}

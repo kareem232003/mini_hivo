@@ -1,0 +1,7 @@
+test_real_recursive_scheduler_reaches_bounded_worker_recovery (test_context_recovery_functional.ContextRecoveryFunctionalTests.test_real_recursive_scheduler_reaches_bounded_worker_recovery) ... ok
+test_redundant_prerequisite_recovers_to_verified_mutation_at_varied_counts (test_context_recovery_functional.ContextRecoveryFunctionalTests.test_redundant_prerequisite_recovers_to_verified_mutation_at_varied_counts) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 3.567s
+
+OK

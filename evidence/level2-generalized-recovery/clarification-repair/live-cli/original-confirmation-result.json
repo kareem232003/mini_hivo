@@ -1,0 +1,42 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END",
+  "case": "original-confirmation",
+  "request": "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+  "turns": [
+    "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+    "yes"
+  ],
+  "source_sha256": {
+    "mini.py": "09c67b800281a0ad663e90ddb782e3791d2d996f143870a61653f902198f880d",
+    "hivo/artifact_progress.py": "f23708f9170cd10ff9f4cb4ba5f7fd7373536a7518ca5448d7f53f2f8b2dbc28",
+    "hivo/literal_clarification.py": "cb6d6d4dcc9cc79e11e3c5595ad792262bc6d30035387bedbd1374169fa46032",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "process_exit": 2,
+  "interrupted": false,
+  "wall_seconds": 25.65,
+  "wall_limit_seconds": 720,
+  "metrics": {},
+  "turn_statuses": [],
+  "artifacts": {
+    "student.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": null,
+      "expected_hex": "4e616d653a20536172610a4167653a2032310a4465706172746d656e743a20436f6d707574657220536369656e6365"
+    },
+    "course.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": null,
+      "expected_hex": "436f757273653a20536f66747761726520456e67696e656572696e670a53656d65737465723a2046616c6c20323032360a5374617475733a20416374697665"
+    }
+  },
+  "independent_pass": false,
+  "clarification_answers": null,
+  "source_contract": null
+}

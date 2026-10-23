@@ -1,0 +1,152 @@
+{
+  "scope": "Scripted provider; real controller, gates and filesystem. Driver success alone does not establish every Falsifier read.",
+  "cases": [
+    {
+      "artifacts": 1,
+      "driver_result": "controlled/1.json",
+      "independent_inspection": "controlled/1-inspection.json",
+      "all_gates_and_independent_falsifier_reads": true,
+      "checks": {
+        "every_artifact_exact": true,
+        "context_before_mutation": true,
+        "impact_authorized": true,
+        "builder_native_proofs_for_every_artifact": true,
+        "falsifier_independently_read_every_artifact": true,
+        "required_route_coverage": true,
+        "impact_post_state_pass": true,
+        "transaction_committed": true,
+        "root_verified_done": true,
+        "no_budget_exhaustion": true,
+        "source_identity_matches_trace": true,
+        "real_provider_observed": true,
+        "host_preflight_pass": true
+      }
+    },
+    {
+      "artifacts": 2,
+      "driver_result": "controlled/2.json",
+      "independent_inspection": "controlled/2-inspection.json",
+      "all_gates_and_independent_falsifier_reads": true,
+      "checks": {
+        "every_artifact_exact": true,
+        "context_before_mutation": true,
+        "impact_authorized": true,
+        "builder_native_proofs_for_every_artifact": true,
+        "falsifier_independently_read_every_artifact": true,
+        "required_route_coverage": true,
+        "impact_post_state_pass": true,
+        "transaction_committed": true,
+        "root_verified_done": true,
+        "no_budget_exhaustion": true,
+        "source_identity_matches_trace": true,
+        "real_provider_observed": true,
+        "host_preflight_pass": true
+      }
+    },
+    {
+      "artifacts": 3,
+      "driver_result": "controlled/3.json",
+      "independent_inspection": "controlled/3-inspection.json",
+      "all_gates_and_independent_falsifier_reads": true,
+      "checks": {
+        "every_artifact_exact": true,
+        "context_before_mutation": true,
+        "impact_authorized": true,
+        "builder_native_proofs_for_every_artifact": true,
+        "falsifier_independently_read_every_artifact": true,
+        "required_route_coverage": true,
+        "impact_post_state_pass": true,
+        "transaction_committed": true,
+        "root_verified_done": true,
+        "no_budget_exhaustion": true,
+        "source_identity_matches_trace": true,
+        "real_provider_observed": true,
+        "host_preflight_pass": true
+      }
+    },
+    {
+      "artifacts": 4,
+      "driver_result": "controlled/4.json",
+      "independent_inspection": "controlled/4-inspection.json",
+      "all_gates_and_independent_falsifier_reads": true,
+      "checks": {
+        "every_artifact_exact": true,
+        "context_before_mutation": true,
+        "impact_authorized": true,
+        "builder_native_proofs_for_every_artifact": true,
+        "falsifier_independently_read_every_artifact": true,
+        "required_route_coverage": true,
+        "impact_post_state_pass": true,
+        "transaction_committed": true,
+        "root_verified_done": true,
+        "no_budget_exhaustion": true,
+        "source_identity_matches_trace": true,
+        "real_provider_observed": true,
+        "host_preflight_pass": true
+      }
+    },
+    {
+      "artifacts": 5,
+      "driver_result": "controlled/5.json",
+      "independent_inspection": "controlled/5-inspection.json",
+      "all_gates_and_independent_falsifier_reads": true,
+      "checks": {
+        "every_artifact_exact": true,
+        "context_before_mutation": true,
+        "impact_authorized": true,
+        "builder_native_proofs_for_every_artifact": true,
+        "falsifier_independently_read_every_artifact": true,
+        "required_route_coverage": true,
+        "impact_post_state_pass": true,
+        "transaction_committed": true,
+        "root_verified_done": true,
+        "no_budget_exhaustion": true,
+        "source_identity_matches_trace": true,
+        "real_provider_observed": true,
+        "host_preflight_pass": true
+      }
+    },
+    {
+      "artifacts": 8,
+      "driver_result": "controlled/8.json",
+      "independent_inspection": "controlled/8-inspection.json",
+      "all_gates_and_independent_falsifier_reads": true,
+      "checks": {
+        "every_artifact_exact": true,
+        "context_before_mutation": true,
+        "impact_authorized": true,
+        "builder_native_proofs_for_every_artifact": true,
+        "falsifier_independently_read_every_artifact": true,
+        "required_route_coverage": true,
+        "impact_post_state_pass": true,
+        "transaction_committed": true,
+        "root_verified_done": true,
+        "no_budget_exhaustion": true,
+        "source_identity_matches_trace": true,
+        "real_provider_observed": true,
+        "host_preflight_pass": true
+      }
+    },
+    {
+      "artifacts": 10,
+      "driver_result": "controlled/10.json",
+      "independent_inspection": "controlled/10-inspection.json",
+      "all_gates_and_independent_falsifier_reads": false,
+      "checks": {
+        "every_artifact_exact": true,
+        "context_before_mutation": true,
+        "impact_authorized": true,
+        "builder_native_proofs_for_every_artifact": true,
+        "falsifier_independently_read_every_artifact": false,
+        "required_route_coverage": true,
+        "impact_post_state_pass": true,
+        "transaction_committed": true,
+        "root_verified_done": true,
+        "no_budget_exhaustion": true,
+        "source_identity_matches_trace": true,
+        "real_provider_observed": true,
+        "host_preflight_pass": true
+      }
+    }
+  ]
+}

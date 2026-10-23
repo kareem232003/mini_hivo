@@ -1,0 +1,229 @@
+test_alternating_denials_stop_without_budget_exhaustion (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_alternating_denials_stop_without_budget_exhaustion) ... [BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] run_command echo a
+[TOOL] run_command pwd
+[TOOL] run_command echo b
+ok
+test_alternating_incorrect_writes_are_not_verified_progress (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_alternating_incorrect_writes_are_not_verified_progress) ... [BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+ok
+test_ambiguous_original_request_requires_clarification (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_ambiguous_original_request_requires_clarification) ... ok
+test_correct_partial_artifact_is_not_rewritten_and_safe_denial_recovers (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_correct_partial_artifact_is_not_rewritten_and_safe_denial_recovers) ... [MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] run_command cat artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[ROOT VERIFIED] PASS
+ok
+test_equivalent_shell_read_syntax_is_bounded_without_literal_authority (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_equivalent_shell_read_syntax_is_bounded_without_literal_authority) ... [BUILDER] ROOT executing
+[TOOL] run_command cat a.txt
+[TOOL] run_command type "a.txt"
+[TOOL] run_command cat './a.txt'
+ok
+test_incorrect_artifact_never_completes_and_rolls_back (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_incorrect_artifact_never_completes_and_rolls_back) ... [MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[VERIFY ROOT] FAIL
+[REPAIR ROOT]
+[REPAIRER] ROOT executing
+ok
+test_independent_requirements_map_to_their_own_artifact (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_independent_requirements_map_to_their_own_artifact) ... ok
+test_long_anchor_tail_drift_is_detected (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_long_anchor_tail_drift_is_detected) ... ok
+test_mixed_language_typo_and_concatenated_clauses_through_final_gates (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_mixed_language_typo_and_concatenated_clauses_through_final_gates) ... [MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file عربي.txt
+[TOOL] write_file second.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file عربي.txt
+[TOOL] run_file second.txt
+[ROOT VERIFIED] PASS
+ok
+test_mixed_language_typos_and_strict_literal_bytes (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_mixed_language_typos_and_strict_literal_bytes) ... ok
+test_one_through_ten_artifacts_complete_real_gates (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_one_through_ten_artifacts_complete_real_gates) ... [MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[ROOT VERIFIED] PASS
+[MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[ROOT VERIFIED] PASS
+[MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[TOOL] write_file artifact_2.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[TOOL] run_file artifact_2.txt
+[ROOT VERIFIED] PASS
+[MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[TOOL] write_file artifact_2.txt
+[TOOL] write_file artifact_3.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[TOOL] run_file artifact_2.txt
+[TOOL] run_file artifact_3.txt
+[ROOT VERIFIED] PASS
+[MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[TOOL] write_file artifact_2.txt
+[TOOL] write_file artifact_3.txt
+[TOOL] write_file artifact_4.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[TOOL] run_file artifact_2.txt
+[TOOL] run_file artifact_3.txt
+[TOOL] run_file artifact_4.txt
+[ROOT VERIFIED] PASS
+[MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[TOOL] write_file artifact_2.txt
+[TOOL] write_file artifact_3.txt
+[TOOL] write_file artifact_4.txt
+[TOOL] write_file artifact_5.txt
+[TOOL] write_file artifact_6.txt
+[TOOL] write_file artifact_7.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[TOOL] run_file artifact_2.txt
+[TOOL] run_file artifact_3.txt
+[TOOL] run_file artifact_4.txt
+[TOOL] run_file artifact_5.txt
+[TOOL] run_file artifact_6.txt
+[TOOL] run_file artifact_7.txt
+[ROOT VERIFIED] PASS
+[MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[TOOL] write_file artifact_2.txt
+[TOOL] write_file artifact_3.txt
+[TOOL] write_file artifact_4.txt
+[TOOL] write_file artifact_5.txt
+[TOOL] write_file artifact_6.txt
+[TOOL] write_file artifact_7.txt
+[TOOL] write_file artifact_8.txt
+[TOOL] write_file artifact_9.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[TOOL] run_file artifact_2.txt
+[TOOL] run_file artifact_3.txt
+[TOOL] run_file artifact_4.txt
+[TOOL] run_file artifact_5.txt
+[TOOL] run_file artifact_6.txt
+[TOOL] run_file artifact_7.txt
+[ROOT VERIFIED] PASS
+ok
+test_overflow_and_out_of_scope_never_gain_partial_authority (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_overflow_and_out_of_scope_never_gain_partial_authority) ... ok
+test_repairer_focused_edit_preserves_exact_multiline_bytes_through_final_gates (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_repairer_focused_edit_preserves_exact_multiline_bytes_through_final_gates) ... [MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[VERIFY ROOT] FAIL
+[REPAIR ROOT]
+[REPAIRER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] edit_file artifact_0.txt
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[ROOT VERIFIED] PASS (fresh)
+ok
+test_repairer_line_range_preserves_exact_multiline_bytes_through_final_gates (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_repairer_line_range_preserves_exact_multiline_bytes_through_final_gates) ... [MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[VERIFY ROOT] FAIL
+[REPAIR ROOT]
+[REPAIRER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] edit_file_range artifact_0.txt
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[ROOT VERIFIED] PASS (fresh)
+ok
+test_semantic_safe_recovery_and_hostile_commands (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_semantic_safe_recovery_and_hostile_commands) ... ok
+test_stale_readback_is_invalidated_after_actual_content_changes (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_stale_readback_is_invalidated_after_actual_content_changes) ... [MODE] baseline
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] read_file artifact_0.txt
+[TOOL] write_file artifact_1.txt
+[TOOL] write_file artifact_0.txt
+[FALSIFY ROOT]
+[FALSIFIER] ROOT executing
+[TOOL] run_file artifact_0.txt
+[TOOL] run_file artifact_1.txt
+[ROOT VERIFIED] PASS
+ok
+test_stall_diagnosis_uses_structured_signal_and_does_not_overclaim_one_denial (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_stall_diagnosis_uses_structured_signal_and_does_not_overclaim_one_denial) ... ok
+test_unchanged_write_does_not_adopt_an_externally_created_user_file (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_unchanged_write_does_not_adopt_an_externally_created_user_file) ... [BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+ok
+test_visible_goal_drift_cannot_hide_behind_a_full_anchor_hash (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_visible_goal_drift_cannot_hide_behind_a_full_anchor_hash) ... ok
+test_windows_case_aliases_cannot_authorize_two_distinct_outputs (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_windows_case_aliases_cannot_authorize_two_distinct_outputs) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 6.919s
+
+OK

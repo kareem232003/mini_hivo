@@ -1,0 +1,325 @@
+{
+  "verification_class": "CONTROLLED_FUNCTIONAL",
+  "case": "structured",
+  "request": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"; Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+  "turns": [
+    "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"; Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+  ],
+  "source_sha256": {
+    "mini.py": "0cd452d7463a4a4c06f5f7b816ae3edd29c1ba7332896ff93b9145013ab530e1",
+    "hivo/artifact_progress.py": "f23708f9170cd10ff9f4cb4ba5f7fd7373536a7518ca5448d7f53f2f8b2dbc28",
+    "hivo/literal_clarification.py": "745a2b452b6e73e9f8c80e58d8ffdf4c939c0149a4bd9feed7b9e20804c9ee4a",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "process_exit": 0,
+  "interrupted": false,
+  "wall_seconds": 0.67,
+  "wall_limit_seconds": 720,
+  "metrics": {
+    "run_id": "20261022T231850-35bcd155",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 0,
+    "tool_calls": 7,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 0.62
+  },
+  "turn_statuses": [
+    "done"
+  ],
+  "artifacts": {
+    "student.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "expected_hex": "4e616d653a20536172610a4167653a2032310a4465706172746d656e743a20436f6d707574657220536369656e6365"
+    },
+    "course.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "expected_hex": "436f757273653a20536f66747761726520456e67696e656572696e670a53656d65737465723a2046616c6c20323032360a5374617475733a20416374697665"
+    }
+  },
+  "independent_pass": true,
+  "clarification_answers": [],
+  "source_contract": {
+    "status": "ready",
+    "question": "",
+    "goal": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"; Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+    "requirements": [
+      "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+      "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+    ],
+    "constraints": [],
+    "success_criteria": [
+      "every explicit requirement is implemented and verified"
+    ],
+    "original_goal": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"; Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+    "derived_assumptions": [],
+    "source_requirement_ledger": {
+      "version": 1,
+      "immutable": true,
+      "requirements": [
+        {
+          "requirement_id": "REQ-001",
+          "text": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "student.txt",
+            "nAge",
+            "nDepartment"
+          ],
+          "explicit_item_count": 3
+        },
+        {
+          "requirement_id": "REQ-002",
+          "text": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "course.txt",
+            "nSemester",
+            "nStatus"
+          ],
+          "explicit_item_count": 3
+        }
+      ],
+      "confirmed_requirements": [],
+      "limits": {
+        "max_requirements": 64,
+        "max_segment_chars": 2200,
+        "max_explicit_items": 64
+      },
+      "extraction": {
+        "mode": "deterministic",
+        "status": "complete",
+        "segments": 1,
+        "failures": [],
+        "failure_count": 0
+      }
+    },
+    "source_requirements": [
+      {
+        "requirement_id": "REQ-001",
+        "text": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "student.txt",
+          "nAge",
+          "nDepartment"
+        ],
+        "explicit_item_count": 3
+      },
+      {
+        "requirement_id": "REQ-002",
+        "text": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "course.txt",
+          "nSemester",
+          "nStatus"
+        ],
+        "explicit_item_count": 3
+      }
+    ],
+    "user_stated_requirements": [
+      {
+        "requirement_id": "REQ-001",
+        "text": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "student.txt",
+          "nAge",
+          "nDepartment"
+        ],
+        "explicit_item_count": 3
+      },
+      {
+        "requirement_id": "REQ-002",
+        "text": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "course.txt",
+          "nSemester",
+          "nStatus"
+        ],
+        "explicit_item_count": 3
+      }
+    ],
+    "user_confirmed_requirements": [],
+    "clarification_questions": [],
+    "clarification_answers": [],
+    "interaction_style": "PRECISION_SENSITIVE",
+    "clarifications": [],
+    "source_contract": {
+      "root_goal": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"; Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+      "source_requirement_ledger": {
+        "version": 1,
+        "immutable": true,
+        "requirements": [
+          {
+            "requirement_id": "REQ-001",
+            "text": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+            "category": "functional",
+            "provenance": "USER_STATED",
+            "source_segment": 1,
+            "source_segments": [
+              1
+            ],
+            "source_variants": [
+              "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\""
+            ],
+            "status": "active",
+            "explicit_items": [
+              "student.txt",
+              "nAge",
+              "nDepartment"
+            ],
+            "explicit_item_count": 3
+          },
+          {
+            "requirement_id": "REQ-002",
+            "text": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+            "category": "functional",
+            "provenance": "USER_STATED",
+            "source_segment": 1,
+            "source_segments": [
+              1
+            ],
+            "source_variants": [
+              "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+            ],
+            "status": "active",
+            "explicit_items": [
+              "course.txt",
+              "nSemester",
+              "nStatus"
+            ],
+            "explicit_item_count": 3
+          }
+        ],
+        "confirmed_requirements": [],
+        "limits": {
+          "max_requirements": 64,
+          "max_segment_chars": 2200,
+          "max_explicit_items": 64
+        },
+        "extraction": {
+          "mode": "deterministic",
+          "status": "complete",
+          "segments": 1,
+          "failures": [],
+          "failure_count": 0
+        }
+      },
+      "user_stated_requirements": [
+        {
+          "requirement_id": "REQ-001",
+          "text": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "student.txt",
+            "nAge",
+            "nDepartment"
+          ],
+          "explicit_item_count": 3
+        },
+        {
+          "requirement_id": "REQ-002",
+          "text": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "course.txt",
+            "nSemester",
+            "nStatus"
+          ],
+          "explicit_item_count": 3
+        }
+      ],
+      "user_confirmed_requirements": [],
+      "derived_assumptions": [],
+      "clarification_questions": [],
+      "clarification_answers": [],
+      "interaction_style": "PRECISION_SENSITIVE"
+    }
+  }
+}

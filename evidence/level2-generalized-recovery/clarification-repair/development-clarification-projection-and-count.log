@@ -1,0 +1,37 @@
+test_pending_survives_run_reset_and_json_answer_resolves_with_provenance (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_pending_survives_run_reset_and_json_answer_resolves_with_provenance) ... FAIL
+test_partial_answer_cannot_discard_unlabelled_original_file_count (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_partial_answer_cannot_discard_unlabelled_original_file_count) ... FAIL
+
+======================================================================
+FAIL: test_pending_survives_run_reset_and_json_answer_resolves_with_provenance (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_pending_survives_run_reset_and_json_answer_resolves_with_provenance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>\tests\test_literal_clarification_lifecycle.py", line 37, in test_pending_survives_run_reset_and_json_answer_resolves_with_provenance
+    self.assertEqual(second['source_contract']['clarification_answers'],second['clarification_answers'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: [] != [{'question_id': 'LITERAL-BOUNDARIES', 'an[224 chars]ED'}]
+
+Second list contains 1 additional elements.
+First extra element 0:
+{'question_id': 'LITERAL-BOUNDARIES', 'answer': '{"learner.txt": "Name: Mina\\nAge: 22\\nDepartment: Physics", "module.txt": "Course: Mechanics\\nSemester: Spring 2027\\nStatus: Active"}', 'accepted_paths': ['learner.txt', 'module.txt'], 'provenance': 'USER_CONFIRMED'}
+
+- []
++ [{'accepted_paths': ['learner.txt', 'module.txt'],
++   'answer': '{"learner.txt": "Name: Mina\\nAge: 22\\nDepartment: Physics", '
++             '"module.txt": "Course: Mechanics\\nSemester: Spring '
++             '2027\\nStatus: Active"}',
++   'provenance': 'USER_CONFIRMED',
++   'question_id': 'LITERAL-BOUNDARIES'}]
+
+======================================================================
+FAIL: test_partial_answer_cannot_discard_unlabelled_original_file_count (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_partial_answer_cannot_discard_unlabelled_original_file_count)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>\tests\test_literal_clarification_lifecycle.py", line 89, in test_partial_answer_cannot_discard_unlabelled_original_file_count
+    self.assertTrue(mini._contract_needs_clarification(partial))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.071s
+
+FAILED (failures=2)

@@ -1,0 +1,30 @@
+{
+  "preservation": {
+    "list/project-15/.agent_experiment.jsonl": "4b5ed473a2b0681a38505b4bba2defd8b57c29b39306444c52440fbb4c114263",
+    "list/project-15/.agent_host_preflight.json": "796b0261f38d5d0b8f67a43b4f75a5f39a92ad9a6de908418ee65e2a482ec2b5",
+    "list/project-15/.agent_runs/20261023T002611-991b46bd.jsonl": "ea631f83764482bfdc78293764fad58547c235acd30d6a6f5880d121ed4516fa",
+    "list/project-15/.hivo/literal-clarification-history.jsonl": "3e30851c23bb79a398aa6bbc52a2161bda2af5b1e8c613684b4c36aff2e23317",
+    "list/project-15/.hivo/literal-clarification.json": "fbdac96138f9cd8c4b0630b2b1f0053b8e86ddc9446c7af80bf32b61992af696",
+    "list/project-15/.hivo/memory.sqlite3": "cde222b7ca73c11d6cd077227bf3db7fd15e031918589d2e349e9e6e656eec3e",
+    "list/project-17/.agent_host_preflight.json": "46a01991848e726e3b0f30f32a353c5f5ab67339db4ae89cbf5722fa4e5748b7",
+    "list/project-18/.agent_experiment.jsonl": "3d016b6ee0f1201a8c5f02b5cf9a303c25a3b5ff66811b78cca9fc278ba29a83",
+    "list/project-18/.agent_host_preflight.json": "fda22c997c3ecb4526c7a9bd4dc75d79b3637e7eebea083ea7faa9050c9406dd",
+    "list/project-18/course.txt": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+    "list/project-18/student.txt": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+    "list/project-18/.agent_runs/20261023T004235-79109aeb.jsonl": "2506320444ee27334991b7cc5a50da7da4b7548135de890ea6e246771a03c2cc",
+    "list/project-18/.agent_runs/20261023T005124-a828f3dd.jsonl": "2df8c41e227894bf4854f5b059f855fa129cd01b7d214edb12be9b8409febb3f",
+    "list/project-18/.hivo/literal-clarification-history.jsonl": "6ef16c3c2c75e4c2cecdd0c48ffdad73be61da244d48c5166acf0d8e58b68638",
+    "list/project-18/.hivo/literal-clarification.json": "bfe4afa90d117854a487fd977ebd0bf842780387e7b809b3cb49712ea09ae4da",
+    "list/project-18/.hivo/memory.sqlite3": "1df5ca6ec517657be73d27dfc13e4c613dc372b15a5878df34ef3571e58d22d4"
+  },
+  "manual_success_current_files": {
+    "student.txt": {
+      "exact_bytes": true,
+      "bytes": 47
+    },
+    "course.txt": {
+      "exact_bytes": true,
+      "bytes": 63
+    }
+  }
+}

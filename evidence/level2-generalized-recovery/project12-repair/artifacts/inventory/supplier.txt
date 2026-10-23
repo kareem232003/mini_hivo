@@ -1,0 +1,3 @@
+Supplier: Nile Tech
+City: Cairo
+Status: Active

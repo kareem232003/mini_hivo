@@ -1,0 +1,3 @@
+Product: Keyboard
+Quantity: 12
+Price: 250

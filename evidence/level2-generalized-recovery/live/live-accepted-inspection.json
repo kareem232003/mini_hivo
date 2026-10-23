@@ -1,0 +1,97 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END",
+  "run_id": "20261022T015329-0611aa7d",
+  "model": "gemma4:e4b",
+  "metrics": {
+    "run_id": "20261022T015329-0611aa7d",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 9,
+    "tool_calls": 7,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 386.87
+  },
+  "trace_records": 59,
+  "tool_events": 7,
+  "checks": {
+    "every_artifact_exact": true,
+    "context_before_mutation": true,
+    "impact_authorized": true,
+    "builder_native_proofs_for_every_artifact": true,
+    "falsifier_independently_read_every_artifact": true,
+    "required_route_coverage": true,
+    "impact_post_state_pass": true,
+    "transaction_committed": true,
+    "root_verified_done": true,
+    "no_budget_exhaustion": true,
+    "source_identity_matches_trace": true,
+    "real_provider_observed": true,
+    "host_preflight_pass": true
+  },
+  "artifacts": {
+    "student.txt": {
+      "exact_bytes": true,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "byte_count": 47,
+      "line_separators": 2,
+      "final_newline": false,
+      "oracle_consistent": true
+    },
+    "course.txt": {
+      "exact_bytes": true,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "byte_count": 63,
+      "line_separators": 2,
+      "final_newline": false,
+      "oracle_consistent": true
+    }
+  },
+  "builder_native_proofs": {
+    "student.txt": {
+      "verification_kind": "LITERAL_ARTIFACT",
+      "path": "student.txt",
+      "status": "PASS",
+      "passed": true,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+    },
+    "course.txt": {
+      "verification_kind": "LITERAL_ARTIFACT",
+      "path": "course.txt",
+      "status": "PASS",
+      "passed": true,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+    }
+  },
+  "falsifier_read_paths": [
+    "course.txt",
+    "student.txt"
+  ],
+  "route_targets": [
+    "course.txt",
+    "student.txt"
+  ],
+  "source_sha256": {
+    "mini.py": "b7e163c55702377c847e0e639cabb063b92af2adc0b3e7cd7f017d777c9347a7",
+    "hivo/artifact_progress.py": "50c4d94a51127bd5c30ebd8614af9e5f1d2d1cc6546bcd1c15d98430d67496c2",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "source_matches_current_checkout": false,
+  "passed": true,
+  "input_sha256": {
+    "result.json": "d4418404c9c06f97aa1bd36042ea6ec223e91fcf837e78115cb5ee508f22827c",
+    "workspace/.agent_runs/20261022T015329-0611aa7d.jsonl": "15e53979890f77c94d200fd8e678e7543288632e971bb811b7aef5516728bf96",
+    "workspace/.hivo/memory.sqlite3": "496f3469c5d0b98e4129b17535d128029c780efe18eee3a04f111b2dde926246",
+    "workspace/.agent_experiment.jsonl": "6bc7733a0a1a8ea55a1cbb12861515cdab96fa5885bd4b478a3f615621b422d7"
+  }
+}

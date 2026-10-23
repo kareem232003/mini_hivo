@@ -1,0 +1,528 @@
+{
+  "verification_class": "CONTROLLED_FUNCTIONAL",
+  "request": "Create a text file named artifact_0.txt containing exactly:\"Name: item 0\\nValue: 0\\nStatus: Active\"; Create a text file named artifact_1.txt containing exactly:\"Name: item 1\\nValue: 1\\nStatus: Active\"; Create a text file named artifact_2.txt containing exactly:\"Name: item 2\\nValue: 2\\nStatus: Active\"",
+  "oracle_provenance": "User confirmed exact two-file bytes on 2026-10-22; parameterized cases use explicit fixtures.",
+  "source_sha256": {
+    "mini.py": "d1f1311ca0d73369474f2072ad6cac9a2f7ef27979eb2a183d51a42e4a052bc1",
+    "hivo/artifact_progress.py": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+    "hivo/literal_source.py": "c7b1700ea7208ef80aac95ee3fdd0476ab2364f5c3c450a1754a64ac18db4c84",
+    "hivo/literal_clarification.py": "5a63638fff54e3afc45e816b2b3403597efd9516710a2a4167259205e5274c18",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "result_status": "done",
+  "impact_comparison": {
+    "status": "IMPACT_CONTRACT_PASSED",
+    "passed": true,
+    "failure_type": null,
+    "comparisons": [
+      {
+        "kind": "target",
+        "target": "artifact_0.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "actual": [
+          {
+            "target": "artifact_0.txt",
+            "kind": "path",
+            "path": "artifact_0.txt"
+          },
+          {
+            "target": "artifact_0.txt",
+            "path": "artifact_0.txt",
+            "kind": "path"
+          }
+        ]
+      },
+      {
+        "kind": "target",
+        "target": "artifact_1.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "actual": [
+          {
+            "target": "artifact_1.txt",
+            "kind": "path",
+            "path": "artifact_1.txt"
+          },
+          {
+            "target": "artifact_1.txt",
+            "path": "artifact_1.txt",
+            "kind": "path"
+          }
+        ]
+      },
+      {
+        "kind": "target",
+        "target": "artifact_2.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "actual": [
+          {
+            "target": "artifact_2.txt",
+            "kind": "path",
+            "path": "artifact_2.txt"
+          },
+          {
+            "target": "artifact_2.txt",
+            "path": "artifact_2.txt",
+            "kind": "path"
+          }
+        ]
+      },
+      {
+        "kind": "literal_file_post_state",
+        "target": "artifact_0.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "reason": "exact file bytes match"
+      },
+      {
+        "kind": "literal_file_post_state",
+        "target": "artifact_1.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "reason": "exact file bytes match"
+      },
+      {
+        "kind": "literal_file_post_state",
+        "target": "artifact_2.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "reason": "exact file bytes match"
+      },
+      {
+        "kind": "verification_obligation",
+        "id": "REQ-001",
+        "status": "SATISFIED"
+      },
+      {
+        "kind": "verification_obligation",
+        "id": "REQ-002",
+        "status": "SATISFIED"
+      },
+      {
+        "kind": "verification_obligation",
+        "id": "REQ-003",
+        "status": "SATISFIED"
+      }
+    ],
+    "missing": [],
+    "unexpected_related": [],
+    "out_of_scope": [],
+    "preservation_violations": [],
+    "obligations": [
+      {
+        "id": "REQ-001",
+        "category": "POST_STATE",
+        "meaning": "Create a text file named artifact_0.txt containing exactly:\"Name: item 0\\nValue: 0\\nStatus: Active\"",
+        "target": "artifact_0.txt",
+        "required": true,
+        "mode": "controller",
+        "verification_kind": "existing_gate",
+        "provenance": [
+          {
+            "source_identity": "REQ-001",
+            "path": "REQ-001",
+            "location": "",
+            "evidence_kind": "USER_STATED",
+            "evidence_id": "",
+            "authority_tier": "MEDIUM",
+            "authority_score": 60,
+            "excerpt": "Create a text file named artifact_0.txt containing exactly:\"Name: item 0\\nValue: 0\\nStatus: Active\""
+          }
+        ],
+        "status": "SATISFIED"
+      },
+      {
+        "id": "REQ-002",
+        "category": "POST_STATE",
+        "meaning": "Create a text file named artifact_1.txt containing exactly:\"Name: item 1\\nValue: 1\\nStatus: Active\"",
+        "target": "artifact_1.txt",
+        "required": true,
+        "mode": "controller",
+        "verification_kind": "existing_gate",
+        "provenance": [
+          {
+            "source_identity": "REQ-002",
+            "path": "REQ-002",
+            "location": "",
+            "evidence_kind": "USER_STATED",
+            "evidence_id": "",
+            "authority_tier": "MEDIUM",
+            "authority_score": 60,
+            "excerpt": "Create a text file named artifact_1.txt containing exactly:\"Name: item 1\\nValue: 1\\nStatus: Active\""
+          }
+        ],
+        "status": "SATISFIED"
+      },
+      {
+        "id": "REQ-003",
+        "category": "POST_STATE",
+        "meaning": "Create a text file named artifact_2.txt containing exactly:\"Name: item 2\\nValue: 2\\nStatus: Active\"",
+        "target": "artifact_2.txt",
+        "required": true,
+        "mode": "controller",
+        "verification_kind": "existing_gate",
+        "provenance": [
+          {
+            "source_identity": "REQ-003",
+            "path": "REQ-003",
+            "location": "",
+            "evidence_kind": "USER_STATED",
+            "evidence_id": "",
+            "authority_tier": "MEDIUM",
+            "authority_score": 60,
+            "excerpt": "Create a text file named artifact_2.txt containing exactly:\"Name: item 2\\nValue: 2\\nStatus: Active\""
+          }
+        ],
+        "status": "SATISFIED"
+      }
+    ],
+    "unresolved_obligations": [],
+    "conflicts": [],
+    "actual_changed_paths": [
+      "artifact_0.txt",
+      "artifact_1.txt",
+      "artifact_2.txt"
+    ],
+    "contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+    "revision": 0,
+    "bounded": true
+  },
+  "verification_aggregation": {
+    "child_id": "ROOT",
+    "verification_routes": [
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_2.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "f36c86de3ea602b49c0ceafb34588b8b8e7fea2d9db312a0750a99ab23efa694",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 1
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_1.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "0f3be0e94ea512e0f5db6f2d6f54c7880234c13710eaa550775bfa9f44228a20",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 2
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_0.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 3
+      },
+      {
+        "kind": "SYNTAX_STATIC_GATE",
+        "required": false,
+        "applicable": false,
+        "target": null,
+        "reason_codes": [
+          "VERIFIER_NOT_REQUIRED"
+        ],
+        "evidence_refs": [
+          "child:ROOT"
+        ],
+        "result": "SKIPPED_NOT_APPLICABLE",
+        "resolution_status": "NOT_APPLICABLE",
+        "resolution_source": "applicability_analyzer"
+      },
+      {
+        "kind": "BROWSER",
+        "required": false,
+        "applicable": false,
+        "target": null,
+        "reason_codes": [
+          "VERIFIER_NOT_REQUIRED",
+          "NO_SUPPORTED_BROWSER_TARGET"
+        ],
+        "evidence_refs": [
+          "child:ROOT"
+        ],
+        "result": "SKIPPED_NOT_APPLICABLE",
+        "requested_from_node": null,
+        "resolution_status": "NOT_APPLICABLE",
+        "resolution_source": "applicability_analyzer",
+        "actual_result": "SKIPPED_NOT_APPLICABLE"
+      }
+    ],
+    "actual_passes": [
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_2.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "f36c86de3ea602b49c0ceafb34588b8b8e7fea2d9db312a0750a99ab23efa694",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 1
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_1.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "0f3be0e94ea512e0f5db6f2d6f54c7880234c13710eaa550775bfa9f44228a20",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 2
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_0.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 3
+      }
+    ],
+    "actual_failures": [],
+    "skipped_not_applicable": [
+      {
+        "kind": "SYNTAX_STATIC_GATE",
+        "required": false,
+        "applicable": false,
+        "target": null,
+        "reason_codes": [
+          "VERIFIER_NOT_REQUIRED"
+        ],
+        "evidence_refs": [
+          "child:ROOT"
+        ],
+        "result": "SKIPPED_NOT_APPLICABLE",
+        "resolution_status": "NOT_APPLICABLE",
+        "resolution_source": "applicability_analyzer"
+      },
+      {
+        "kind": "BROWSER",
+        "required": false,
+        "applicable": false,
+        "target": null,
+        "reason_codes": [
+          "VERIFIER_NOT_REQUIRED",
+          "NO_SUPPORTED_BROWSER_TARGET"
+        ],
+        "evidence_refs": [
+          "child:ROOT"
+        ],
+        "result": "SKIPPED_NOT_APPLICABLE",
+        "requested_from_node": null,
+        "resolution_status": "NOT_APPLICABLE",
+        "resolution_source": "applicability_analyzer",
+        "actual_result": "SKIPPED_NOT_APPLICABLE"
+      }
+    ],
+    "required_target_failures": [],
+    "required_routes": [
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_2.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "f36c86de3ea602b49c0ceafb34588b8b8e7fea2d9db312a0750a99ab23efa694",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 1
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_1.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "0f3be0e94ea512e0f5db6f2d6f54c7880234c13710eaa550775bfa9f44228a20",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 2
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "artifact_0.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef"
+        ],
+        "result": "PASS",
+        "expected_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+        "impact_contract_hash": "1e01316bb9273fbc39dbaf5cc0a0d0d450f82ebe245f46dc9e730059a152efef",
+        "superseded_readbacks": 3
+      }
+    ],
+    "invalid_receipts": [],
+    "failure_codes": [],
+    "evidence_available": true,
+    "passed": true,
+    "model_calls": 0,
+    "required_execution_verification_set": {
+      "schema_version": "V25.6",
+      "artifact_type": "RequiredExecutionVerificationSet",
+      "child_id": "ROOT",
+      "plan_id": null,
+      "plan_hash": null,
+      "verification_digest": null,
+      "coverage_hash": null,
+      "applicable_authority_ids": [],
+      "required_authority_ids": [
+        "UNRESOLVED-ROUTE-4DC6D2D4B8BAEAA5",
+        "UNRESOLVED-ROUTE-EDA40969299FEB99",
+        "UNRESOLVED-ROUTE-F601A57014D34706"
+      ],
+      "required_verification_authority_ids": [
+        "UNRESOLVED-ROUTE-4DC6D2D4B8BAEAA5",
+        "UNRESOLVED-ROUTE-EDA40969299FEB99",
+        "UNRESOLVED-ROUTE-F601A57014D34706"
+      ],
+      "approved_verification_authority_ids": [
+        "UNRESOLVED-ROUTE-4DC6D2D4B8BAEAA5",
+        "UNRESOLVED-ROUTE-EDA40969299FEB99",
+        "UNRESOLVED-ROUTE-F601A57014D34706"
+      ],
+      "system_authority_ids": [],
+      "optional_authority_ids": [],
+      "routes": [
+        {
+          "authority_id": "UNRESOLVED-ROUTE-4DC6D2D4B8BAEAA5",
+          "verification_id": null,
+          "oracle_id": null,
+          "oracle_hash": null,
+          "authority_type": null,
+          "authority_source": null,
+          "route_type": "LITERAL_ARTIFACT",
+          "execution_channel": null,
+          "target": "artifact_2.txt",
+          "required": true,
+          "applicable": true,
+          "route_hash": "4dc6d2d4b8baeaa555a0380abf260d87d7db30b2919f02e4d9b2a22600a3a4e6"
+        },
+        {
+          "authority_id": "UNRESOLVED-ROUTE-EDA40969299FEB99",
+          "verification_id": null,
+          "oracle_id": null,
+          "oracle_hash": null,
+          "authority_type": null,
+          "authority_source": null,
+          "route_type": "LITERAL_ARTIFACT",
+          "execution_channel": null,
+          "target": "artifact_1.txt",
+          "required": true,
+          "applicable": true,
+          "route_hash": "eda40969299feb99ca6724fae017e7d3f835698321f47e23374c49cfad273689"
+        },
+        {
+          "authority_id": "UNRESOLVED-ROUTE-F601A57014D34706",
+          "verification_id": null,
+          "oracle_id": null,
+          "oracle_hash": null,
+          "authority_type": null,
+          "authority_source": null,
+          "route_type": "LITERAL_ARTIFACT",
+          "execution_channel": null,
+          "target": "artifact_0.txt",
+          "required": true,
+          "applicable": true,
+          "route_hash": "f601a57014d34706ad7615dc405c2b5566363331e783d57dac3b4c3d4fe6a720"
+        }
+      ],
+      "set_hash": "8ef8a250c09d4c684d189479010213d20c0f9698f6b3aaa00026ce5153538a9d",
+      "canonical_hash": "8ef8a250c09d4c684d189479010213d20c0f9698f6b3aaa00026ce5153538a9d"
+    },
+    "execution_obligation_evidence": [],
+    "all_required_passed": true
+  },
+  "metrics": {
+    "run_id": "20261023T001538-d7202f2b",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 0,
+    "tool_calls": 10,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 0.24
+  },
+  "artifacts": {
+    "artifact_0.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+      "actual_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+      "expected_hex": "4e616d653a206974656d20300a56616c75653a20300a5374617475733a20416374697665"
+    },
+    "artifact_1.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "0f3be0e94ea512e0f5db6f2d6f54c7880234c13710eaa550775bfa9f44228a20",
+      "actual_sha256": "0f3be0e94ea512e0f5db6f2d6f54c7880234c13710eaa550775bfa9f44228a20",
+      "expected_hex": "4e616d653a206974656d20310a56616c75653a20310a5374617475733a20416374697665"
+    },
+    "artifact_2.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "f36c86de3ea602b49c0ceafb34588b8b8e7fea2d9db312a0750a99ab23efa694",
+      "actual_sha256": "f36c86de3ea602b49c0ceafb34588b8b8e7fea2d9db312a0750a99ab23efa694",
+      "expected_hex": "4e616d653a206974656d20320a56616c75653a20320a5374617475733a20416374697665"
+    }
+  },
+  "wall_seconds": 0.51,
+  "independent_pass": true
+}

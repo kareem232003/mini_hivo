@@ -1,0 +1,253 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END",
+  "case": "json-resumption",
+  "request": "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+  "turns": [
+    "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+    "{\"student.txt\": \"Name: Sara\\nAge: 21\\nDepartment: Computer Science\", \"course.txt\": \"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"} Create both files and verify their exact contents, then complete the original task."
+  ],
+  "source_sha256": {
+    "mini.py": "0cd452d7463a4a4c06f5f7b816ae3edd29c1ba7332896ff93b9145013ab530e1",
+    "hivo/artifact_progress.py": "f23708f9170cd10ff9f4cb4ba5f7fd7373536a7518ca5448d7f53f2f8b2dbc28",
+    "hivo/literal_clarification.py": "745a2b452b6e73e9f8c80e58d8ffdf4c939c0149a4bd9feed7b9e20804c9ee4a",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "process_exit": 0,
+  "interrupted": false,
+  "wall_seconds": 218.13,
+  "wall_limit_seconds": 720,
+  "metrics": {
+    "run_id": "20261022T232911-4d8ce697",
+    "status": "failed",
+    "root_verified": false,
+    "model_calls": 2,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "impact_contract_authorizations": 0,
+    "impact_contract_comparisons": 0,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 181.22
+  },
+  "turn_statuses": [
+    "clarification_required",
+    "failed"
+  ],
+  "artifacts": {
+    "student.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": null,
+      "expected_hex": "4e616d653a20536172610a4167653a2032310a4465706172746d656e743a20436f6d707574657220536369656e6365"
+    },
+    "course.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": null,
+      "expected_hex": "436f757273653a20536f66747761726520456e67696e656572696e670a53656d65737465723a2046616c6c20323032360a5374617475733a20416374697665"
+    }
+  },
+  "independent_pass": false,
+  "clarification_answers": [
+    {
+      "question_id": "LITERAL-BOUNDARIES",
+      "answer": "{\"student.txt\": \"Name: Sara\\nAge: 21\\nDepartment: Computer Science\", \"course.txt\": \"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"} Create both files and verify their exact contents, then complete the original task.",
+      "accepted_paths": [
+        "student.txt",
+        "course.txt"
+      ],
+      "provenance": "USER_CONFIRMED"
+    }
+  ],
+  "source_contract": {
+    "root_goal": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"; Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+    "source_requirement_ledger": {
+      "version": 1,
+      "immutable": true,
+      "requirements": [
+        {
+          "requirement_id": "REQ-001",
+          "text": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "student.txt",
+            "nAge",
+            "nDepartment"
+          ],
+          "explicit_item_count": 3
+        },
+        {
+          "requirement_id": "REQ-002",
+          "text": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "course.txt",
+            "nSemester",
+            "nStatus"
+          ],
+          "explicit_item_count": 3
+        }
+      ],
+      "confirmed_requirements": [],
+      "limits": {
+        "max_requirements": 64,
+        "max_segment_chars": 2200,
+        "max_explicit_items": 64
+      },
+      "extraction": {
+        "mode": "deterministic",
+        "status": "complete",
+        "segments": 1,
+        "failures": [],
+        "failure_count": 0
+      }
+    },
+    "user_stated_requirements": [
+      {
+        "requirement_id": "REQ-001",
+        "text": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "student.txt",
+          "nAge",
+          "nDepartment"
+        ],
+        "explicit_item_count": 3
+      },
+      {
+        "requirement_id": "REQ-002",
+        "text": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "course.txt",
+          "nSemester",
+          "nStatus"
+        ],
+        "explicit_item_count": 3
+      }
+    ],
+    "user_confirmed_requirements": [
+      {
+        "question_id": "LITERAL-BOUNDARIES",
+        "answer": "{\"student.txt\": \"Name: Sara\\nAge: 21\\nDepartment: Computer Science\", \"course.txt\": \"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"} Create both files and verify their exact contents, then complete the original task.",
+        "accepted_paths": [
+          "student.txt",
+          "course.txt"
+        ],
+        "provenance": "USER_CONFIRMED"
+      }
+    ],
+    "derived_assumptions": [],
+    "clarification_questions": [],
+    "clarification_answers": [
+      {
+        "question_id": "LITERAL-BOUNDARIES",
+        "answer": "{\"student.txt\": \"Name: Sara\\nAge: 21\\nDepartment: Computer Science\", \"course.txt\": \"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"} Create both files and verify their exact contents, then complete the original task.",
+        "accepted_paths": [
+          "student.txt",
+          "course.txt"
+        ],
+        "provenance": "USER_CONFIRMED"
+      }
+    ],
+    "interaction_style": "PRECISION_SENSITIVE",
+    "literal_clarification": {
+      "original_request": "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+      "original_sha256": "82ba5dccda3eb6980f27f862fbb94003bc7364c46698ac4a9b912adbe250c052",
+      "original_source_requirement_ledger": {
+        "version": 1,
+        "immutable": true,
+        "requirements": [
+          {
+            "requirement_id": "REQ-001",
+            "text": "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+            "category": "functional",
+            "provenance": "USER_STATED",
+            "source_segment": 1,
+            "source_segments": [
+              1
+            ],
+            "source_variants": [
+              "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text."
+            ],
+            "status": "active",
+            "explicit_items": [
+              "workspace.File",
+              "student.txtContent",
+              "SaraAge",
+              "ScienceFile",
+              "course.txtContent",
+              "EngineeringSemester",
+              "ActiveVerify"
+            ],
+            "explicit_item_count": 7
+          }
+        ],
+        "confirmed_requirements": [],
+        "limits": {
+          "max_requirements": 64,
+          "max_segment_chars": 2200,
+          "max_explicit_items": 64
+        },
+        "extraction": {
+          "mode": "deterministic",
+          "status": "complete",
+          "segments": 1,
+          "failures": [],
+          "failure_count": 0
+        }
+      },
+      "answers": [
+        {
+          "question_id": "LITERAL-BOUNDARIES",
+          "answer": "{\"student.txt\": \"Name: Sara\\nAge: 21\\nDepartment: Computer Science\", \"course.txt\": \"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"} Create both files and verify their exact contents, then complete the original task.",
+          "accepted_paths": [
+            "student.txt",
+            "course.txt"
+          ],
+          "provenance": "USER_CONFIRMED"
+        }
+      ],
+      "status": "resolved"
+    }
+  }
+}

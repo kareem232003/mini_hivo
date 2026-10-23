@@ -1,0 +1,9 @@
+{
+  "baseline": "9957271",
+  "tests": 186,
+  "failure_records": 24,
+  "errors": 2,
+  "skips": 3,
+  "same_failure_and_error_headers": true,
+  "same_final_failure_and_error_headers": true
+}

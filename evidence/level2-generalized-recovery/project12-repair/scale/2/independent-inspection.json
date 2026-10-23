@@ -1,0 +1,99 @@
+{
+  "verification_class": "CONTROLLED_FUNCTIONAL",
+  "run_id": "20261023T001536-116c6004",
+  "model": "gemma4:e4b",
+  "metrics": {
+    "run_id": "20261023T001536-116c6004",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 0,
+    "tool_calls": 7,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 0.2
+  },
+  "trace_records": 27,
+  "tool_events": 7,
+  "checks": {
+    "every_artifact_exact": true,
+    "context_before_mutation": true,
+    "impact_authorized": true,
+    "builder_native_proofs_for_every_artifact": true,
+    "falsifier_independently_read_every_artifact": true,
+    "required_route_coverage": true,
+    "impact_post_state_pass": true,
+    "transaction_committed": true,
+    "root_verified_done": true,
+    "no_budget_exhaustion": true,
+    "source_identity_matches_trace": true,
+    "real_provider_observed": true,
+    "host_preflight_pass": true
+  },
+  "artifacts": {
+    "student.txt": {
+      "exact_bytes": true,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "byte_count": 47,
+      "line_separators": 2,
+      "final_newline": false,
+      "oracle_consistent": true
+    },
+    "course.txt": {
+      "exact_bytes": true,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "byte_count": 63,
+      "line_separators": 2,
+      "final_newline": false,
+      "oracle_consistent": true
+    }
+  },
+  "builder_native_proofs": {
+    "student.txt": {
+      "verification_kind": "LITERAL_ARTIFACT",
+      "path": "student.txt",
+      "status": "PASS",
+      "passed": true,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+    },
+    "course.txt": {
+      "verification_kind": "LITERAL_ARTIFACT",
+      "path": "course.txt",
+      "status": "PASS",
+      "passed": true,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+    }
+  },
+  "falsifier_read_paths": [
+    "course.txt",
+    "student.txt"
+  ],
+  "route_targets": [
+    "course.txt",
+    "student.txt"
+  ],
+  "source_sha256": {
+    "mini.py": "d1f1311ca0d73369474f2072ad6cac9a2f7ef27979eb2a183d51a42e4a052bc1",
+    "hivo/artifact_progress.py": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+    "hivo/literal_source.py": "c7b1700ea7208ef80aac95ee3fdd0476ab2364f5c3c450a1754a64ac18db4c84",
+    "hivo/literal_clarification.py": "5a63638fff54e3afc45e816b2b3403597efd9516710a2a4167259205e5274c18",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "source_matches_current_checkout": true,
+  "passed": true,
+  "input_sha256": {
+    "result.json": "1682bbdbdab5e471a439628d4f189aaa0c4968b331f4f775a210568abaea9a2a",
+    "workspace/.agent_runs/20261023T001536-116c6004.jsonl": "bc5675694e2261f5d43cf1e519847358084ffa765a7169f2568ce6ccb2b60527",
+    "workspace/.hivo/memory.sqlite3": "1a2084e4287ba8ff005d5073e1a16ff20583f9cdff6685f40137b6645d4612a1",
+    "workspace/.agent_experiment.jsonl": "1704dfda43b00d6ec854f7a4723ead807cca3ba28aaf76b07f274c829ea7965a"
+  }
+}

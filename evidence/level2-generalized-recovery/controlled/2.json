@@ -1,0 +1,403 @@
+{
+  "verification_class": "CONTROLLED_FUNCTIONAL",
+  "request": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"; Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+  "oracle_provenance": "User confirmed exact two-file bytes on 2026-10-22; parameterized cases use explicit fixtures.",
+  "source_sha256": {
+    "mini.py": "da4e4313fe2063fc55b103309aecf1b915f1963f75eb875d18e625990f1493e5",
+    "hivo/artifact_progress.py": "50c4d94a51127bd5c30ebd8614af9e5f1d2d1cc6546bcd1c15d98430d67496c2",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "result_status": "done",
+  "impact_comparison": {
+    "status": "IMPACT_CONTRACT_PASSED",
+    "passed": true,
+    "failure_type": null,
+    "comparisons": [
+      {
+        "kind": "target",
+        "target": "student.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "actual": [
+          {
+            "target": "student.txt",
+            "kind": "path",
+            "path": "student.txt"
+          },
+          {
+            "target": "student.txt",
+            "path": "student.txt",
+            "kind": "path"
+          }
+        ]
+      },
+      {
+        "kind": "target",
+        "target": "course.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "actual": [
+          {
+            "target": "course.txt",
+            "kind": "path",
+            "path": "course.txt"
+          },
+          {
+            "target": "course.txt",
+            "path": "course.txt",
+            "kind": "path"
+          }
+        ]
+      },
+      {
+        "kind": "literal_file_post_state",
+        "target": "student.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "reason": "exact file bytes match"
+      },
+      {
+        "kind": "literal_file_post_state",
+        "target": "course.txt",
+        "status": "EXPECTED_AND_OBSERVED",
+        "reason": "exact file bytes match"
+      },
+      {
+        "kind": "verification_obligation",
+        "id": "REQ-001",
+        "status": "SATISFIED"
+      },
+      {
+        "kind": "verification_obligation",
+        "id": "REQ-002",
+        "status": "SATISFIED"
+      }
+    ],
+    "missing": [],
+    "unexpected_related": [],
+    "out_of_scope": [],
+    "preservation_violations": [],
+    "obligations": [
+      {
+        "id": "REQ-001",
+        "category": "POST_STATE",
+        "meaning": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"",
+        "target": "student.txt",
+        "required": true,
+        "mode": "controller",
+        "verification_kind": "existing_gate",
+        "provenance": [
+          {
+            "source_identity": "REQ-001",
+            "path": "REQ-001",
+            "location": "",
+            "evidence_kind": "USER_STATED",
+            "evidence_id": "",
+            "authority_tier": "MEDIUM",
+            "authority_score": 60,
+            "excerpt": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\""
+          }
+        ],
+        "status": "SATISFIED"
+      },
+      {
+        "id": "REQ-002",
+        "category": "POST_STATE",
+        "meaning": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+        "target": "course.txt",
+        "required": true,
+        "mode": "controller",
+        "verification_kind": "existing_gate",
+        "provenance": [
+          {
+            "source_identity": "REQ-002",
+            "path": "REQ-002",
+            "location": "",
+            "evidence_kind": "USER_STATED",
+            "evidence_id": "",
+            "authority_tier": "MEDIUM",
+            "authority_score": 60,
+            "excerpt": "Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\""
+          }
+        ],
+        "status": "SATISFIED"
+      }
+    ],
+    "unresolved_obligations": [],
+    "conflicts": [],
+    "actual_changed_paths": [
+      "student.txt",
+      "course.txt"
+    ],
+    "contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47",
+    "revision": 0,
+    "bounded": true
+  },
+  "verification_aggregation": {
+    "child_id": "ROOT",
+    "verification_routes": [
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "course.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+        ],
+        "result": "PASS",
+        "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+        "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47",
+        "superseded_readbacks": 1
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "student.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+        ],
+        "result": "PASS",
+        "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+        "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47",
+        "superseded_readbacks": 2
+      },
+      {
+        "kind": "SYNTAX_STATIC_GATE",
+        "required": false,
+        "applicable": false,
+        "target": null,
+        "reason_codes": [
+          "VERIFIER_NOT_REQUIRED"
+        ],
+        "evidence_refs": [
+          "child:ROOT"
+        ],
+        "result": "SKIPPED_NOT_APPLICABLE",
+        "resolution_status": "NOT_APPLICABLE",
+        "resolution_source": "applicability_analyzer"
+      },
+      {
+        "kind": "BROWSER",
+        "required": false,
+        "applicable": false,
+        "target": null,
+        "reason_codes": [
+          "VERIFIER_NOT_REQUIRED",
+          "NO_SUPPORTED_BROWSER_TARGET"
+        ],
+        "evidence_refs": [
+          "child:ROOT"
+        ],
+        "result": "SKIPPED_NOT_APPLICABLE",
+        "requested_from_node": null,
+        "resolution_status": "NOT_APPLICABLE",
+        "resolution_source": "applicability_analyzer",
+        "actual_result": "SKIPPED_NOT_APPLICABLE"
+      }
+    ],
+    "actual_passes": [
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "course.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+        ],
+        "result": "PASS",
+        "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+        "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47",
+        "superseded_readbacks": 1
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "student.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+        ],
+        "result": "PASS",
+        "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+        "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47",
+        "superseded_readbacks": 2
+      }
+    ],
+    "actual_failures": [],
+    "skipped_not_applicable": [
+      {
+        "kind": "SYNTAX_STATIC_GATE",
+        "required": false,
+        "applicable": false,
+        "target": null,
+        "reason_codes": [
+          "VERIFIER_NOT_REQUIRED"
+        ],
+        "evidence_refs": [
+          "child:ROOT"
+        ],
+        "result": "SKIPPED_NOT_APPLICABLE",
+        "resolution_status": "NOT_APPLICABLE",
+        "resolution_source": "applicability_analyzer"
+      },
+      {
+        "kind": "BROWSER",
+        "required": false,
+        "applicable": false,
+        "target": null,
+        "reason_codes": [
+          "VERIFIER_NOT_REQUIRED",
+          "NO_SUPPORTED_BROWSER_TARGET"
+        ],
+        "evidence_refs": [
+          "child:ROOT"
+        ],
+        "result": "SKIPPED_NOT_APPLICABLE",
+        "requested_from_node": null,
+        "resolution_status": "NOT_APPLICABLE",
+        "resolution_source": "applicability_analyzer",
+        "actual_result": "SKIPPED_NOT_APPLICABLE"
+      }
+    ],
+    "required_target_failures": [],
+    "required_routes": [
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "course.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+        ],
+        "result": "PASS",
+        "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+        "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47",
+        "superseded_readbacks": 1
+      },
+      {
+        "kind": "LITERAL_ARTIFACT",
+        "required": true,
+        "applicable": true,
+        "target": "student.txt",
+        "reason_codes": [
+          "SOURCE_BOUND_LITERAL_POST_STATE"
+        ],
+        "evidence_refs": [
+          "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47"
+        ],
+        "result": "PASS",
+        "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+        "impact_contract_hash": "e2b85603be6b1f16d9c72db67e627b0a665bf4c589f1440964292a5129bc4f47",
+        "superseded_readbacks": 2
+      }
+    ],
+    "invalid_receipts": [],
+    "failure_codes": [],
+    "evidence_available": true,
+    "passed": true,
+    "model_calls": 0,
+    "required_execution_verification_set": {
+      "schema_version": "V25.6",
+      "artifact_type": "RequiredExecutionVerificationSet",
+      "child_id": "ROOT",
+      "plan_id": null,
+      "plan_hash": null,
+      "verification_digest": null,
+      "coverage_hash": null,
+      "applicable_authority_ids": [],
+      "required_authority_ids": [
+        "UNRESOLVED-ROUTE-6E64B61B9416E31E",
+        "UNRESOLVED-ROUTE-7AB6EEF5FCD49681"
+      ],
+      "required_verification_authority_ids": [
+        "UNRESOLVED-ROUTE-6E64B61B9416E31E",
+        "UNRESOLVED-ROUTE-7AB6EEF5FCD49681"
+      ],
+      "approved_verification_authority_ids": [
+        "UNRESOLVED-ROUTE-6E64B61B9416E31E",
+        "UNRESOLVED-ROUTE-7AB6EEF5FCD49681"
+      ],
+      "system_authority_ids": [],
+      "optional_authority_ids": [],
+      "routes": [
+        {
+          "authority_id": "UNRESOLVED-ROUTE-6E64B61B9416E31E",
+          "verification_id": null,
+          "oracle_id": null,
+          "oracle_hash": null,
+          "authority_type": null,
+          "authority_source": null,
+          "route_type": "LITERAL_ARTIFACT",
+          "execution_channel": null,
+          "target": "course.txt",
+          "required": true,
+          "applicable": true,
+          "route_hash": "6e64b61b9416e31e8325b3a5f7300c73b73790780680cd792267be160448a74d"
+        },
+        {
+          "authority_id": "UNRESOLVED-ROUTE-7AB6EEF5FCD49681",
+          "verification_id": null,
+          "oracle_id": null,
+          "oracle_hash": null,
+          "authority_type": null,
+          "authority_source": null,
+          "route_type": "LITERAL_ARTIFACT",
+          "execution_channel": null,
+          "target": "student.txt",
+          "required": true,
+          "applicable": true,
+          "route_hash": "7ab6eef5fcd49681e433d76e11dc65e39e71a190bb75dd6b533c9b0ae48eb45f"
+        }
+      ],
+      "set_hash": "dd11ce82af17488a5e217784bca99072ad76781c48694bbc8efd4b5c9003f00e",
+      "canonical_hash": "dd11ce82af17488a5e217784bca99072ad76781c48694bbc8efd4b5c9003f00e"
+    },
+    "execution_obligation_evidence": [],
+    "all_required_passed": true
+  },
+  "metrics": {
+    "run_id": "20261022T020147-3d449ab3",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 0,
+    "tool_calls": 7,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 0.4
+  },
+  "artifacts": {
+    "student.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "expected_hex": "4e616d653a20536172610a4167653a2032310a4465706172746d656e743a20436f6d707574657220536369656e6365"
+    },
+    "course.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "expected_hex": "436f757273653a20536f66747761726520456e67696e656572696e670a53656d65737465723a2046616c6c20323032360a5374617475733a20416374697665"
+    }
+  },
+  "wall_seconds": 0.72,
+  "independent_pass": true
+}

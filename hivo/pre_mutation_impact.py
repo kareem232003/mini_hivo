@@ -344,6 +344,7 @@ def _target_record(value: Any, *, default_kind: str = DIRECT_IMPLEMENTATION, req
         "categories": categories or [default_kind],
         "required": bool(raw.get("required", required)),
         "aliases": _unique(raw.get("aliases", []) if isinstance(raw.get("aliases"), Iterable) and not isinstance(raw.get("aliases"), str) else [], 6),
+        **({"post_state_sha256": raw["post_state_sha256"]} if "post_state_sha256" in raw else {}),
         "provenance": _source_refs(
             raw.get("provenance") or raw.get("evidence") or raw.get("sources"),
             fallback=fallback_source,
@@ -488,6 +489,14 @@ def build_pre_mutation_impact_contract(
     task_value = _mapping(task)
     execution = _mapping(execution_contract or task_value.get("execution_contract"))
     task_id = task_id or task_value.get("id") or task_value.get("task_id") or execution.get("task_id") or "ROOT"
+    raw_anchors = {
+        "root_goal": root_goal or task_value.get("root_goal") or "",
+        "parent_goal": parent_goal or task_value.get("parent_goal") or "",
+        "local_task": local_task or task_value.get("goal") or execution.get("goal") or change_intent or "",
+        "group_goal": group_goal or task_value.get("semantic_group_goal") or "",
+    }
+    anchor_hashes = {key: hashlib.sha256(" ".join(str(value).split()).encode("utf-8")).hexdigest()
+                     for key, value in raw_anchors.items()}
     local = _text(local_task or task_value.get("goal") or execution.get("goal") or change_intent or "", 800)
     intent_text = _text(change_intent or task_value.get("change_intent") or local, 800)
     kind = _kind_for_goal(intent_text)
@@ -695,6 +704,7 @@ def build_pre_mutation_impact_contract(
             "required": bool(mutation_required),
             "provenance": [anchor_source],
         },
+        "goal_anchor_hashes": anchor_hashes,
         "root_goal": _text(root_goal or task_value.get("root_goal") or "", 700),
         "parent_goal": _text(parent_goal or task_value.get("parent_goal") or "", 700),
         "local_task": local,
@@ -937,13 +947,27 @@ def validate_pre_mutation_impact_contract(
         ).strip():
             errors.append({"code": IMPACT_INCOMPLETE, "reason": "expected relationship change is not concrete"})
     for field, expected in (("root_goal", root_goal), ("parent_goal", parent_goal), ("local_task", local_task), ("group_goal", group_goal)):
-        if expected not in (None, "") and _text(value.get(field), 900) != _text(expected, 900):
+        expected_hash = hashlib.sha256(" ".join(str(expected).split()).encode("utf-8")).hexdigest()
+        stored_hash = (value.get("goal_anchor_hashes") or {}).get(field)
+        visible_differs = (_text(value.get(field), 800 if field == "local_task" else 700)
+                           != _text(expected, 800 if field == "local_task" else 700))
+        differs = visible_differs or (bool(stored_hash) and stored_hash != expected_hash)
+        if expected not in (None, "") and differs:
             errors.append({"code": "GOAL_ANCHOR_DRIFT", "field": field, "reason": "impact contract changed a stable goal anchor"})
 
     effective_allowed = list(allowed_mutation_paths or value.get("authorized_mutation_paths", []) or [])
+    if value.get("scope_required") and not effective_allowed:
+        errors.append({"code": IMPACT_INCOMPLETE, "reason": "named greenfield artifact has no safe authorized path"})
+    requirement_ids = {item.get("requirement_id") for item in value.get("source_requirements", []) if isinstance(item, Mapping)}
+    obligation_ids = {item.get("id") for item in obligations}
+    if requirement_ids - obligation_ids:
+        errors.append({"code": IMPACT_INCOMPLETE, "reason": "source requirements have no verification obligations",
+                       "requirement_ids": sorted(requirement_ids - obligation_ids)})
     effective_forbidden = list(forbidden_paths or []) + [item.get("path") or item.get("target") for item in value.get("forbidden_or_out_of_scope", []) or [] if isinstance(item, Mapping)]
     for target in targets:
         path = target.get("path") or (target.get("target") if target.get("kind") == "path" else "")
+        if "post_state_sha256" in target and not re.fullmatch(r"[0-9a-f]{64}", str(target["post_state_sha256"])):
+            errors.append({"code": IMPACT_INVALID, "reason": "literal post-state digest is invalid"})
         if path and effective_allowed and not _allowed_path(path, effective_allowed):
             errors.append({"code": UNEXPECTED_AND_OUT_OF_SCOPE, "target": target.get("target"), "reason": "expected target is outside authorized mutation paths"})
         if path and _allowed_path(path, effective_forbidden):
@@ -1026,7 +1050,7 @@ def validate_pre_mutation_impact_contract(
 
     if value.get("revision", 0) > MAX_IMPACT_REVISIONS:
         errors.append({"code": IMPACT_REPLAN_REQUIRED, "reason": "impact contract revision bound exceeded"})
-    status = IMPACT_CONFLICT if any(item.get("code") == IMPACT_CONFLICT for item in errors) else (
+    status = IMPACT_INVALID if any(item.get("code") == IMPACT_INVALID for item in errors) else IMPACT_CONFLICT if any(item.get("code") == IMPACT_CONFLICT for item in errors) else (
         IMPACT_STALE if stale_provenance or stale_facts else IMPACT_INCOMPLETE if errors else IMPACT_ACCEPTED
     )
     result = {
@@ -1399,6 +1423,21 @@ def compare_pre_mutation_impact(
             comparisons.append(row)
             missing.append(row)
 
+    for expected in value.get("expected_targets", []) or []:
+        digest = expected.get("post_state_sha256")
+        if not digest:
+            continue
+        record = next((item for item in observed.get("files", [])
+                       if item.get("path") == expected.get("path")), {})
+        after = record.get("after", {})
+        matched = after.get("existed") is True and after.get("sha256") == digest
+        row = {"kind": "literal_file_post_state", "target": expected.get("path"),
+               "status": EXPECTED_AND_OBSERVED if matched else EXPECTED_BUT_MISSING,
+               "reason": "exact file bytes match" if matched else "exact file bytes do not match the source obligation"}
+        comparisons.append(row)
+        if not matched:
+            missing.append(row)
+
     changed_paths = list(observed.get("changed_paths", []) or [])[:MAX_IMPACT_CHANGED_PATHS]
     expected_paths = [str(item.get("path") or item.get("target") or "") for item in value.get("expected_targets", []) or [] if isinstance(item, Mapping)]
     forbidden = [str(item.get("path") or item.get("target") or "") for item in value.get("forbidden_or_out_of_scope", []) or [] if isinstance(item, Mapping)]
@@ -1581,6 +1620,9 @@ def project_impact_contract(contract: Mapping[str, Any] | PreMutationImpactContr
     projection = {
         "contract_id": value.get("contract_id"),
         "contract_hash": value.get("contract_hash"),
+        **({"source_requirement_ids": [item.get("requirement_id") for item in value["source_requirements"]],
+            "authorized_mutation_paths": list(value.get("authorized_mutation_paths", []))}
+           if value.get("source_requirements") else {}),
         "change_intent": copy.deepcopy(value.get("change_intent", {})),
         "expected_targets": [
             {

@@ -1,0 +1,40 @@
+{
+  "verification_class": "HISTORICAL_OBSERVATION",
+  "runs": [
+    {
+      "run_id": "20261022T223807-7d3afde8",
+      "status": "clarification_required",
+      "raw_user_request": "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+      "model_calls": 0,
+      "tool_calls": 0,
+      "builder_calls": 0,
+      "control_flow": [
+        "SOURCE_REQUIREMENT_INGESTION"
+      ],
+      "clarification_answers": null,
+      "user_clarification_answers": 0,
+      "root_verified": false
+    },
+    {
+      "run_id": "20261022T224051-03e24342",
+      "status": "clarification_required",
+      "raw_user_request": "{\"student.txt\":\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\",\"course.txt\":\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"}\n\nThese are the exact UTF-8 contents for the two requested files. The \\n sequences represent line breaks. Neither file should have a final newline. Create both files and verify their exact contents, then complete the original task.",
+      "model_calls": 0,
+      "tool_calls": 0,
+      "builder_calls": 0,
+      "control_flow": [
+        "SOURCE_REQUIREMENT_INGESTION"
+      ],
+      "clarification_answers": null,
+      "user_clarification_answers": 0,
+      "root_verified": false
+    }
+  ],
+  "source_files_sha256": {
+    "list/project-11/.agent_experiment.jsonl": "b04de311b227ec37e1bf53220eba342ba221589eef82f7efb132a0734f0e8544",
+    "list/project-11/.agent_host_preflight.json": "d306935a745d5a46e93bafd732b7b205fc38ad3fd60369f48bd4627a636223e0",
+    "list/project-11/.agent_runs/20261022T223807-7d3afde8.jsonl": "2a3354e81842a46a476ffd1c87f98dd62a1add93848cc618b5f97733bfae4a99",
+    "list/project-11/.agent_runs/20261022T224051-03e24342.jsonl": "2b83114956d50a72e816396684b989fdfd072fec7e0bee2ba86836fc3100a446",
+    "list/project-11/.hivo/memory.sqlite3": "cde222b7ca73c11d6cd077227bf3db7fd15e031918589d2e349e9e6e656eec3e"
+  }
+}

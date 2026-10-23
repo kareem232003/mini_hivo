@@ -1,0 +1,384 @@
+{
+  "status": "LOCAL_ONLY_NOT_PUBLISHED",
+  "entries": [
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/json-resumption/result.json",
+      "source_sha256": "e032f9a153fb8d403b5f3b554b10eb9b1ab2601b606dfdb93d70f8678f800711",
+      "derivative": "controlled/json-resumption/result.json",
+      "derivative_sha256": "451caa18a39dc3d84ab0fd0cbd10ac8091f1ab8547d3b683f4ca0ce8c5077fde",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/json-resumption/independent-inspection.json",
+      "source_sha256": "e98b85e695f55ef6c46df108d1cb7102c6f5828c04e6aae926df4963019ad9d8",
+      "derivative": "controlled/json-resumption/independent-inspection.json",
+      "derivative_sha256": "6a027cda3963a03465a9699583a7c3594e526951c4184ce401b01cc75fc2b352",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/json-resumption/workspace/student.txt",
+      "source_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "derivative": "artifacts/json-resumption/student.txt",
+      "derivative_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/json-resumption/workspace/course.txt",
+      "source_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "derivative": "artifacts/json-resumption/course.txt",
+      "derivative_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/structured-blocks/result.json",
+      "source_sha256": "f951be790a529b114955132173a7344c50bcf9d2c164715c643ea3dda358de35",
+      "derivative": "controlled/structured-blocks/result.json",
+      "derivative_sha256": "da91a4b7476ea6aa352e617239dc584e52adcc4199a7d5a073359ca39307ce94",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/structured-blocks/independent-inspection.json",
+      "source_sha256": "9f6ab517fda0275233b22fe6f683938b08af16b1e0c5e3f60e6eb648ea912919",
+      "derivative": "controlled/structured-blocks/independent-inspection.json",
+      "derivative_sha256": "7bf886949a3fd8347b9a65bb91cbbdf0c95164d61cab03bd041bd236a3d621fb",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/structured-blocks/workspace/student.txt",
+      "source_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "derivative": "artifacts/structured-blocks/student.txt",
+      "derivative_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/structured-blocks/workspace/course.txt",
+      "source_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "derivative": "artifacts/structured-blocks/course.txt",
+      "derivative_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/inventory/result.json",
+      "source_sha256": "620fe7df6e9e50aeef81abbe98ee9e2fc0c9fbe78d573da5b215459c6537b916",
+      "derivative": "controlled/inventory/result.json",
+      "derivative_sha256": "4987ff4c2c308f9d9047e968724c3287c0f08e70bc6e379a3579ba04ae5ee697",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/inventory/independent-inspection.json",
+      "source_sha256": "6a67fcf441a83823c988b73beae1ee7f59a9f33ea68f13365709ce72cec3f780",
+      "derivative": "controlled/inventory/independent-inspection.json",
+      "derivative_sha256": "cf65e09b71ead6433a27fd816d6f48e832972a7aad26b9929d03647241eac4f7",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/inventory/workspace/products.txt",
+      "source_sha256": "66d0f5c32b72d2edc9af209125f18346c828767b84af10304009cb8e6177516b",
+      "derivative": "artifacts/inventory/products.txt",
+      "derivative_sha256": "66d0f5c32b72d2edc9af209125f18346c828767b84af10304009cb8e6177516b",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/inventory/workspace/supplier.txt",
+      "source_sha256": "290e00c2af96732a9b48573cf9de857c75f11327855b62ee8223916abc3b27e4",
+      "derivative": "artifacts/inventory/supplier.txt",
+      "derivative_sha256": "290e00c2af96732a9b48573cf9de857c75f11327855b62ee8223916abc3b27e4",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/inventory/workspace/shipment.txt",
+      "source_sha256": "80e258c1a18bda44c6bdb66b1aef8ef3c2c006a9aa1f2c7911527111fa74c48e",
+      "derivative": "artifacts/inventory/shipment.txt",
+      "derivative_sha256": "80e258c1a18bda44c6bdb66b1aef8ef3c2c006a9aa1f2c7911527111fa74c48e",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/level1/result.json",
+      "source_sha256": "8943f86e8b9ab1fb59d82c3591ca9db6acf0a831b4077aa5ef5443c56fa3da96",
+      "derivative": "controlled/level1/result.json",
+      "derivative_sha256": "d3351ab403fbc3198822385ce37f314a0af525c4473ecc02fd905476ce162ed5",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/level1/independent-inspection.json",
+      "source_sha256": "8323af1752c568bd37d841b8562baf7a7d958d33295fedd4520e366eb3d64b24",
+      "derivative": "controlled/level1/independent-inspection.json",
+      "derivative_sha256": "95aa4dfc49ad7beaf3aa096e8bb594230838b19c585bd31734f5f4fed84c0969",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/controlled-final-review/level1/workspace/test_level_1.txt",
+      "source_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "derivative": "artifacts/level1/test_level_1.txt",
+      "derivative_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/live-final/json-resumption/result.json",
+      "source_sha256": "ac0a93490e7e35ccd23f1a5bf032734c4ffaf4e5aa95bb9f01e46ba904bc456c",
+      "derivative": "live/live-final/json-resumption/result.json",
+      "derivative_sha256": "25a4d3677d0f819ae47ba3bc7df734d80dd2b7e7e831ff64327003675e04d783",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/live-final/inventory/result.json",
+      "source_sha256": "1e0640ca3906e4b181118098715ef6696c95e461c4cf42027d55744f2f6feac8",
+      "derivative": "live/live-final/inventory/result.json",
+      "derivative_sha256": "7bf899d1f67783b271fe2ec4d763df93615d46faf685e3aaa0ce6f1848bb26b3",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/live-final/level1/result.json",
+      "source_sha256": "51c0cb63171d8188ff4e35f6616a79c0e678a948cc349be11997df7a729510c9",
+      "derivative": "live/live-final/level1/result.json",
+      "derivative_sha256": "c49a38a58d3dfad082bc7e8f48d86a61f01625f704d04fa0639e2b429f7acf32",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/live-final-review/json-resumption/result.json",
+      "source_sha256": "a17d806a2d3b790435a56794a9d538c431b7fd5884222bc080323d7797f7fe41",
+      "derivative": "live/live-final-review/json-resumption/result.json",
+      "derivative_sha256": "f4acbbaf99f51d6b18d548fdf48f4f75980009d5e041c85df0c25aa7b8c07e61",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_adaptive_architecture.log",
+      "source_sha256": "49475502eb13efe3c5ae6eaf162fec61d97aba6334866fb817a3f5b655c6c220",
+      "derivative": "offline/test_adaptive_architecture.log",
+      "derivative_sha256": "49475502eb13efe3c5ae6eaf162fec61d97aba6334866fb817a3f5b655c6c220",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_authorityall.log",
+      "source_sha256": "1e77de255111611d8ce0cf24e2edae163223c8dc524b9e4c0f635458f8a98b4d",
+      "derivative": "offline/test_authorityall.log",
+      "derivative_sha256": "1e77de255111611d8ce0cf24e2edae163223c8dc524b9e4c0f635458f8a98b4d",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_context_sufficiency_gate.log",
+      "source_sha256": "27f3f7200d6f5f33d4f932f8c2d288cb3b56a10a2299f960d952184a5102e62e",
+      "derivative": "offline/test_context_sufficiency_gate.log",
+      "derivative_sha256": "27f3f7200d6f5f33d4f932f8c2d288cb3b56a10a2299f960d952184a5102e62e",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_experimentall.log",
+      "source_sha256": "c63c93f5837e1bd005e027584e3537c027960cb5f899283564274efe2547ec4e",
+      "derivative": "offline/test_experimentall.log",
+      "derivative_sha256": "c63c93f5837e1bd005e027584e3537c027960cb5f899283564274efe2547ec4e",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_greenfield_impact_lifecycle.log",
+      "source_sha256": "e13c9a2ae0a56839843c6c317a3e6232536270f561aed74a9735fad8ef1177e5",
+      "derivative": "offline/test_greenfield_impact_lifecycle.log",
+      "derivative_sha256": "e13c9a2ae0a56839843c6c317a3e6232536270f561aed74a9735fad8ef1177e5",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_level1_native_verification.log",
+      "source_sha256": "0c761347dcacc1e842df8476a0a4be0fccd76e9fb386f1417e9d0a2ae70b67ac",
+      "derivative": "offline/test_level1_native_verification.log",
+      "derivative_sha256": "0c761347dcacc1e842df8476a0a4be0fccd76e9fb386f1417e9d0a2ae70b67ac",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_level2_generalized_recovery.log",
+      "source_sha256": "eacb78df910a8a1d2478680d11c2d322139c9f52cce84be8cc1dbf9e668b5f4f",
+      "derivative": "offline/test_level2_generalized_recovery.log",
+      "derivative_sha256": "eacb78df910a8a1d2478680d11c2d322139c9f52cce84be8cc1dbf9e668b5f4f",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_literal_clarification_lifecycle.log",
+      "source_sha256": "ae2bc0b7250e2f0e30f0f88513ff7404e8e3f67f513cd37ac585e1addf29d82f",
+      "derivative": "offline/test_literal_clarification_lifecycle.log",
+      "derivative_sha256": "ae2bc0b7250e2f0e30f0f88513ff7404e8e3f67f513cd37ac585e1addf29d82f",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_model_policy.log",
+      "source_sha256": "40765e775d52714a662543ba9cf6c7781eb21f197de398bad8221ccfc694d8b7",
+      "derivative": "offline/test_model_policy.log",
+      "derivative_sha256": "40765e775d52714a662543ba9cf6c7781eb21f197de398bad8221ccfc694d8b7",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_pre_mutation_impact.log",
+      "source_sha256": "2311b902cc666ff51d909d65f9e3b9c6bb39a6cb4e6f66c3f11d050da986227d",
+      "derivative": "offline/test_pre_mutation_impact.log",
+      "derivative_sha256": "2311b902cc666ff51d909d65f9e3b9c6bb39a6cb4e6f66c3f11d050da986227d",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_project12_clarification.log",
+      "source_sha256": "f1a8a64bd7be9f117e3871edc13a2f793caa9fafd427bb2f05acae2dacd9ede3",
+      "derivative": "offline/test_project12_clarification.log",
+      "derivative_sha256": "f1a8a64bd7be9f117e3871edc13a2f793caa9fafd427bb2f05acae2dacd9ede3",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_project_understanding.log",
+      "source_sha256": "7953b5e5c68a748f2d182d46e388b78ccd354e6fad1606c42a0bd517038f62a4",
+      "derivative": "offline/test_project_understanding.log",
+      "derivative_sha256": "7953b5e5c68a748f2d182d46e388b78ccd354e6fad1606c42a0bd517038f62a4",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_requirement_clarification.log",
+      "source_sha256": "da2487b86c300a4e4fe38ac0cf41f054a5f41bf60af6a75c5cd664fc1681265a",
+      "derivative": "offline/test_requirement_clarification.log",
+      "derivative_sha256": "da2487b86c300a4e4fe38ac0cf41f054a5f41bf60af6a75c5cd664fc1681265a",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_v26_all.log",
+      "source_sha256": "5740871991b5a447903b346db7e0f85401e7fcb637686d2aebde6e13635ee84a",
+      "derivative": "offline/test_v26_all.log",
+      "derivative_sha256": "e365bf46ae338e82fea7ab9959243aa5a627c4ad827c1e5dbbca5e797cddec5b",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_verification_applicability.log",
+      "source_sha256": "3babe70cf952204405468e36d80ba36348828092a0c2176ee8b757868d9fdfe1",
+      "derivative": "offline/test_verification_applicability.log",
+      "derivative_sha256": "3babe70cf952204405468e36d80ba36348828092a0c2176ee8b757868d9fdfe1",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/test_verification_policy.log",
+      "source_sha256": "e27eb73ded7b98b0c3706d590d254df955722634d53b7137fafe95c8e97f6b10",
+      "derivative": "offline/test_verification_policy.log",
+      "derivative_sha256": "5d0086b5326ef56f2e3156d83969612ea230867cf09282e1a97fdfa8bb425521",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/offline-final-review/results.json",
+      "source_sha256": "d14b758e389db7e5723955c0180d4f1d20eed9b2d9cc176fdeebca365cf57c5b",
+      "derivative": "offline/results.json",
+      "derivative_sha256": "c0536c3da7dcb12c06aedefe559c5045bbb8635cae3c5a19e74387e5182c030f",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/INVESTIGATION.md",
+      "source_sha256": "adba57e5f816f3f13b8223eb9d2f0632d885c3097b75091d412401708d1bcdf9",
+      "derivative": "INVESTIGATION.md",
+      "derivative_sha256": "adba57e5f816f3f13b8223eb9d2f0632d885c3097b75091d412401708d1bcdf9",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "tests/fixtures/clarification_user_turns.json",
+      "source_sha256": "2b31915f245216fca4164d18a399844da49a2363e2425debf54740b157d043b3",
+      "derivative": "manual-inputs.json",
+      "derivative_sha256": "7f40af6dfb95e8ae1b67b58216975f96b77efa851561a1916370cef8b9a526df",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/original-hashes.json",
+      "source_sha256": "4e3371294a83409d8f1b78aab41d0129df1569b88a36bceecc163fed5a0fcd92",
+      "derivative": "original-project12-hashes.json",
+      "derivative_sha256": "1487df64196db5a74a69490ac0301fabeb7dfb63b7e51e38304dc63a3c786074",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/1/result.json",
+      "source_sha256": "3621bc94aff51a851b6bcdbd13cb3c31ef4a1eb398827f6f27b53e5336001682",
+      "derivative": "scale/1/result.json",
+      "derivative_sha256": "14d3d2be54262cf2e19edba1d19994dc44f71a26aa229b451b268c2f8fe0e83f",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/1/independent-inspection.json",
+      "source_sha256": "c435ed1f069fc2553f34ee460e8af58e6b41389451b2b289afab1db2b9549b29",
+      "derivative": "scale/1/independent-inspection.json",
+      "derivative_sha256": "baaaea14ef490fbbab434991802e6a1477f8d07539eb16a55f9038bdcab78a77",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/2/result.json",
+      "source_sha256": "1682bbdbdab5e471a439628d4f189aaa0c4968b331f4f775a210568abaea9a2a",
+      "derivative": "scale/2/result.json",
+      "derivative_sha256": "740178467fb2c49ab68020bc9ef50b9afd47c1d71e15f76a730374af163d4124",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/2/independent-inspection.json",
+      "source_sha256": "f747a9a2d71994e4aff8c805033474a970cc9cb40a0ee9a9e3db99ab28728b61",
+      "derivative": "scale/2/independent-inspection.json",
+      "derivative_sha256": "4f06fdaba8fbbc7101af9ec20928ac11ce39e6afee851f172f6680a29e17225a",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/3/result.json",
+      "source_sha256": "80d9ee57cdb6d07495c153a985a5aa35cc12ce01afbdef0a266959d633c5cbdc",
+      "derivative": "scale/3/result.json",
+      "derivative_sha256": "b25d1dd60104628918fdcdfabe646be5acad6ba83740408795b224fe23dc4d7d",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/3/independent-inspection.json",
+      "source_sha256": "3eb7d48e2bf62882bf5b631dfc75bfaacbefb501a4b219c901ad371a2e2d9ed1",
+      "derivative": "scale/3/independent-inspection.json",
+      "derivative_sha256": "ca60a8396d0dbdc87e6750706da8c427ba96b3b9d24b09f468fd168d53b39f11",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/4/result.json",
+      "source_sha256": "cc9c4fa8d80d0bbeaf046f96ddccb21c124e7362e5ba7290e2e19852b848532b",
+      "derivative": "scale/4/result.json",
+      "derivative_sha256": "3b373b1fec812ddf927c3f3ab5b9ed881fc0414af7e5c29ae37817c4fa18c9f2",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/4/independent-inspection.json",
+      "source_sha256": "9e5e0c7b6ecabf1075ca5ea2237ad89a70cfafc59894e7e702f663ffacdd15c7",
+      "derivative": "scale/4/independent-inspection.json",
+      "derivative_sha256": "71c80303ef0063c66e765bd470a65fe7b4acdaa294ca3e93729364116b17d65b",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/5/result.json",
+      "source_sha256": "c0447c5371871d78b967d2ca1b72f5f1ee685c00f2fcd6d051a1f6320cad3c42",
+      "derivative": "scale/5/result.json",
+      "derivative_sha256": "27db9c08a2994ac33a0b1ddbff20474ca42b13ac159528bd0aa6750f7a093b85",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/5/independent-inspection.json",
+      "source_sha256": "2bc5a4f3929708a2dd67c090392eeca1581b599d75237f2bab0ee0d8ee309b56",
+      "derivative": "scale/5/independent-inspection.json",
+      "derivative_sha256": "25367ee4c38997fa627e67fd3ad13f9d4c84faf331db601c59019f899615a7af",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/8/result.json",
+      "source_sha256": "546977e20dd7761bcbbf5547818932d403d53e88b3012c8c64c335cfd0b35ba9",
+      "derivative": "scale/8/result.json",
+      "derivative_sha256": "c8d797c6231caee0bf83da46a774c7440bb644510570d5f66743fa71a8e07d23",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/8/independent-inspection.json",
+      "source_sha256": "472b2214719d9112e122e9bd70b008ac42ca2ba8f891f307d8ee768e41ef464e",
+      "derivative": "scale/8/independent-inspection.json",
+      "derivative_sha256": "7b55926d6a056607b77eb940e013d09d5574c0d60a7148230133547b557edd59",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/10/result.json",
+      "source_sha256": "4711726a9e646723d291131e31ad62118bc96792ea7b7dc1b0ee606ad55b01ca",
+      "derivative": "scale/10/result.json",
+      "derivative_sha256": "36596359e150af2aaeee9e48e77a40b061e8631dd651c9fbdf42d9d9b0d7576a",
+      "canonical_bytes": "UTF-8, LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-project12-repair/scale-final-review/10/independent-inspection.json",
+      "source_sha256": "7557957afea8f1e883c415788be243485e85eb680b02d74f2bda21fdd3a10280",
+      "derivative": "scale/10/independent-inspection.json",
+      "derivative_sha256": "21c6e318cfdec62e436c3344827bacc1bfb3446c3b7d1a9bba48056438406290",
+      "canonical_bytes": "UTF-8, LF"
+    }
+  ],
+  "note": "Original raw evidence is unchanged/private. Source hashes and sanitized derivative hashes are distinct. Boundary summaries and README are authored metadata; not original run records."
+}

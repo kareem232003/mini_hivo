@@ -1,0 +1,44 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END",
+  "request": "Create a text file named student.txt containing exactly:\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\"; Create a text file named course.txt containing exactly:\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"",
+  "oracle_provenance": "User confirmed exact two-file bytes on 2026-10-22; parameterized cases use explicit fixtures.",
+  "source_sha256": {
+    "mini.py": "07da6d31637ee98abd402ecde00552d8fa50bb6565d9243df77f1fdfc6687de3",
+    "hivo/artifact_progress.py": "50c4d94a51127bd5c30ebd8614af9e5f1d2d1cc6546bcd1c15d98430d67496c2",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "wall_limit_seconds": 600,
+  "process_exit": 0,
+  "metrics": {
+    "run_id": "20261022T014538-aa122b2a",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 9,
+    "tool_calls": 7,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 387.96
+  },
+  "artifacts": {
+    "student.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "expected_hex": "4e616d653a20536172610a4167653a2032310a4465706172746d656e743a20436f6d707574657220536369656e6365"
+    },
+    "course.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "expected_hex": "436f757273653a20536f66747761726520456e67696e656572696e670a53656d65737465723a2046616c6c20323032360a5374617475733a20416374697665"
+    }
+  },
+  "wall_seconds": 415.19,
+  "independent_pass": true
+}

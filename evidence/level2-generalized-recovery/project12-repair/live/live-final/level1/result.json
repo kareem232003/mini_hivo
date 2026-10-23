@@ -1,0 +1,37 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END",
+  "case": "level1",
+  "request": "Create a text file named test_level_1.txt containing exactly:Hello Mini Hivo",
+  "turns": [
+    "Create a text file named test_level_1.txt containing exactly:Hello Mini Hivo"
+  ],
+  "source_sha256": {
+    "mini.py": "d1f1311ca0d73369474f2072ad6cac9a2f7ef27979eb2a183d51a42e4a052bc1",
+    "hivo/artifact_progress.py": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+    "hivo/literal_source.py": "c7b1700ea7208ef80aac95ee3fdd0476ab2364f5c3c450a1754a64ac18db4c84",
+    "hivo/literal_clarification.py": "5a63638fff54e3afc45e816b2b3403597efd9516710a2a4167259205e5274c18",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "process_exit": 2,
+  "interrupted": false,
+  "wall_seconds": 5.1,
+  "wall_limit_seconds": 720,
+  "metrics": {},
+  "turn_statuses": [],
+  "artifacts": {
+    "test_level_1.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "actual_sha256": null,
+      "expected_hex": "48656c6c6f204d696e69204869766f"
+    }
+  },
+  "independent_pass": false,
+  "clarification_answers": null,
+  "source_contract": null,
+  "latest_trace_run_id": null,
+  "metrics_scope": "no_completed_metrics"
+}

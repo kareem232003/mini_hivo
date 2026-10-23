@@ -1,0 +1,35 @@
+test_alternating_incorrect_writes_are_not_verified_progress (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_alternating_incorrect_writes_are_not_verified_progress) ... FAIL
+
+======================================================================
+FAIL: test_alternating_incorrect_writes_are_not_verified_progress (test_level2_generalized_recovery.GeneralizedRecoveryTests.test_alternating_incorrect_writes_are_not_verified_progress)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>\tests\test_level2_generalized_recovery.py", line 148, in test_alternating_incorrect_writes_are_not_verified_progress
+    self.assertEqual(r['status'],'failed')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'budget_exhausted' != 'failed'
+- budget_exhausted
++ failed
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.810s
+
+FAILED (failures=1)
+[BUILDER] ROOT executing
+[TOOL] context_sufficiency_check -
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt
+[TOOL] write_file artifact_0.txt

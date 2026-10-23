@@ -1,0 +1,205 @@
+{
+  "status": "LOCAL_ONLY_INCOMPLETE",
+  "entries": [
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/provider-comparison.json",
+      "source_sha256": "ae7ebe0ad780232e6235a1f0a7fa43b082325d2e61323bb27cee98f1a8a9b4f9",
+      "derivative": "provider-comparison.json",
+      "derivative_sha256": "6ada7fd87006ba73b178e0b2ef3c94d63d3687c2a5f23512f7a164b26dad5a65",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/results.json",
+      "source_sha256": "cb9da109c6460b6f4b4c49eada5b9469429d76a472003540dea3392d6d4139d1",
+      "derivative": "offline-child-scope-final/results.json",
+      "derivative_sha256": "8be1af7809f33ecce3771596ec327084b29aa0bf1a8c099ba80973f61703ed8f",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/live-final-reviewed/structured-blocks/result.json",
+      "source_sha256": "fc7396c3758c88cf744b144b8c751c21e405d890fbad405dfd4d7d9cf9aa69be",
+      "derivative": "live-final-reviewed/structured-blocks/result.json",
+      "derivative_sha256": "3db1ce1027e164d17d7f53f91f0eaf56114524f86812d1ae554054599c1ba8cf",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/original-hashes.json",
+      "source_sha256": "7e2554b39b4472352fade546aadb92eb8c3d8d6adfd7dc9729a59b32b3901af9",
+      "derivative": "original-hashes.json",
+      "derivative_sha256": "82469c6b4f3b11dda13e98e27728b5245a0afd02938020561b0f56603b56470e",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_adaptive_architecture.log",
+      "source_sha256": "c33c5cbe55d703063fee19c5aa84a4857b19b4377fc7d8ed3bbaf7129c809c48",
+      "derivative": "offline-child-scope-final/test_adaptive_architecture.log",
+      "derivative_sha256": "c33c5cbe55d703063fee19c5aa84a4857b19b4377fc7d8ed3bbaf7129c809c48",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_authorityall.log",
+      "source_sha256": "1bfe86c8922b881147c1d505e9635ea0f88c03ed6382b637a2f571b653713dad",
+      "derivative": "offline-child-scope-final/test_authorityall.log",
+      "derivative_sha256": "1bfe86c8922b881147c1d505e9635ea0f88c03ed6382b637a2f571b653713dad",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_context_completed_progress.log",
+      "source_sha256": "e8c98d151c3dac431cced2d79bd2a97b1427a8f3e553402f00993f09797ade4d",
+      "derivative": "offline-child-scope-final/test_context_completed_progress.log",
+      "derivative_sha256": "e8c98d151c3dac431cced2d79bd2a97b1427a8f3e553402f00993f09797ade4d",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_context_recovery_functional.log",
+      "source_sha256": "8a6f448dc442dcc4ea08f355f6f48e1fda86c06a8867a853d6cee0f7383f477d",
+      "derivative": "offline-child-scope-final/test_context_recovery_functional.log",
+      "derivative_sha256": "8b8e96eaf8b04f1f31a0929e291ea73c5dc13426bad89bd704698cde976b8efc",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_context_sufficiency_gate.log",
+      "source_sha256": "1b70f37818148d33560917bc0cd827a7ef69760bff9737c4c392c2ce86d6b1f9",
+      "derivative": "offline-child-scope-final/test_context_sufficiency_gate.log",
+      "derivative_sha256": "1b70f37818148d33560917bc0cd827a7ef69760bff9737c4c392c2ce86d6b1f9",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_dependency_aware_scheduler.log",
+      "source_sha256": "f97eaa65e43e89b85b019f8fc4662383175ec736bb744e041b65aeadf90d66e3",
+      "derivative": "offline-child-scope-final/test_dependency_aware_scheduler.log",
+      "derivative_sha256": "f97eaa65e43e89b85b019f8fc4662383175ec736bb744e041b65aeadf90d66e3",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_experimentall.log",
+      "source_sha256": "bf579edfac6e96bddc1d410bf355055b6eaf138121aa97b8e57e0c01caa2e7c0",
+      "derivative": "offline-child-scope-final/test_experimentall.log",
+      "derivative_sha256": "bf579edfac6e96bddc1d410bf355055b6eaf138121aa97b8e57e0c01caa2e7c0",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_greenfield_impact_lifecycle.log",
+      "source_sha256": "1d5d00ce62cd15fed0d9068b662b015cc16e2d0808f3ccaf44a5ccba7f16ef7b",
+      "derivative": "offline-child-scope-final/test_greenfield_impact_lifecycle.log",
+      "derivative_sha256": "1d5d00ce62cd15fed0d9068b662b015cc16e2d0808f3ccaf44a5ccba7f16ef7b",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_level1_native_verification.log",
+      "source_sha256": "caf0b6612e382a3081e78a0d7122d5570694b74ff10e1aea78e22a84963dab3e",
+      "derivative": "offline-child-scope-final/test_level1_native_verification.log",
+      "derivative_sha256": "caf0b6612e382a3081e78a0d7122d5570694b74ff10e1aea78e22a84963dab3e",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_level2_generalized_recovery.log",
+      "source_sha256": "810cc5a8cb86d5b8ffce8f628521153a4cd58b65b0620531337a977e0f7e5b3b",
+      "derivative": "offline-child-scope-final/test_level2_generalized_recovery.log",
+      "derivative_sha256": "810cc5a8cb86d5b8ffce8f628521153a4cd58b65b0620531337a977e0f7e5b3b",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_literal_clarification_lifecycle.log",
+      "source_sha256": "723d8c8651411cac6aeaf764405f5e597dda2128efb2a3c5702419a292d6152f",
+      "derivative": "offline-child-scope-final/test_literal_clarification_lifecycle.log",
+      "derivative_sha256": "723d8c8651411cac6aeaf764405f5e597dda2128efb2a3c5702419a292d6152f",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_model_policy.log",
+      "source_sha256": "40765e775d52714a662543ba9cf6c7781eb21f197de398bad8221ccfc694d8b7",
+      "derivative": "offline-child-scope-final/test_model_policy.log",
+      "derivative_sha256": "40765e775d52714a662543ba9cf6c7781eb21f197de398bad8221ccfc694d8b7",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_pre_mutation_impact.log",
+      "source_sha256": "5d7280be438105e97a642ff2e33a1fb93a84503144d722ce4bf8c849a9ab3ab3",
+      "derivative": "offline-child-scope-final/test_pre_mutation_impact.log",
+      "derivative_sha256": "5d7280be438105e97a642ff2e33a1fb93a84503144d722ce4bf8c849a9ab3ab3",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_project12_clarification.log",
+      "source_sha256": "1e33f9fecb2b8c0f1cf85a288b220815874fbfcd7118136933e93bb425b25cbf",
+      "derivative": "offline-child-scope-final/test_project12_clarification.log",
+      "derivative_sha256": "1e33f9fecb2b8c0f1cf85a288b220815874fbfcd7118136933e93bb425b25cbf",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_project_understanding.log",
+      "source_sha256": "74fe9ef6e85a77a1a408bd5f07f6c1886adee1987f25c31c33a388540621c192",
+      "derivative": "offline-child-scope-final/test_project_understanding.log",
+      "derivative_sha256": "74fe9ef6e85a77a1a408bd5f07f6c1886adee1987f25c31c33a388540621c192",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_requirement_clarification.log",
+      "source_sha256": "f382adf0b4b7713e3c3af0b9646492fbf475a928e350b2cef1e2397a1034215b",
+      "derivative": "offline-child-scope-final/test_requirement_clarification.log",
+      "derivative_sha256": "f382adf0b4b7713e3c3af0b9646492fbf475a928e350b2cef1e2397a1034215b",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_v26_all.log",
+      "source_sha256": "b0024066a3df7559af72afd255a48dfdf713aa06aa3b771db9536573a1ac9c8b",
+      "derivative": "offline-child-scope-final/test_v26_all.log",
+      "derivative_sha256": "b17d426155ec6d94320aed868a732d201f26aa2c0b45eb258844e3382ad80893",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_verification_applicability.log",
+      "source_sha256": "6d73c51736b190488b39bf2bd2962b738f864b2aea0ef50be08be971bb3dd97d",
+      "derivative": "offline-child-scope-final/test_verification_applicability.log",
+      "derivative_sha256": "6d73c51736b190488b39bf2bd2962b738f864b2aea0ef50be08be971bb3dd97d",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/offline-child-scope-final/test_verification_policy.log",
+      "source_sha256": "036cd455c002fdebf35ac88bca65a50e9bb951e4ecbad6a98920649a38acd80d",
+      "derivative": "offline-child-scope-final/test_verification_policy.log",
+      "derivative_sha256": "9d592785199e67e1191fba12701b1f9ea6867753315bac49442c01756e93ea43",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/recursive-first.log",
+      "source_sha256": "03b07fa9a3d8720fa04d2c5c31497b89567d01771d51614bda8b6b7fc6ee300e",
+      "derivative": "recursive-first.log",
+      "derivative_sha256": "da854d9e03cde368c9e57614e4ca699830ae90c8778763ad5eb098bb99c21c54",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/recursive-productive.log",
+      "source_sha256": "6df58f970be9d3a8fe31bc9a83f2bf617b79becc79ca464481b3e1ec6206195d",
+      "derivative": "recursive-productive.log",
+      "derivative_sha256": "a9169aff71b7f236014d5f39772d50adb40ee9d8ec0c5e1f524eed87c0ec21f8",
+      "bytes": "UTF-8 LF"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-research-recovery/recursive-productive-diagnostic.log",
+      "source_sha256": "47898b968a11fa3754de540b2ba069ff32a7221a69cf675b56cf13b5f42e2f30",
+      "derivative": "recursive-productive-diagnostic.log",
+      "derivative_sha256": "c38a591b6282a4830c09ba8b0e922028859ce5ac8b9debe73921824cba08ea81",
+      "bytes": "UTF-8 LF"
+    }
+  ],
+  "preserved_originals": 3,
+  "zip_valid": true,
+  "tested_production_sha256": {
+    "mini.py": "5a5c337ee868408706ff31b35090c88f2d071f3a50be8481294e67f502aefeae",
+    "hivo/context_sufficiency.py": "5256861508525786fd6848d8476bc8ac8d2a20d04be35bbd99034dc2314a2d8b"
+  },
+  "authored_metadata": "README and research phase are authored documentation, not raw experiment evidence.",
+  "verification_note": "The eight production dependency hashes below supplement the original runner record, which omitted context_sufficiency.py from its explicit pin list. This omission is corrected in the runner for future cohorts; historical results are not rewritten.",
+  "final_production_dependency_sha256": {
+    "mini.py": "5a5c337ee868408706ff31b35090c88f2d071f3a50be8481294e67f502aefeae",
+    "hivo/context_sufficiency.py": "5256861508525786fd6848d8476bc8ac8d2a20d04be35bbd99034dc2314a2d8b",
+    "hivo/artifact_progress.py": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+    "hivo/literal_source.py": "c7b1700ea7208ef80aac95ee3fdd0476ab2364f5c3c450a1754a64ac18db4c84",
+    "hivo/literal_clarification.py": "5a63638fff54e3afc45e816b2b3403597efd9516710a2a4167259205e5274c18",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  }
+}

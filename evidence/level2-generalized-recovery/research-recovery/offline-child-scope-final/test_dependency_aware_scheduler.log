@@ -1,0 +1,84 @@
+test_dependency_blocked_child_gets_no_fit_or_leaf_call (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_dependency_blocked_child_gets_no_fit_or_leaf_call) ... [TASK A] run A
+[FIT A] EXECUTE
+[FAILED A]
+[TASK C] run C
+[FIT C] EXECUTE
+[DONE C]
+ok
+test_explicit_dependency_failure_blocks_only_required_child (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_explicit_dependency_failure_blocks_only_required_child) ... [TASK A] run A
+[FIT A] EXECUTE
+[FAILED A]
+[TASK B] run B
+[FIT B] EXECUTE
+[DONE B]
+ok
+test_failed_child_is_not_retried_and_scheduler_remains_sequential (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_failed_child_is_not_retried_and_scheduler_remains_sequential) ... [TASK A] run A
+[FIT A] EXECUTE
+[FAILED A]
+[TASK B] run B
+[FIT B] EXECUTE
+[DONE B]
+[TASK C] run C
+[FIT C] EXECUTE
+[DONE C]
+ok
+test_failed_independent_child_does_not_stop_exact_abc_siblings (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_failed_independent_child_does_not_stop_exact_abc_siblings) ... [TASK A] run A
+[FIT A] EXECUTE
+[FAILED A]
+[TASK B] run B
+[FIT B] EXECUTE
+[DONE B]
+[TASK C] run C
+[FIT C] EXECUTE
+[DONE C]
+ok
+test_multiple_dependencies_block_when_one_required_dependency_fails (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_multiple_dependencies_block_when_one_required_dependency_fails) ... [TASK A] run A
+[FIT A] EXECUTE
+[DONE A]
+[TASK B] run B
+[FIT B] EXECUTE
+[FAILED B]
+ok
+test_order_does_not_create_implicit_dependency_edges (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_order_does_not_create_implicit_dependency_edges) ... [TASK A] run A
+[FIT A] EXECUTE
+[FAILED A]
+[TASK B] run B
+[FIT B] EXECUTE
+[DONE B]
+[TASK C] run C
+[FIT C] EXECUTE
+[DONE C]
+ok
+test_successful_dependencies_execute_and_receive_compact_summaries (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_successful_dependencies_execute_and_receive_compact_summaries) ... [TASK A] run A
+[FIT A] EXECUTE
+[DONE A]
+[TASK B] run B
+[FIT B] EXECUTE
+[DONE B]
+[TASK C] run C
+[FIT C] EXECUTE
+[DONE C]
+[DONE P]
+ok
+test_transitive_dependency_failure_blocks_chain_but_runs_independent_d (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_transitive_dependency_failure_blocks_chain_but_runs_independent_d) ... [TASK A] run A
+[FIT A] EXECUTE
+[FAILED A]
+[TASK D] run D
+[FIT D] EXECUTE
+[DONE D]
+ok
+test_verification_target_unresolved_is_an_ordinary_child_failure (test_dependency_aware_scheduler.DependencyAwareSchedulerTests.test_verification_target_unresolved_is_an_ordinary_child_failure) ... [TASK EXEC-001.1] run EXEC-001.1
+[FIT EXEC-001.1] EXECUTE
+[FAILED EXEC-001.1]
+[TASK EXEC-001.2] run EXEC-001.2
+[FIT EXEC-001.2] EXECUTE
+[DONE EXEC-001.2]
+[TASK EXEC-001.3] run EXEC-001.3
+[FIT EXEC-001.3] EXECUTE
+[DONE EXEC-001.3]
+ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.777s
+
+OK

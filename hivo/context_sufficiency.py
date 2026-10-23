@@ -627,6 +627,13 @@ class ContextSufficiencyGate:
     def mutation_allowed(self) -> bool:
         return bool(self._mutation_allowed and self._state == MUTATION_ALLOWED)
 
+    def invalidate(self, reason: str) -> None:
+        """Revoke permission; only a fresh validated decision can restore it."""
+        self._mutation_allowed = False
+        self._state = PREPARING_CONTEXT
+        self._context_status = CONTEXT_STATUS_INSUFFICIENT
+        self._reason = str(reason)
+
     @property
     def state(self) -> str:
         return self._state

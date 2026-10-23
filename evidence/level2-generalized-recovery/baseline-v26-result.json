@@ -1,0 +1,35 @@
+{
+  "base": "9957271",
+  "tests": 186,
+  "failures": [
+    "test_v26_5_preverification_recovery.V265PreVerificationRecoveryTests.test_06_legacy_verification_path_remains_valid_and_distinct",
+    "test_v26_5_preverification_recovery.V265PreVerificationRecoveryTests.test_14_provider_free_worker_execution_replay_reaches_full_existing_gates",
+    "test_v26_5_preverification_recovery.V265PreVerificationRecoveryTests.test_16_v26_4_composition_and_budgets_remain_provider_free",
+    "test_v26_6_2_active_schema_mutation_intent_reset.V2662ActiveSchemaMutationIntentTests.test_13_workspace_uniqueness_fixture_is_time_invariant",
+    "test_v26_6_no_mutation_recovery_search.V266NoMutationRecoverySearchTests.test_35_successful_and_failed_downstream_replays_remain_provider_free",
+    "test_v26_6_no_mutation_recovery_search.V266NoMutationRecoverySearchTests.test_37_historical_fixture_and_future_live_workspace_are_not_touched_or_created",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_01_live3_failure_envelope_is_immutable_and_valid",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_02_live3_failure_identity_is_preserved_exactly",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_04_live3_is_worker_recoverable_without_reapproval",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_07_mission_stays_under_same_authority",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_08_recovery_authorization_is_derived_not_new_approval",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_09_recovery_packet_is_fresh_bounded_and_complete",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_10_provider_free_dispatch_reaches_injected_seam_once",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_11_callback_type_error_is_not_retried",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_12_authority_change_dimensions_fail_closed (dimension='new_mutation_paths')",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_12_authority_change_dimensions_fail_closed (dimension='dnt_changes')",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_12_authority_change_dimensions_fail_closed (dimension='interface_semantic_changes')",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_12_authority_change_dimensions_fail_closed (dimension='ownership_changes')",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_12_authority_change_dimensions_fail_closed (dimension='verification_authority_changes')",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_19_known_harness_failure_is_harness_recoverable",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_20_capability_floor_requires_bounded_repeated_evidence",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_22_positive_injected_replay_reaches_all_future_boundaries",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_23_negative_injected_replay_stops_without_promotion",
+    "test_v26_recovery_foundation.V26RecoveryFoundationTests.test_25_architecture_self_test_passes_provider_free"
+  ],
+  "errors": [
+    "test_v26_6_no_mutation_recovery_search.V266NoMutationRecoverySearchTests.test_18_provider_free_positive_control_preserves_full_downstream_closure",
+    "test_v26_7_progress_aware_completion_recovery.V267ProgressAwareCompletionRecoveryTests.test_30_provider_free_full_continuation_reaches_promotion_and_reentry"
+  ],
+  "skips": 3
+}

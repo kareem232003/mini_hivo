@@ -1,0 +1,77 @@
+{
+  "verification_class": "CONTROLLED_FUNCTIONAL",
+  "run_id": "20261022T020145-40b50543",
+  "model": "gemma4:e4b",
+  "metrics": {
+    "run_id": "20261022T020145-40b50543",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 0,
+    "tool_calls": 4,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 0.2
+  },
+  "trace_records": 24,
+  "tool_events": 4,
+  "checks": {
+    "every_artifact_exact": true,
+    "context_before_mutation": true,
+    "impact_authorized": true,
+    "builder_native_proofs_for_every_artifact": true,
+    "falsifier_independently_read_every_artifact": true,
+    "required_route_coverage": true,
+    "impact_post_state_pass": true,
+    "transaction_committed": true,
+    "root_verified_done": true,
+    "no_budget_exhaustion": true,
+    "source_identity_matches_trace": true,
+    "real_provider_observed": true,
+    "host_preflight_pass": true
+  },
+  "artifacts": {
+    "artifact_0.txt": {
+      "exact_bytes": true,
+      "expected_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+      "actual_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+      "byte_count": 36,
+      "line_separators": 2,
+      "final_newline": false,
+      "oracle_consistent": true
+    }
+  },
+  "builder_native_proofs": {
+    "artifact_0.txt": {
+      "verification_kind": "LITERAL_ARTIFACT",
+      "path": "artifact_0.txt",
+      "status": "PASS",
+      "passed": true,
+      "expected_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+      "actual_sha256": "b6bb9a54109c75e63e654b886551d77974fe39d28d333021d3e8ec5f38a754e7",
+      "impact_contract_hash": "53a876948eb147933f8d1322ed26e3c447ae92cdbafd35855e717da0ee90e1ce"
+    }
+  },
+  "falsifier_read_paths": [
+    "artifact_0.txt"
+  ],
+  "route_targets": [
+    "artifact_0.txt"
+  ],
+  "source_sha256": {
+    "mini.py": "da4e4313fe2063fc55b103309aecf1b915f1963f75eb875d18e625990f1493e5",
+    "hivo/artifact_progress.py": "50c4d94a51127bd5c30ebd8614af9e5f1d2d1cc6546bcd1c15d98430d67496c2",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "source_matches_current_checkout": true,
+  "passed": true,
+  "input_sha256": {
+    "result.json": "63bcd545b80e246cdcca51fd8918188f1d1bafc412248dc514a37ebb28b9e37e",
+    "workspace/.agent_runs/20261022T020145-40b50543.jsonl": "931845675ea1783c538c65b68c4e6bb13f874fab17a89e2b8a2840e0acffb067",
+    "workspace/.hivo/memory.sqlite3": "1370deff82def8a68ca673aa40afce36753a2c88bd930b8ffe384ebb2c562882",
+    "workspace/.agent_experiment.jsonl": "db403e5f728a61d297d3c7ed804a14cde6fb8b1d2d10062f2b64f036a0406d7e"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END",
+  "case": "json-resumption",
+  "request": "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+  "turns": [
+    "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+    "Here is the clarification for my original two-file request.\n\n{\n  \"student.txt\": \"Name: Sara\\nAge: 21\\nDepartment: Computer Science\",\n  \"course.txt\": \"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"\n}\n\nBoth files must use UTF-8 encoding and LF (\\n) line separators. Neither file should have a trailing newline.\n\nThese are the exact contents. Please continue the original task, create both files, and verify their contents."
+  ],
+  "source_sha256": {
+    "mini.py": "d1f1311ca0d73369474f2072ad6cac9a2f7ef27979eb2a183d51a42e4a052bc1",
+    "hivo/artifact_progress.py": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+    "hivo/literal_source.py": "4d6cef461957c22ba06b6570479eeee3ef21e602935e16f74e740a2ce229ea95",
+    "hivo/literal_clarification.py": "2fa6e2f163494e2b5a2119a958a25f75b2fd72c53cc858abdd3b0df07dc8adb8",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "process_exit": 2,
+  "interrupted": false,
+  "wall_seconds": 21.39,
+  "wall_limit_seconds": 720,
+  "metrics": {},
+  "turn_statuses": [],
+  "artifacts": {
+    "student.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "actual_sha256": null,
+      "expected_hex": "4e616d653a20536172610a4167653a2032310a4465706172746d656e743a20436f6d707574657220536369656e6365"
+    },
+    "course.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "actual_sha256": null,
+      "expected_hex": "436f757273653a20536f66747761726520456e67696e656572696e670a53656d65737465723a2046616c6c20323032360a5374617475733a20416374697665"
+    }
+  },
+  "independent_pass": false,
+  "clarification_answers": null,
+  "source_contract": null,
+  "latest_trace_run_id": null,
+  "metrics_scope": "no_completed_metrics"
+}

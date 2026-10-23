@@ -1,0 +1,329 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END",
+  "case": "inventory",
+  "request": "Create a small inventory record using exactly three UTF-8 text files.\n\nFile: products.txt\nExact content:\nProduct: Keyboard\nQuantity: 12\nPrice: 250\n\nFile: supplier.txt\nExact content:\nSupplier: Nile Tech\nCity: Cairo\nStatus: Active\n\nFile: shipment.txt\nExact content:\nShipment: SH-2026\nItems: 12\nStatus: Pending\n\nEach file must contain exactly three lines, with LF line separators and no trailing newline.\n\nDo not create any other files.\n\nVerify that all three files exist and independently confirm their exact contents before reporting the task as complete.",
+  "turns": [
+    "Create a small inventory record using exactly three UTF-8 text files.\n\nFile: products.txt\nExact content:\nProduct: Keyboard\nQuantity: 12\nPrice: 250\n\nFile: supplier.txt\nExact content:\nSupplier: Nile Tech\nCity: Cairo\nStatus: Active\n\nFile: shipment.txt\nExact content:\nShipment: SH-2026\nItems: 12\nStatus: Pending\n\nEach file must contain exactly three lines, with LF line separators and no trailing newline.\n\nDo not create any other files.\n\nVerify that all three files exist and independently confirm their exact contents before reporting the task as complete."
+  ],
+  "source_sha256": {
+    "mini.py": "d1f1311ca0d73369474f2072ad6cac9a2f7ef27979eb2a183d51a42e4a052bc1",
+    "hivo/artifact_progress.py": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+    "hivo/literal_source.py": "4d6cef461957c22ba06b6570479eeee3ef21e602935e16f74e740a2ce229ea95",
+    "hivo/literal_clarification.py": "2fa6e2f163494e2b5a2119a958a25f75b2fd72c53cc858abdd3b0df07dc8adb8",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "process_exit": 0,
+  "interrupted": false,
+  "wall_seconds": 180.12,
+  "wall_limit_seconds": 720,
+  "metrics": {
+    "run_id": "20261023T000915-20404da5",
+    "status": "failed",
+    "root_verified": false,
+    "model_calls": 2,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "impact_contract_authorizations": 0,
+    "impact_contract_comparisons": 0,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 167.35
+  },
+  "turn_statuses": [
+    "failed"
+  ],
+  "artifacts": {
+    "products.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "66d0f5c32b72d2edc9af209125f18346c828767b84af10304009cb8e6177516b",
+      "actual_sha256": null,
+      "expected_hex": "50726f647563743a204b6579626f6172640a5175616e746974793a2031320a50726963653a20323530"
+    },
+    "supplier.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "290e00c2af96732a9b48573cf9de857c75f11327855b62ee8223916abc3b27e4",
+      "actual_sha256": null,
+      "expected_hex": "537570706c6965723a204e696c6520546563680a436974793a20436169726f0a5374617475733a20416374697665"
+    },
+    "shipment.txt": {
+      "exists": false,
+      "exact_bytes": false,
+      "expected_sha256": "80e258c1a18bda44c6bdb66b1aef8ef3c2c006a9aa1f2c7911527111fa74c48e",
+      "actual_sha256": null,
+      "expected_hex": "536869706d656e743a2053482d323032360a4974656d733a2031320a5374617475733a2050656e64696e67"
+    }
+  },
+  "independent_pass": false,
+  "clarification_answers": [],
+  "source_contract": {
+    "root_goal": "Create a text file named products.txt containing exactly:\"Product: Keyboard\\nQuantity: 12\\nPrice: 250\"; Create a text file named supplier.txt containing exactly:\"Supplier: Nile Tech\\nCity: Cairo\\nStatus: Active\"; Create a text file named shipment.txt containing exactly:\"Shipment: SH-2026\\nItems: 12\\nStatus: Pending\"",
+    "source_requirement_ledger": {
+      "version": 1,
+      "immutable": true,
+      "requirements": [
+        {
+          "requirement_id": "REQ-001",
+          "text": "Create a text file named products.txt containing exactly:\"Product: Keyboard\\nQuantity: 12\\nPrice: 250\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named products.txt containing exactly:\"Product: Keyboard\\nQuantity: 12\\nPrice: 250\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "products.txt",
+            "nQuantity",
+            "nPrice"
+          ],
+          "explicit_item_count": 3
+        },
+        {
+          "requirement_id": "REQ-002",
+          "text": "Create a text file named supplier.txt containing exactly:\"Supplier: Nile Tech\\nCity: Cairo\\nStatus: Active\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named supplier.txt containing exactly:\"Supplier: Nile Tech\\nCity: Cairo\\nStatus: Active\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "supplier.txt",
+            "nCity",
+            "nStatus"
+          ],
+          "explicit_item_count": 3
+        },
+        {
+          "requirement_id": "REQ-003",
+          "text": "Create a text file named shipment.txt containing exactly:\"Shipment: SH-2026\\nItems: 12\\nStatus: Pending\"",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file named shipment.txt containing exactly:\"Shipment: SH-2026\\nItems: 12\\nStatus: Pending\""
+          ],
+          "status": "active",
+          "explicit_items": [
+            "shipment.txt",
+            "SH",
+            "nItems",
+            "nStatus"
+          ],
+          "explicit_item_count": 4
+        }
+      ],
+      "confirmed_requirements": [],
+      "limits": {
+        "max_requirements": 64,
+        "max_segment_chars": 2200,
+        "max_explicit_items": 64
+      },
+      "extraction": {
+        "mode": "deterministic",
+        "status": "complete",
+        "segments": 1,
+        "failures": [],
+        "failure_count": 0
+      }
+    },
+    "user_stated_requirements": [
+      {
+        "requirement_id": "REQ-001",
+        "text": "Create a text file named products.txt containing exactly:\"Product: Keyboard\\nQuantity: 12\\nPrice: 250\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named products.txt containing exactly:\"Product: Keyboard\\nQuantity: 12\\nPrice: 250\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "products.txt",
+          "nQuantity",
+          "nPrice"
+        ],
+        "explicit_item_count": 3
+      },
+      {
+        "requirement_id": "REQ-002",
+        "text": "Create a text file named supplier.txt containing exactly:\"Supplier: Nile Tech\\nCity: Cairo\\nStatus: Active\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named supplier.txt containing exactly:\"Supplier: Nile Tech\\nCity: Cairo\\nStatus: Active\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "supplier.txt",
+          "nCity",
+          "nStatus"
+        ],
+        "explicit_item_count": 3
+      },
+      {
+        "requirement_id": "REQ-003",
+        "text": "Create a text file named shipment.txt containing exactly:\"Shipment: SH-2026\\nItems: 12\\nStatus: Pending\"",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file named shipment.txt containing exactly:\"Shipment: SH-2026\\nItems: 12\\nStatus: Pending\""
+        ],
+        "status": "active",
+        "explicit_items": [
+          "shipment.txt",
+          "SH",
+          "nItems",
+          "nStatus"
+        ],
+        "explicit_item_count": 4
+      }
+    ],
+    "user_confirmed_requirements": [],
+    "derived_assumptions": [],
+    "clarification_questions": [],
+    "clarification_answers": [],
+    "interaction_style": "PRECISION_SENSITIVE",
+    "literal_clarification": {
+      "original_request": "Create a small inventory record using exactly three UTF-8 text files.\n\nFile: products.txt\nExact content:\nProduct: Keyboard\nQuantity: 12\nPrice: 250\n\nFile: supplier.txt\nExact content:\nSupplier: Nile Tech\nCity: Cairo\nStatus: Active\n\nFile: shipment.txt\nExact content:\nShipment: SH-2026\nItems: 12\nStatus: Pending\n\nEach file must contain exactly three lines, with LF line separators and no trailing newline.\n\nDo not create any other files.\n\nVerify that all three files exist and independently confirm their exact contents before reporting the task as complete.",
+      "original_sha256": "510f1b950be0864f54d5a1e3795d265306239a6360bc5104c32736dacddff621",
+      "original_source_requirement_ledger": {
+        "version": 1,
+        "immutable": true,
+        "requirements": [
+          {
+            "requirement_id": "REQ-001",
+            "text": "Create a small inventory record using exactly three UTF-8 text files.",
+            "category": "functional",
+            "provenance": "USER_STATED",
+            "source_segment": 1,
+            "source_segments": [
+              1
+            ],
+            "source_variants": [
+              "Create a small inventory record using exactly three UTF-8 text files."
+            ],
+            "status": "active",
+            "explicit_items": [
+              "UTF"
+            ],
+            "explicit_item_count": 1
+          },
+          {
+            "requirement_id": "REQ-002",
+            "text": "Each file must contain exactly three lines, with LF line separators and no trailing newline.",
+            "category": "functional",
+            "provenance": "USER_STATED",
+            "source_segment": 5,
+            "source_segments": [
+              5
+            ],
+            "source_variants": [
+              "Each file must contain exactly three lines, with LF line separators and no trailing newline."
+            ],
+            "status": "active",
+            "explicit_items": [
+              "LF"
+            ],
+            "explicit_item_count": 1
+          },
+          {
+            "requirement_id": "REQ-003",
+            "text": "Do not create any other files.",
+            "category": "constraint",
+            "provenance": "USER_STATED",
+            "source_segment": 6,
+            "source_segments": [
+              6
+            ],
+            "source_variants": [
+              "Do not create any other files."
+            ],
+            "status": "active"
+          },
+          {
+            "requirement_id": "REQ-004",
+            "text": "Verify that all three files exist and independently confirm their exact contents before reporting the task as complete.",
+            "category": "acceptance",
+            "provenance": "USER_STATED",
+            "source_segment": 7,
+            "source_segments": [
+              7
+            ],
+            "source_variants": [
+              "Verify that all three files exist and independently confirm their exact contents before reporting the task as complete."
+            ],
+            "status": "active"
+          }
+        ],
+        "confirmed_requirements": [],
+        "limits": {
+          "max_requirements": 64,
+          "max_segment_chars": 2200,
+          "max_explicit_items": 64
+        },
+        "extraction": {
+          "mode": "deterministic",
+          "status": "complete",
+          "segments": 7,
+          "failures": [],
+          "failure_count": 0
+        }
+      },
+      "answers": [],
+      "status": "resolved",
+      "task_id": "1030fbc5dd134c65993fa75a4a478ad8",
+      "routing": "new_task",
+      "source_spans": [
+        {
+          "path": "products.txt",
+          "source_start": 71,
+          "source_end": 147
+        },
+        {
+          "path": "supplier.txt",
+          "source_start": 148,
+          "source_end": 229
+        },
+        {
+          "path": "shipment.txt",
+          "source_start": 230,
+          "source_end": 308
+        }
+      ],
+      "policies": {
+        "required_count": 3,
+        "required_lines": 3,
+        "encoding": "utf-8",
+        "line_endings": "LF",
+        "final_newline": false
+      }
+    }
+  },
+  "latest_trace_run_id": "20261023T000915-20404da5",
+  "metrics_scope": "latest_turn"
+}

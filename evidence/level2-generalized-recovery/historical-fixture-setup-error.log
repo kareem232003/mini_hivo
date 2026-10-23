@@ -1,0 +1,24 @@
+setUpClass (test_v25_4_2_approved_verification_exact_routing.ApprovedVerificationExactRoutingTests) ... ERROR
+
+======================================================================
+ERROR: setUpClass (test_v25_4_2_approved_verification_exact_routing.ApprovedVerificationExactRoutingTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO>\tests\test_v25_4_2_approved_verification_exact_routing.py", line 49, in setUpClass
+    cls.plan = _load("revised_plan_source.json", "plan")
+               ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO>\tests\test_v25_4_2_approved_verification_exact_routing.py", line 40, in _load
+    value = json.loads((ARTIFACT_ROOT / name).read_text(encoding="utf-8"))
+                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH>", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH>", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '<REPO>\\output\\hivo-v25-4-1-stage6c-b-verification-complete-live-1\\artifacts\\revised_plan_source.json'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.006s
+
+FAILED (errors=1)

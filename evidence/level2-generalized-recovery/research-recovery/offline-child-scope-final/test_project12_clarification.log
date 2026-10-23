@@ -1,0 +1,14 @@
+test_answer_cannot_change_original_final_newline_policy (test_project12_clarification.Project12ClarificationTests.test_answer_cannot_change_original_final_newline_policy) ... ok
+test_conflicting_policy_and_duplicate_json_never_execute (test_project12_clarification.Project12ClarificationTests.test_conflicting_policy_and_duplicate_json_never_execute) ... ok
+test_four_actual_manual_turns_in_order (test_project12_clarification.Project12ClarificationTests.test_four_actual_manual_turns_in_order) ... ok
+test_inline_json_answer_and_json_looking_literal_are_distinct (test_project12_clarification.Project12ClarificationTests.test_inline_json_answer_and_json_looking_literal_are_distinct) ... ok
+test_interactive_main_complete_answer_to_persisted_manual_question (test_project12_clarification.Project12ClarificationTests.test_interactive_main_complete_answer_to_persisted_manual_question) ... ok
+test_original_then_prose_wrapped_json_across_cli_invocations (test_project12_clarification.Project12ClarificationTests.test_original_then_prose_wrapped_json_across_cli_invocations) ... ok
+test_pending_independent_task_and_partial_answer_do_not_mix (test_project12_clarification.Project12ClarificationTests.test_pending_independent_task_and_partial_answer_do_not_mix) ... ok
+test_varied_block_counts_spaces_and_literal_instruction_words (test_project12_clarification.Project12ClarificationTests.test_varied_block_counts_spaces_and_literal_instruction_words) ... ok
+test_workspace_binding_rejects_copied_pending_state (test_project12_clarification.Project12ClarificationTests.test_workspace_binding_rejects_copied_pending_state) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 2.381s
+
+OK

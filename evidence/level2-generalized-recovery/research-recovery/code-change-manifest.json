@@ -1,0 +1,19 @@
+{
+  "production": [
+    "mini.py",
+    "hivo/context_sufficiency.py"
+  ],
+  "tests": [
+    "tests/test_context_completed_progress.py",
+    "tests/test_context_recovery_functional.py"
+  ],
+  "workflow": [
+    "scripts/verify_level2_offline.py",
+    ".gitignore"
+  ],
+  "documentation": [
+    "updates/R_UPDATE_003.md",
+    "evidence/level2-generalized-recovery/research-recovery/"
+  ],
+  "remaining_acceptance_failure": "test_recursive_children_recover_and_mutate_with_real_leaf_engine"
+}

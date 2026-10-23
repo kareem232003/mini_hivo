@@ -1,0 +1,78 @@
+{
+  "verification_class": "LIVE_MODEL_END_TO_END",
+  "run_id": "20261022T230703-c63e9980",
+  "model": "gemma4:e4b",
+  "metrics": {
+    "run_id": "20261022T230703-c63e9980",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 9,
+    "tool_calls": 6,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 476.59
+  },
+  "trace_records": 58,
+  "tool_events": 6,
+  "checks": {
+    "every_artifact_exact": true,
+    "context_before_mutation": true,
+    "impact_authorized": true,
+    "builder_native_proofs_for_every_artifact": true,
+    "falsifier_independently_read_every_artifact": true,
+    "required_route_coverage": true,
+    "impact_post_state_pass": true,
+    "transaction_committed": true,
+    "root_verified_done": true,
+    "no_budget_exhaustion": true,
+    "source_identity_matches_trace": true,
+    "real_provider_observed": true,
+    "host_preflight_pass": true
+  },
+  "artifacts": {
+    "test_level_1.txt": {
+      "exact_bytes": true,
+      "expected_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "actual_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "byte_count": 15,
+      "line_separators": 0,
+      "final_newline": false,
+      "oracle_consistent": true
+    }
+  },
+  "builder_native_proofs": {
+    "test_level_1.txt": {
+      "verification_kind": "LITERAL_ARTIFACT",
+      "path": "test_level_1.txt",
+      "status": "PASS",
+      "passed": true,
+      "expected_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "actual_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "impact_contract_hash": "549ddfb851ad8d5e7f339c3aba15c4f874d829f444787884dc082546331bfbf0"
+    }
+  },
+  "falsifier_read_paths": [
+    "test_level_1.txt"
+  ],
+  "route_targets": [
+    "test_level_1.txt"
+  ],
+  "source_sha256": {
+    "mini.py": "09c67b800281a0ad663e90ddb782e3791d2d996f143870a61653f902198f880d",
+    "hivo/artifact_progress.py": "f23708f9170cd10ff9f4cb4ba5f7fd7373536a7518ca5448d7f53f2f8b2dbc28",
+    "hivo/literal_clarification.py": "cb6d6d4dcc9cc79e11e3c5595ad792262bc6d30035387bedbd1374169fa46032",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "source_matches_current_checkout": false,
+  "passed": true,
+  "input_sha256": {
+    "result.json": "1feea949cca69c8a220af436692de54b5822d6b647bb49122cdc098cdcd593c2",
+    "workspace/.agent_runs/20261022T230703-c63e9980.jsonl": "e156dcedce537d75e3bdcf33bf879b9a3a46d801ebb4f97d603e2d0928130bd2",
+    "workspace/.hivo/memory.sqlite3": "30e73ef59b0af158aa070a8a4148c5b793cf2eec343a6c4049b35c61eb2444ae",
+    "workspace/.agent_experiment.jsonl": "8e1ef989f6b2b353aaf47c043df436fb90a33452be5a229294b6a2b442e245b0"
+  }
+}

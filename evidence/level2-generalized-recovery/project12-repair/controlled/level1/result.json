@@ -1,0 +1,352 @@
+{
+  "verification_class": "CONTROLLED_FUNCTIONAL",
+  "case": "level1",
+  "request": "Create a text file named test_level_1.txt containing exactly:Hello Mini Hivo",
+  "turns": [
+    "Create a text file named test_level_1.txt containing exactly:Hello Mini Hivo"
+  ],
+  "source_sha256": {
+    "mini.py": "d1f1311ca0d73369474f2072ad6cac9a2f7ef27979eb2a183d51a42e4a052bc1",
+    "hivo/artifact_progress.py": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+    "hivo/literal_source.py": "c7b1700ea7208ef80aac95ee3fdd0476ab2364f5c3c450a1754a64ac18db4c84",
+    "hivo/literal_clarification.py": "5a63638fff54e3afc45e816b2b3403597efd9516710a2a4167259205e5274c18",
+    "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+    "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+    "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+  },
+  "process_exit": 0,
+  "interrupted": false,
+  "wall_seconds": 0.74,
+  "wall_limit_seconds": 720,
+  "metrics": {
+    "run_id": "20261023T001240-d6087ebb",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 0,
+    "tool_calls": 4,
+    "falsifier_calls": 1,
+    "impact_contract_authorizations": 1,
+    "impact_contract_comparisons": 1,
+    "execution_budget_exhaustions": 0,
+    "elapsed_seconds": 0.69
+  },
+  "turn_statuses": [
+    "done"
+  ],
+  "artifacts": {
+    "test_level_1.txt": {
+      "exists": true,
+      "exact_bytes": true,
+      "expected_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "actual_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "expected_hex": "48656c6c6f204d696e69204869766f"
+    }
+  },
+  "independent_pass": true,
+  "clarification_answers": [],
+  "source_contract": {
+    "status": "ready",
+    "question": "",
+    "goal": "Create a text file named test_level_1.txt containing exactly:Hello Mini Hivo",
+    "requirements": [
+      "Create a text file.",
+      "The file name must be 'test_level_1.txt'.",
+      "The content of the file must be exactly 'Hello Mini Hivo'."
+    ],
+    "constraints": [],
+    "success_criteria": [
+      "every explicit requirement is implemented and verified"
+    ],
+    "original_goal": "Create a text file named test_level_1.txt containing exactly:Hello Mini Hivo",
+    "derived_assumptions": [],
+    "source_requirement_ledger": {
+      "version": 1,
+      "immutable": true,
+      "requirements": [
+        {
+          "requirement_id": "REQ-001",
+          "text": "Create a text file.",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file."
+          ],
+          "status": "active"
+        },
+        {
+          "requirement_id": "REQ-002",
+          "text": "The file name must be 'test_level_1.txt'.",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "The file name must be 'test_level_1.txt'."
+          ],
+          "status": "active",
+          "explicit_items": [
+            "test_level_1.txt"
+          ],
+          "explicit_item_count": 1
+        },
+        {
+          "requirement_id": "REQ-003",
+          "text": "The content of the file must be exactly 'Hello Mini Hivo'.",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "The content of the file must be exactly 'Hello Mini Hivo'."
+          ],
+          "status": "active"
+        }
+      ],
+      "confirmed_requirements": [],
+      "limits": {
+        "max_requirements": 64,
+        "max_segment_chars": 2200,
+        "max_explicit_items": 64
+      },
+      "extraction": {
+        "mode": "deterministic",
+        "status": "complete",
+        "segments": 1,
+        "failures": [],
+        "failure_count": 0
+      }
+    },
+    "source_requirements": [
+      {
+        "requirement_id": "REQ-001",
+        "text": "Create a text file.",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file."
+        ],
+        "status": "active"
+      },
+      {
+        "requirement_id": "REQ-002",
+        "text": "The file name must be 'test_level_1.txt'.",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "The file name must be 'test_level_1.txt'."
+        ],
+        "status": "active",
+        "explicit_items": [
+          "test_level_1.txt"
+        ],
+        "explicit_item_count": 1
+      },
+      {
+        "requirement_id": "REQ-003",
+        "text": "The content of the file must be exactly 'Hello Mini Hivo'.",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "The content of the file must be exactly 'Hello Mini Hivo'."
+        ],
+        "status": "active"
+      }
+    ],
+    "user_stated_requirements": [
+      {
+        "requirement_id": "REQ-001",
+        "text": "Create a text file.",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "Create a text file."
+        ],
+        "status": "active"
+      },
+      {
+        "requirement_id": "REQ-002",
+        "text": "The file name must be 'test_level_1.txt'.",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "The file name must be 'test_level_1.txt'."
+        ],
+        "status": "active",
+        "explicit_items": [
+          "test_level_1.txt"
+        ],
+        "explicit_item_count": 1
+      },
+      {
+        "requirement_id": "REQ-003",
+        "text": "The content of the file must be exactly 'Hello Mini Hivo'.",
+        "category": "functional",
+        "provenance": "USER_STATED",
+        "source_segment": 1,
+        "source_segments": [
+          1
+        ],
+        "source_variants": [
+          "The content of the file must be exactly 'Hello Mini Hivo'."
+        ],
+        "status": "active"
+      }
+    ],
+    "user_confirmed_requirements": [],
+    "clarification_questions": [],
+    "clarification_answers": [],
+    "interaction_style": "PRECISION_SENSITIVE",
+    "clarifications": [],
+    "source_contract": {
+      "root_goal": "Create a text file named test_level_1.txt containing exactly:Hello Mini Hivo",
+      "source_requirement_ledger": {
+        "version": 1,
+        "immutable": true,
+        "requirements": [
+          {
+            "requirement_id": "REQ-001",
+            "text": "Create a text file.",
+            "category": "functional",
+            "provenance": "USER_STATED",
+            "source_segment": 1,
+            "source_segments": [
+              1
+            ],
+            "source_variants": [
+              "Create a text file."
+            ],
+            "status": "active"
+          },
+          {
+            "requirement_id": "REQ-002",
+            "text": "The file name must be 'test_level_1.txt'.",
+            "category": "functional",
+            "provenance": "USER_STATED",
+            "source_segment": 1,
+            "source_segments": [
+              1
+            ],
+            "source_variants": [
+              "The file name must be 'test_level_1.txt'."
+            ],
+            "status": "active",
+            "explicit_items": [
+              "test_level_1.txt"
+            ],
+            "explicit_item_count": 1
+          },
+          {
+            "requirement_id": "REQ-003",
+            "text": "The content of the file must be exactly 'Hello Mini Hivo'.",
+            "category": "functional",
+            "provenance": "USER_STATED",
+            "source_segment": 1,
+            "source_segments": [
+              1
+            ],
+            "source_variants": [
+              "The content of the file must be exactly 'Hello Mini Hivo'."
+            ],
+            "status": "active"
+          }
+        ],
+        "confirmed_requirements": [],
+        "limits": {
+          "max_requirements": 64,
+          "max_segment_chars": 2200,
+          "max_explicit_items": 64
+        },
+        "extraction": {
+          "mode": "deterministic",
+          "status": "complete",
+          "segments": 1,
+          "failures": [],
+          "failure_count": 0
+        }
+      },
+      "user_stated_requirements": [
+        {
+          "requirement_id": "REQ-001",
+          "text": "Create a text file.",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "Create a text file."
+          ],
+          "status": "active"
+        },
+        {
+          "requirement_id": "REQ-002",
+          "text": "The file name must be 'test_level_1.txt'.",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "The file name must be 'test_level_1.txt'."
+          ],
+          "status": "active",
+          "explicit_items": [
+            "test_level_1.txt"
+          ],
+          "explicit_item_count": 1
+        },
+        {
+          "requirement_id": "REQ-003",
+          "text": "The content of the file must be exactly 'Hello Mini Hivo'.",
+          "category": "functional",
+          "provenance": "USER_STATED",
+          "source_segment": 1,
+          "source_segments": [
+            1
+          ],
+          "source_variants": [
+            "The content of the file must be exactly 'Hello Mini Hivo'."
+          ],
+          "status": "active"
+        }
+      ],
+      "user_confirmed_requirements": [],
+      "derived_assumptions": [],
+      "clarification_questions": [],
+      "clarification_answers": [],
+      "interaction_style": "PRECISION_SENSITIVE"
+    }
+  },
+  "latest_trace_run_id": "20261023T001240-d6087ebb",
+  "metrics_scope": "latest_turn"
+}

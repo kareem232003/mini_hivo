@@ -1,0 +1,66 @@
+{
+  "entries": [
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/focused-results.log",
+      "source_sha256": "b2ff5a29809702d6242c76cd5cbcb32927e72c2ebf815d111b3e9779f4c976bd",
+      "derivative": "focused-results.log",
+      "derivative_sha256": "e7840c071fec8f94de3feff2cad7b704fd1e5f30939b9aa2baa93cac5358cc74"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/compatibility-retest.log",
+      "source_sha256": "b093028842d472b7ab21d732df6510e5a85440474ee5ee633987dc418edf2213",
+      "derivative": "compatibility-retest.log",
+      "derivative_sha256": "138a9dcfa482c69fb1cff6c16292615349abb6881d1a6dfc91d31632549920f8"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/offline-final/results.json",
+      "source_sha256": "16a9cd20c2f1c87c3914307d785d04c6ba8eafccc0732bd9e7adbb1f94a202a7",
+      "derivative": "offline-final/results.json",
+      "derivative_sha256": "d3534ea012aa681204fe2ffcc6f20cfafa25f4fa7a35d50aa3e0496d61834aec"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/live-final/inventory/result.json",
+      "source_sha256": "6204fc7520f62fdefd6bbd61f7cc085e6506e3dc1bf59b2ab11beee9f8af70fe",
+      "derivative": "live-final/inventory/result.json",
+      "derivative_sha256": "0dceaab4c8c636d0a2909937cc10469de121498d1c3c6a47dc7783060421b252"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/controlled-final/inventory/inspection.json",
+      "source_sha256": "9b31e5cc47e8f91109fd0469a4a9647c9ebec3ee6334720aadad10eb309a0cc2",
+      "derivative": "controlled-final/inventory/inspection.json",
+      "derivative_sha256": "849f883b4fcd60f072b885e58d23ec9b0a0115b979e4e60cb8b9867f5b6c91f3"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/controlled-final/json-resumption/inspection.json",
+      "source_sha256": "7aa42fb214499786c4a2eee9445697064a739dedb030a49d162af44e88c5983f",
+      "derivative": "controlled-final/json-resumption/inspection.json",
+      "derivative_sha256": "abb21541804d4109df7e8e5a32a995be382626efef4943d08907d547c5fc8c7e"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/controlled-final/level1/inspection.json",
+      "source_sha256": "2a885ec50e507fe59adfc02646471543bd7e3686033e293b51c9af5c706ca97c",
+      "derivative": "controlled-final/level1/inspection.json",
+      "derivative_sha256": "6dc4032785aea6892eab14765500423dbd5eac2688ab1a2f14bb6c7345e21124"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/controlled-final/structured-blocks/inspection.json",
+      "source_sha256": "8a8531a25772688d51805c72474b0dfe9eeb7af3c20929f4653c6b1a470cb96f",
+      "derivative": "controlled-final/structured-blocks/inspection.json",
+      "derivative_sha256": "1373839a2c0d0f4f5fcf3ddf75653f6e08cf18369bc0eeac0d181ffa5997e772"
+    },
+    {
+      "source": "audit_runs/20261021-workspace-audit/level2-recursive-progress/manual-success-inspection/inspection.json",
+      "source_sha256": "802d6d154ec47379207f197e99f92f94da7fcdda1bd73cf658406a0f924c906e",
+      "derivative": "manual-success-inspection.json",
+      "derivative_sha256": "2ac66d1852b79dd7b13f20181f26cb14d4b056af2b80e3c61f404415c5d29fa7"
+    }
+  ],
+  "canonical_bytes": "UTF-8 LF",
+  "preserved_original_files": 16,
+  "originals_and_zip_valid": true,
+  "production_sha256": {
+    "mini.py": "f1c5056c410a97ea9470ffaddba1a45ce43b494eb5a99b22d44c7aed85299eee",
+    "hivo/context_sufficiency.py": "114025917bae6fa3e692809f9e9c1ef721334e75d3e8dd02bfd9706b48ed4e28"
+  },
+  "note": "Registry and observations are authored local summaries; raw transcripts/databases/backups are private."
+}

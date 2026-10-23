@@ -1,0 +1,40 @@
+{
+  "verification_class": "CONTROLLED_FUNCTIONAL",
+  "cases": [
+    {
+      "artifacts": 1,
+      "run_id": "20261022T231800-c55ff39c",
+      "all_independent_checks_passed": true
+    },
+    {
+      "artifacts": 2,
+      "run_id": "20261022T231806-06e44694",
+      "all_independent_checks_passed": true
+    },
+    {
+      "artifacts": 3,
+      "run_id": "20261022T231813-71f906a4",
+      "all_independent_checks_passed": true
+    },
+    {
+      "artifacts": 4,
+      "run_id": "20261022T231820-a5881607",
+      "all_independent_checks_passed": true
+    },
+    {
+      "artifacts": 5,
+      "run_id": "20261022T231826-a0bd8cb7",
+      "all_independent_checks_passed": true
+    },
+    {
+      "artifacts": 8,
+      "run_id": "20261022T231833-738f8e71",
+      "all_independent_checks_passed": true
+    },
+    {
+      "artifacts": 10,
+      "run_id": "20261022T231840-288b4706",
+      "all_independent_checks_passed": true
+    }
+  ]
+}

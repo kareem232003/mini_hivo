@@ -1,0 +1,44 @@
+test_recursive_children_recover_and_mutate_with_real_leaf_engine (test_context_recovery_functional.ContextRecoveryFunctionalTests.test_recursive_children_recover_and_mutate_with_real_leaf_engine) ... ERROR
+
+======================================================================
+ERROR: test_recursive_children_recover_and_mutate_with_real_leaf_engine (test_context_recovery_functional.ContextRecoveryFunctionalTests.test_recursive_children_recover_and_mutate_with_real_leaf_engine)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<LOCAL_PATH>", line 28, in test_recursive_children_recover_and_mutate_with_real_leaf_engine
+    result=mini._execute_children(parent,children,0,contract,{}, {'files':[]},'',[],
+        fit_decider=lambda *args:{'decision':'execute'},leaf_executor=None,aggregator=None)
+  File "<LOCAL_PATH>", line 23105, in _execute_children
+    result = solve_task(
+        child, depth + 1, contract, memory, repo_snapshot,
+        parent_summary=child_parent, dependency_summaries=child_dependencies,
+        fit_decider=fit_decider, leaf_executor=leaf_executor, aggregator=aggregator,
+    )
+  File "<LOCAL_PATH>", line 23574, in solve_task
+    leaf = executor(task, contract, memory, repo_snapshot, parent_summary, dependency_summaries)
+  File "<LOCAL_PATH>", line 20396, in execute_leaf
+    repaired = repair_task(
+        task, ACTIVE_TOOL_CONTRACT, current_gate["deterministic_failures"], memory, node_context,
+        parent_goal=parent_summary,
+    )
+  File "<LOCAL_PATH>", line 20047, in repair_task
+    return execute_agent_task(
+        task["goal"], memory, role="Repairer", task_id=task["id"], extra_context=context,
+    ...<20 lines>...
+        impact_contract_required=bool(task.get("impact_contract_required")),
+    )
+  File "<LOCAL_PATH>", line 14713, in execute_agent_task
+    assistant_message = ask_ollama(messages, tools=offered_tools, role=role, think=False)
+  File "<LOCAL_PATH>", line 1176, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH>", line 1180, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "<LOCAL_PATH>", line 1243, in _execute_mock_call
+    result = next(effect)
+StopIteration
+
+----------------------------------------------------------------------
+Ran 1 test in 0.338s
+
+FAILED (errors=1)

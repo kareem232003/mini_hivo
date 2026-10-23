@@ -1,0 +1,14 @@
+test_actual_main_you_turns_accept_json_then_run_all_real_gates (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_actual_main_you_turns_accept_json_then_run_all_real_gates) ... ok
+test_actual_main_you_turns_accept_plain_confirmation (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_actual_main_you_turns_accept_plain_confirmation) ... ok
+test_clarification_cannot_discard_original_line_count (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_clarification_cannot_discard_original_line_count) ... ok
+test_informal_and_arabic_instruction_aliases_keep_literal_bytes (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_informal_and_arabic_instruction_aliases_keep_literal_bytes) ... ok
+test_json_definitions_and_tail_are_validated_not_ignored (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_json_definitions_and_tail_are_validated_not_ignored) ... ok
+test_ordinary_confirmation_accepts_only_explicit_preview (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_ordinary_confirmation_accepts_only_explicit_preview) ... ok
+test_partial_answer_cannot_discard_unlabelled_original_file_count (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_partial_answer_cannot_discard_unlabelled_original_file_count) ... ok
+test_partial_conflicting_invalid_and_unrelated_answers_preserve_requirements (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_partial_conflicting_invalid_and_unrelated_answers_preserve_requirements) ... ok
+test_pending_survives_run_reset_and_json_answer_resolves_with_provenance (test_literal_clarification_lifecycle.LiteralClarificationLifecycleTests.test_pending_survives_run_reset_and_json_answer_resolves_with_provenance) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 5.811s
+
+OK

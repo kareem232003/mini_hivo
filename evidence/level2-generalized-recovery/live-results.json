@@ -1,0 +1,110 @@
+{
+  "scope": "Five source variants, not a repeatability cohort or reliability rate. Only the last pins final production. Clarified user-confirmed byte oracle.",
+  "runs": [
+    {
+      "cohort": "live-2",
+      "final_production_source": false,
+      "result": "live/live-2-result.json",
+      "inspection": "live/live-2-inspection.json",
+      "run_id": "20261022T012854-122c3528",
+      "metrics": {
+        "run_id": "20261022T012854-122c3528",
+        "status": "done",
+        "root_verified": true,
+        "model_calls": 9,
+        "tool_calls": 7,
+        "falsifier_calls": 1,
+        "impact_contract_authorizations": 1,
+        "impact_contract_comparisons": 1,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 360.92
+      },
+      "passed": true,
+      "matches_current_production": false
+    },
+    {
+      "cohort": "live-final",
+      "final_production_source": false,
+      "result": "live/live-final-result.json",
+      "inspection": "live/live-final-inspection.json",
+      "run_id": "20261022T013609-28de17cd",
+      "metrics": {
+        "run_id": "20261022T013609-28de17cd",
+        "status": "done",
+        "root_verified": true,
+        "model_calls": 9,
+        "tool_calls": 7,
+        "falsifier_calls": 1,
+        "impact_contract_authorizations": 1,
+        "impact_contract_comparisons": 1,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 443.71
+      },
+      "passed": true,
+      "matches_current_production": false
+    },
+    {
+      "cohort": "live-reviewed",
+      "final_production_source": false,
+      "result": "live/live-reviewed-result.json",
+      "inspection": "live/live-reviewed-inspection.json",
+      "run_id": "20261022T014538-aa122b2a",
+      "metrics": {
+        "run_id": "20261022T014538-aa122b2a",
+        "status": "done",
+        "root_verified": true,
+        "model_calls": 9,
+        "tool_calls": 7,
+        "falsifier_calls": 1,
+        "impact_contract_authorizations": 1,
+        "impact_contract_comparisons": 1,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 387.96
+      },
+      "passed": true,
+      "matches_current_production": false
+    },
+    {
+      "cohort": "live-accepted",
+      "final_production_source": false,
+      "result": "live/live-accepted-result.json",
+      "inspection": "live/live-accepted-inspection.json",
+      "run_id": "20261022T015329-0611aa7d",
+      "metrics": {
+        "run_id": "20261022T015329-0611aa7d",
+        "status": "done",
+        "root_verified": true,
+        "model_calls": 9,
+        "tool_calls": 7,
+        "falsifier_calls": 1,
+        "impact_contract_authorizations": 1,
+        "impact_contract_comparisons": 1,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 386.87
+      },
+      "passed": true,
+      "matches_current_production": false
+    },
+    {
+      "cohort": "live-final-source",
+      "final_production_source": true,
+      "result": "live/live-final-source-result.json",
+      "inspection": "live/live-final-source-inspection.json",
+      "run_id": "20261022T020137-6b8c1201",
+      "metrics": {
+        "run_id": "20261022T020137-6b8c1201",
+        "status": "done",
+        "root_verified": true,
+        "model_calls": 9,
+        "tool_calls": 7,
+        "falsifier_calls": 1,
+        "impact_contract_authorizations": 1,
+        "impact_contract_comparisons": 1,
+        "execution_budget_exhaustions": 0,
+        "elapsed_seconds": 399.18
+      },
+      "passed": true,
+      "matches_current_production": true
+    }
+  ]
+}

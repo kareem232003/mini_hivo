@@ -1,0 +1,165 @@
+{
+  "canonical_bytes": "UTF-8 LF",
+  "entries": [
+    {
+      "source": "list/project-21/.agent_runs/20261023T160330-5a172f42.jsonl",
+      "source_sha256": "271e9755c76e9a12bd6eb3a4da420a63313759ee2303c6a7e5d7ef1e584973e6",
+      "derivative": "20261023T160330-5a172f42-trace.json",
+      "derivative_sha256": "3601ebd3b0520734dbdbfd680d2db3f4ea6bf3cbf2a0acf12b93d34b42e82fe1"
+    },
+    {
+      "source": "list/project-21/.hivo/memory.sqlite3",
+      "source_sha256": "56450a6b705da1e6839ff5a6e7a1b439bd7b1806c3634b1e7b99c4b32c338dc4",
+      "derivative": "20261023T160330-5a172f42-tools.json",
+      "derivative_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "source": "list/project-21/.agent_runs/20261023T160636-e485f2be.jsonl",
+      "source_sha256": "eb237fe7a4c50a45b7099d268ca46cd801f453481602b76c8d293e93bc0280bd",
+      "derivative": "20261023T160636-e485f2be-trace.json",
+      "derivative_sha256": "f07eae4d0b904e80956e4ee76a1756924ebc40ae27d00cfaa6d96066a0be1671"
+    },
+    {
+      "source": "list/project-21/.hivo/memory.sqlite3",
+      "source_sha256": "56450a6b705da1e6839ff5a6e7a1b439bd7b1806c3634b1e7b99c4b32c338dc4",
+      "derivative": "20261023T160636-e485f2be-tools.json",
+      "derivative_sha256": "9c793e2d4cd6b27320622186f720ffe93e897c286c9d6d998fb89ad349fefffd"
+    },
+    {
+      "source": "list/project-21/.agent_experiment.jsonl",
+      "source_sha256": "8c8aa1b092d3280ceb6526b6fcb2085f7f2113e1c81a26a6bd489f9a9eaffe68",
+      "derivative": "latest-run-registry.json",
+      "derivative_sha256": "bf25352d6f8e0024bb69d8982f3d2c214eaac42509fdcaa431ff0d6c01d7981d"
+    }
+  ],
+  "preserved_original_file_count": 7,
+  "original_backup": "private checkpoint audit directory",
+  "notes": "SQLite derivatives are selected event rows, not deployable runtime state. Raw originals and backup stay private. Authored documentation/file lists are outside these derivative pairs.",
+  "source_byte_provenance": [
+    {
+      "path": "hivo/artifact_progress.py",
+      "tested_windows_working_sha256": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+      "published_blob_sha256": "f6cf4b2836057c867adef87db4f8b6599f123f0beeeda34eb909402d8e73f0d0",
+      "bytes_differ_only_in_source_line_endings": true
+    },
+    {
+      "path": "hivo/context_sufficiency.py",
+      "tested_windows_working_sha256": "5256861508525786fd6848d8476bc8ac8d2a20d04be35bbd99034dc2314a2d8b",
+      "published_blob_sha256": "5256861508525786fd6848d8476bc8ac8d2a20d04be35bbd99034dc2314a2d8b",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "hivo/literal_clarification.py",
+      "tested_windows_working_sha256": "5a63638fff54e3afc45e816b2b3403597efd9516710a2a4167259205e5274c18",
+      "published_blob_sha256": "5a63638fff54e3afc45e816b2b3403597efd9516710a2a4167259205e5274c18",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "hivo/literal_source.py",
+      "tested_windows_working_sha256": "c7b1700ea7208ef80aac95ee3fdd0476ab2364f5c3c450a1754a64ac18db4c84",
+      "published_blob_sha256": "c7b1700ea7208ef80aac95ee3fdd0476ab2364f5c3c450a1754a64ac18db4c84",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "hivo/pre_mutation_impact.py",
+      "tested_windows_working_sha256": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+      "published_blob_sha256": "9f67fe8efd68f76805628222f0bf5a8ce171f40b321c3eb7324685737fab4d55",
+      "bytes_differ_only_in_source_line_endings": true
+    },
+    {
+      "path": "hivo/requirements.py",
+      "tested_windows_working_sha256": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+      "published_blob_sha256": "ad8779fd6e672b92c8086e0699198af6003deee93ee60ca03a033b9c8bf65d52",
+      "bytes_differ_only_in_source_line_endings": true
+    },
+    {
+      "path": "hivo/verification_routing.py",
+      "tested_windows_working_sha256": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3",
+      "published_blob_sha256": "397a3e85c2f24654830db11514ed266446a3f7f79d10a95ac96f5a40988edbc2",
+      "bytes_differ_only_in_source_line_endings": true
+    },
+    {
+      "path": "mini.py",
+      "tested_windows_working_sha256": "5a5c337ee868408706ff31b35090c88f2d071f3a50be8481294e67f502aefeae",
+      "published_blob_sha256": "d6f7e391b55e0f57d20252d2c1e6ff3b7c73076a48072dd3f53801c93f90ad7c",
+      "bytes_differ_only_in_source_line_endings": true
+    },
+    {
+      "path": "scripts/inspect_level2_replay.py",
+      "tested_windows_working_sha256": "4ffa44a52579477553a5d3e5ef041157db68f6eeda3df0614a869a7212b3c607",
+      "published_blob_sha256": "4ffa44a52579477553a5d3e5ef041157db68f6eeda3df0614a869a7212b3c607",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "scripts/level1_native_verification_replay.py",
+      "tested_windows_working_sha256": "0c2bbce360059ff6c500aea178e2e70816a8c8517333a3da90e84a13832f194e",
+      "published_blob_sha256": "271d716a418ccacb88cd39054dec593088a0485fdf1fdd5ee08a18d58e217cdc",
+      "bytes_differ_only_in_source_line_endings": true
+    },
+    {
+      "path": "scripts/level2_clarification_replay.py",
+      "tested_windows_working_sha256": "5442d78c88414d466f5461abd0e24c9d774845f2198b74479ebba49e05fb52e8",
+      "published_blob_sha256": "5442d78c88414d466f5461abd0e24c9d774845f2198b74479ebba49e05fb52e8",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "scripts/level2_recovery_replay.py",
+      "tested_windows_working_sha256": "067edaba7d5d5ac1c4e6e98828f544a6da5441d7d6430465b5139610f26c3590",
+      "published_blob_sha256": "067edaba7d5d5ac1c4e6e98828f544a6da5441d7d6430465b5139610f26c3590",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "scripts/verify_level2_offline.py",
+      "tested_windows_working_sha256": "a7901801d82396f8d9d877f4b9baf80fc05332c08c9a5f53babf73901a31b7bf",
+      "published_blob_sha256": "a7901801d82396f8d9d877f4b9baf80fc05332c08c9a5f53babf73901a31b7bf",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "tests/test_adaptive_architecture.py",
+      "tested_windows_working_sha256": "98cdc4fc6f726b3deb9dc049b0d93fa4a9bfad853d21c4b70eb636bb88c53862",
+      "published_blob_sha256": "98cdc4fc6f726b3deb9dc049b0d93fa4a9bfad853d21c4b70eb636bb88c53862",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "tests/test_context_completed_progress.py",
+      "tested_windows_working_sha256": "6c6187bdceb35cb6d2c045aa037bf637a47178b5432f8c5de77a18533d60d34a",
+      "published_blob_sha256": "6c6187bdceb35cb6d2c045aa037bf637a47178b5432f8c5de77a18533d60d34a",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "tests/test_context_recovery_functional.py",
+      "tested_windows_working_sha256": "f20730152ec7051fedb341d8724dac8bf5c827dd8bb97a22ae54ac60d8b30b12",
+      "published_blob_sha256": "f20730152ec7051fedb341d8724dac8bf5c827dd8bb97a22ae54ac60d8b30b12",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "tests/test_level1_native_verification.py",
+      "tested_windows_working_sha256": "da5b9ce7fb2bd617a00cf03b2feadb0f59b1db407272fce61dff87ef30e77b34",
+      "published_blob_sha256": "6a075547f454405ed3e7c6dfa6dd252e568177bf2115a664a89997a18dca8ac9",
+      "bytes_differ_only_in_source_line_endings": true
+    },
+    {
+      "path": "tests/test_level2_generalized_recovery.py",
+      "tested_windows_working_sha256": "75bf393fcf81bf9e5e4321fe6ceb12ac9cae8e798bbb9a50632ae2222c840543",
+      "published_blob_sha256": "ed92e58f7c450280402fbc06305ce97ed7d5d3bd1110c799b6ad018c4b82c1ce",
+      "bytes_differ_only_in_source_line_endings": true
+    },
+    {
+      "path": "tests/test_literal_clarification_lifecycle.py",
+      "tested_windows_working_sha256": "3f387bef6654bf156670ff25e6a3a15be735427ad77a81d52dcee3d03467c38a",
+      "published_blob_sha256": "3f387bef6654bf156670ff25e6a3a15be735427ad77a81d52dcee3d03467c38a",
+      "bytes_differ_only_in_source_line_endings": false
+    },
+    {
+      "path": "tests/test_project12_clarification.py",
+      "tested_windows_working_sha256": "bbc0e7c2f9bb21e2d0f2cc1a1486651091a92afcd14e0028e60e8dcbec33d203",
+      "published_blob_sha256": "bbc0e7c2f9bb21e2d0f2cc1a1486651091a92afcd14e0028e60e8dcbec33d203",
+      "bytes_differ_only_in_source_line_endings": false
+    }
+  ],
+  "source_policy": "Existing Git autocrlf policy normalizes source line endings; runtime source hashes in historical evidence identify tested Windows bytes, not normalized Git blob bytes. All staged Python ASTs match working copies. Curated derivative hashes are checked against staged blobs independently.",
+  "whitespace_review": {
+    "diagnostics": 3,
+    "meaning": "Two preserved diagnostic log trailing spaces and one existing new-module EOF blank line; reviewed formatting only. git diff --cached --check is not reported as passing."
+  }
+}

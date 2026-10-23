@@ -1,0 +1,404 @@
+{
+  "hash_policy": "Original hashes identify retained raw sources; derivative hashes identify canonical sanitized working-tree bytes. Nothing is staged. No history erasure.",
+  "files": [
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/failures-b-c-summary.json",
+      "original_sha256": "4019e18d5e4c4329b234f9ca6f168bd2e661f12f814d497917b0773677460ee3",
+      "publication_path": "failures-b-c-summary.json",
+      "publication_sha256": "4019e18d5e4c4329b234f9ca6f168bd2e661f12f814d497917b0773677460ee3",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/current-source-pins.json",
+      "original_sha256": "d57937feb9f6903370acbabee11f6069911d579cfbc06a1d1d1c9c29b238d4fc",
+      "publication_path": "source-pins.json",
+      "publication_sha256": "b04af7b86ae897005d8425e4abfc4cc7e0e8f552d19fe3c25dc1289e21b26e73",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/pre-review-source-pins.json",
+      "original_sha256": "46f78cac157c2efcf2998877a4c5ed9cdfc12f22cf43398ee005115ac1548418",
+      "publication_path": "pre-review-source-pins.json",
+      "publication_sha256": "3365666ab2488cf963b2b6e0739b45e3bcf0b60452f79fa0376561d97cb2ffc3",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/results.json",
+      "original_sha256": "f32fb7a8d1ed21598468941ef463b9803838b04207c263dcdd550d29b0c06adf",
+      "publication_path": "offline/results.json",
+      "publication_sha256": "eb1d369e5a167cb1400268e26db4f6ee96a08dc7289c46f4aac635dc8668aaef",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_adaptive_architecture.log",
+      "original_sha256": "7f6eac270e5e8cc46d7cd61e9878339b96ae5524977dbab07c3e2aa05af59f93",
+      "publication_path": "offline/test_adaptive_architecture.log",
+      "publication_sha256": "7f6eac270e5e8cc46d7cd61e9878339b96ae5524977dbab07c3e2aa05af59f93",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_authorityall.log",
+      "original_sha256": "15775c32295cebcb4a38b9629164a1b7fedf128753da0ca0e2cecfb11df09d2a",
+      "publication_path": "offline/test_authorityall.log",
+      "publication_sha256": "15775c32295cebcb4a38b9629164a1b7fedf128753da0ca0e2cecfb11df09d2a",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_context_sufficiency_gate.log",
+      "original_sha256": "9389625f1039902161706c8d03bb69e9d4b2996274c1b16bc56f1fc5f5f1b038",
+      "publication_path": "offline/test_context_sufficiency_gate.log",
+      "publication_sha256": "9389625f1039902161706c8d03bb69e9d4b2996274c1b16bc56f1fc5f5f1b038",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_experimentall.log",
+      "original_sha256": "ad6ece9442d4816d5601a61d59ea595c84afdfdad9e115333a4e5a2eadac5350",
+      "publication_path": "offline/test_experimentall.log",
+      "publication_sha256": "ad6ece9442d4816d5601a61d59ea595c84afdfdad9e115333a4e5a2eadac5350",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_greenfield_impact_lifecycle.log",
+      "original_sha256": "232cafe1ad61e4c2ddbf5638a3d03d1fe43f09d1457476dc13011252ef724689",
+      "publication_path": "offline/test_greenfield_impact_lifecycle.log",
+      "publication_sha256": "232cafe1ad61e4c2ddbf5638a3d03d1fe43f09d1457476dc13011252ef724689",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_level1_native_verification.log",
+      "original_sha256": "18439fe65608efa05eb241f4df9e5d0261da5c73816a409b05ab5d9386754da3",
+      "publication_path": "offline/test_level1_native_verification.log",
+      "publication_sha256": "18439fe65608efa05eb241f4df9e5d0261da5c73816a409b05ab5d9386754da3",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_level2_generalized_recovery.log",
+      "original_sha256": "e078333a8e8249f33b1ede0ef7d87a9c85e78eb6db378d4ab28acd3d02cf9d36",
+      "publication_path": "offline/test_level2_generalized_recovery.log",
+      "publication_sha256": "e078333a8e8249f33b1ede0ef7d87a9c85e78eb6db378d4ab28acd3d02cf9d36",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_literal_clarification_lifecycle.log",
+      "original_sha256": "52e2f293f13dcab0844d048f2b37dca2f3cbf1c9d563835ce9be52d4f7622765",
+      "publication_path": "offline/test_literal_clarification_lifecycle.log",
+      "publication_sha256": "52e2f293f13dcab0844d048f2b37dca2f3cbf1c9d563835ce9be52d4f7622765",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_model_policy.log",
+      "original_sha256": "1aeb49c4d53fac93972a46cc16eaf296dd859fdae4b37e3bd38ec46c8f837a89",
+      "publication_path": "offline/test_model_policy.log",
+      "publication_sha256": "1aeb49c4d53fac93972a46cc16eaf296dd859fdae4b37e3bd38ec46c8f837a89",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_pre_mutation_impact.log",
+      "original_sha256": "43442aa76bff2354e71a8baa459dbe51df9dc026c20a4777d31ef8cad0b799d1",
+      "publication_path": "offline/test_pre_mutation_impact.log",
+      "publication_sha256": "43442aa76bff2354e71a8baa459dbe51df9dc026c20a4777d31ef8cad0b799d1",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_project_understanding.log",
+      "original_sha256": "4c8c1b24e09c92759ad34f60445f91978a9f82aeca611c510a5c2c8d1cb88985",
+      "publication_path": "offline/test_project_understanding.log",
+      "publication_sha256": "4c8c1b24e09c92759ad34f60445f91978a9f82aeca611c510a5c2c8d1cb88985",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_requirement_clarification.log",
+      "original_sha256": "b5591a7e5eee96a68f404f082179bec3ea1408ecc202e452a176195c93f85f6a",
+      "publication_path": "offline/test_requirement_clarification.log",
+      "publication_sha256": "b5591a7e5eee96a68f404f082179bec3ea1408ecc202e452a176195c93f85f6a",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_v26_all.log",
+      "original_sha256": "853d3d6d88e45f4fef6a8d62d61336db56395be292defef6ff426cb1b3868d92",
+      "publication_path": "offline/test_v26_all.log",
+      "publication_sha256": "de21684ceee47698850f482b92b31c6bbf09169d8a478f8c2f0604a6a37aa411",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_verification_applicability.log",
+      "original_sha256": "4c2164fc33491d49777d9a58e84b14a7f698ab67d4fa044b67a5b7ebab25643e",
+      "publication_path": "offline/test_verification_applicability.log",
+      "publication_sha256": "4c2164fc33491d49777d9a58e84b14a7f698ab67d4fa044b67a5b7ebab25643e",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-reviewed-final/test_verification_policy.log",
+      "original_sha256": "3cb8e7c82ffeb77dc011ef9dfbe8159b0c8d2032cf245f31855d027217350fca",
+      "publication_path": "offline/test_verification_policy.log",
+      "publication_sha256": "671c911e0a987f437e72e8af8a78d51e007815e83681437d5ecc0f7533f90216",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/offline-first/test_level2_generalized_recovery.log",
+      "original_sha256": "64b66274474cff7bbf65f36cf8cd2d0b36006b190c2e663838551ebee8ff02f5",
+      "publication_path": "development-ten-file-missing-coverage.log",
+      "publication_sha256": "56bb771c7acc0a7f8ae1fb026ea32ae9459199b57ec6583d580524ce1df7f15f",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/review-counterexamples/results.log",
+      "original_sha256": "c8c7d2e645e7f0d0db214d9da04f01989027f4b6b6c3226fc2cfd2ed34202bda",
+      "publication_path": "development-clarification-projection-and-count.log",
+      "publication_sha256": "7279c32c2293bcb91d5d0c5ab3378d4a2597a67b72d542a8e10f66b7d1ee5c52",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-reviewed-1/result.json",
+      "original_sha256": "47947f7b9ad58db07e5d29d2a74f7467ada1eb9d38c557453477b283deeabf06",
+      "publication_path": "controlled/1-result.json",
+      "publication_sha256": "7a37515632d2c0630bc34595cc2371111af0afbbd447e76d5fd3d2bdbccef4ad",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-1-final-inspection.json",
+      "original_sha256": "c3e24ae97f3a551d97b8ed86f9ef0b1f865a9b6241af5436b6973ceca259afeb",
+      "publication_path": "controlled/1-inspection.json",
+      "publication_sha256": "c3e24ae97f3a551d97b8ed86f9ef0b1f865a9b6241af5436b6973ceca259afeb",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-reviewed-2/result.json",
+      "original_sha256": "744f746bb57e098cd169d71a8f584d72fe5ddc8d40341d9be70f10a96100f031",
+      "publication_path": "controlled/2-result.json",
+      "publication_sha256": "ef7221853f97d3e56ee282668f5259b1171583077f6443d423c6203d8d8e95cf",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-2-final-inspection.json",
+      "original_sha256": "db60ee9a9439fbf6654d91db71d15e2313e941ccedaae25e7e093e34706ddf64",
+      "publication_path": "controlled/2-inspection.json",
+      "publication_sha256": "db60ee9a9439fbf6654d91db71d15e2313e941ccedaae25e7e093e34706ddf64",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-reviewed-3/result.json",
+      "original_sha256": "1ec403d69599cbb5e27aba65fdf9fcaf9cc585b559c0a8c350b34d415dc514c9",
+      "publication_path": "controlled/3-result.json",
+      "publication_sha256": "040bd554be8edaecf398fcebf20d598c147c00dad0d8e3385399baad2a009c68",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-3-final-inspection.json",
+      "original_sha256": "76392a70cc8ed1dcbc719ee738c6fe3382f3adc347d1aa736aa2515d90dac042",
+      "publication_path": "controlled/3-inspection.json",
+      "publication_sha256": "76392a70cc8ed1dcbc719ee738c6fe3382f3adc347d1aa736aa2515d90dac042",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-reviewed-4/result.json",
+      "original_sha256": "d9ebcd25cf7905606db58d0cb38d371a17896159e6ef50cd4f89eff3085ef95f",
+      "publication_path": "controlled/4-result.json",
+      "publication_sha256": "28cd5ad07f5403864bd9a038f0d73ae4c18d356b58dcee89232208edde6af82a",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-4-final-inspection.json",
+      "original_sha256": "321d5372c56781997086c42b9796c829d047a3d5e8d582f811022adcef5a8316",
+      "publication_path": "controlled/4-inspection.json",
+      "publication_sha256": "321d5372c56781997086c42b9796c829d047a3d5e8d582f811022adcef5a8316",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-reviewed-5/result.json",
+      "original_sha256": "05d9286074078647efe0e01794e9a4ee320989f8595061df4b5ffdf29f413729",
+      "publication_path": "controlled/5-result.json",
+      "publication_sha256": "a256d3e2c27a8124751ecd1b93e105fcb9d63ef7391f44c32d13fd7c29e92f98",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-5-final-inspection.json",
+      "original_sha256": "016ca338a9547ae56dcf67f252feb5e17508f173ce83e24b6116615c1ddf3cee",
+      "publication_path": "controlled/5-inspection.json",
+      "publication_sha256": "016ca338a9547ae56dcf67f252feb5e17508f173ce83e24b6116615c1ddf3cee",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-reviewed-8/result.json",
+      "original_sha256": "143e968fee9ca2eac827be9b0e88616863be46488fc33910d15947ed090e3b5c",
+      "publication_path": "controlled/8-result.json",
+      "publication_sha256": "1c646175f74e50f86e7c4e53d4a27566b321eb1c33af32dfb5850c02f5a94406",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-8-final-inspection.json",
+      "original_sha256": "6edc3e534f40c0eb602cbc11d65aa6c5ec9910a3deda99c62bc3f81ab7feecdb",
+      "publication_path": "controlled/8-inspection.json",
+      "publication_sha256": "6edc3e534f40c0eb602cbc11d65aa6c5ec9910a3deda99c62bc3f81ab7feecdb",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-reviewed-10/result.json",
+      "original_sha256": "32078536cd89fbdd5f5230230a3125de9fa423d38db840751d7e140cd0f772ef",
+      "publication_path": "controlled/10-result.json",
+      "publication_sha256": "84894d6f493e2eaff6e0acf0e59da3514382b39f38b15ed27512e27a7d4d354a",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-10-final-inspection.json",
+      "original_sha256": "f8d7b5137db0182c4413a995c960de95b1c5f90da490bd56ef01d9f081026f66",
+      "publication_path": "controlled/10-inspection.json",
+      "publication_sha256": "f8d7b5137db0182c4413a995c960de95b1c5f90da490bd56ef01d9f081026f66",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-matrix-current.json",
+      "original_sha256": "8697f03790b6f388e775bd2bf411d03d2dbf11414a7fce33323aaf22354eafe1",
+      "publication_path": "controlled-matrix.json",
+      "publication_sha256": "8697f03790b6f388e775bd2bf411d03d2dbf11414a7fce33323aaf22354eafe1",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-cli-reviewed/json-resumption/result.json",
+      "original_sha256": "00b5ae8771ab25b046cb609963a001862657bf8e07a097a12abb3bd8a83dc1b8",
+      "publication_path": "controlled-cli/json-resumption-result.json",
+      "publication_sha256": "94583bfe6fa23b4b20ab14afd73e4a7fcddc934502156cc2549a2af4b2f689b4",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-cli-reviewed/json-resumption/inspection.json",
+      "original_sha256": "3f317dd1929a49e174144c027078c6409e45dced2c319163de8894fc07b2880d",
+      "publication_path": "controlled-cli/json-resumption-inspection.json",
+      "publication_sha256": "3f317dd1929a49e174144c027078c6409e45dced2c319163de8894fc07b2880d",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-cli-reviewed/level1/result.json",
+      "original_sha256": "77d94debbb78ddf8ba8373d1f22383437e242f4940a4e77be56ade48507876f5",
+      "publication_path": "controlled-cli/level1-result.json",
+      "publication_sha256": "a9df1371ab01d4261562ab86d48347c59c4fecb5259eb788e163f67505cef299",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-cli-reviewed/level1/inspection.json",
+      "original_sha256": "f158db660c6fc44a9c259a44117d84aa3235b376b289e7d419502fc5bbc04bb8",
+      "publication_path": "controlled-cli/level1-inspection.json",
+      "publication_sha256": "f158db660c6fc44a9c259a44117d84aa3235b376b289e7d419502fc5bbc04bb8",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-cli-reviewed/original-confirmation/result.json",
+      "original_sha256": "4d11e2f655de180bf38dfd4ed23ac68d623d9a9f8827d9155f6247af7c143339",
+      "publication_path": "controlled-cli/original-confirmation-result.json",
+      "publication_sha256": "298fbaccaf9ec0cd639de3559de0313ec8d908581378322218cbda6366e885b3",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-cli-reviewed/original-confirmation/inspection.json",
+      "original_sha256": "36f62e36fe96cb90a80e38f4497c5897dfbc4a9a9db64f03ac73cd56bc4f83d9",
+      "publication_path": "controlled-cli/original-confirmation-inspection.json",
+      "publication_sha256": "36f62e36fe96cb90a80e38f4497c5897dfbc4a9a9db64f03ac73cd56bc4f83d9",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-cli-reviewed/structured/result.json",
+      "original_sha256": "f9d48d22b57a7e0f1b8abd39a369bc74917298a7e60b3500212caeae0c620f78",
+      "publication_path": "controlled-cli/structured-result.json",
+      "publication_sha256": "895a7ba8b67bf575a87ec1689482848b69f02dcc71b885251251156543c8fcf0",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/controlled-cli-reviewed/structured/inspection.json",
+      "original_sha256": "9aa5b23145df911a45d819ea7378b8a8d2540a4500be651ddaf467465ac61391",
+      "publication_path": "controlled-cli/structured-inspection.json",
+      "publication_sha256": "9aa5b23145df911a45d819ea7378b8a8d2540a4500be651ddaf467465ac61391",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-final/json-resumption/result.json",
+      "original_sha256": "bcc9a397425f16cf0c192cb01eb4fe8121350f2f661aeef71f0e37b26dae7096",
+      "publication_path": "live-cli/json-resumption-result.json",
+      "publication_sha256": "a86b3f2bb8d192bb580934bda7272390738f81acc946591cde05c53537ed1dd3",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-final/level1/result.json",
+      "original_sha256": "1feea949cca69c8a220af436692de54b5822d6b647bb49122cdc098cdcd593c2",
+      "publication_path": "live-cli/level1-result.json",
+      "publication_sha256": "13143e59d5deae959dc3535d739651caef5c15c98156b42d61ba16206dd36743",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/level1-live-inspection.json",
+      "original_sha256": "8f7a63af90c4eab4c0386d3388cbac032f8cdeade2ccc695746c107e2593ee7a",
+      "publication_path": "live-cli/level1-inspection.json",
+      "publication_sha256": "8f7a63af90c4eab4c0386d3388cbac032f8cdeade2ccc695746c107e2593ee7a",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-final/level1/workspace/test_level_1.txt",
+      "original_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "publication_path": "artifacts/test_level_1.txt",
+      "publication_sha256": "77fb7dd877d96222a20e410e6fd91151acca5a6bc5ee8f86e7a3f4499a5f6bdb",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-final/original-confirmation/result.json",
+      "original_sha256": "3f3c6b0430815d9defdf0af98604af8fd4f099874a849a58d782250c9a63fc2d",
+      "publication_path": "live-cli/original-confirmation-result.json",
+      "publication_sha256": "abc59620cee4f9f312ef4b0a2437a44b7c83d54c0ddc477ff8d61c8c9e288dd7",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-final/structured/result.json",
+      "original_sha256": "4a66c68b01d33761b01c745ba87748230b70d97da6542dc96e2c4e4a7857a106",
+      "publication_path": "live-cli/structured-result.json",
+      "publication_sha256": "a109a93848c0648cca35eda8c248e9abc86adb43793a3875f7a3716fcc095b92",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/structured-live-inspection.json",
+      "original_sha256": "7ae550acaaf525cacd81fe1c59ce8587c830e9ce2fe60528d87386d4b4dbaadd",
+      "publication_path": "live-cli/structured-inspection.json",
+      "publication_sha256": "7ae550acaaf525cacd81fe1c59ce8587c830e9ce2fe60528d87386d4b4dbaadd",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-final/structured/workspace/student.txt",
+      "original_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "publication_path": "artifacts/student.txt",
+      "publication_sha256": "a78e17570df51d1b4628e3a6e36003699b242003df3c0c34eac7087407fd8781",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-final/structured/workspace/course.txt",
+      "original_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "publication_path": "artifacts/course.txt",
+      "publication_sha256": "29ed196cb71c833975ee69e79b092401dae9cdeaef0316073c7fd894a45dcbba",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-retry/json-resumption/result.json",
+      "original_sha256": "504e69d48caa39a9ec3e3d1e99ac2be58adf0a8fdac6a514be2fb4c4aa464ed2",
+      "publication_path": "live-cli/retry-json-resumption-result.json",
+      "publication_sha256": "e175cd56c30c822892af5030d229608f785253604c388be72b5ffbf052c7f243",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-cli-retry/original-confirmation/result.json",
+      "original_sha256": "1a53caea1c7073ea860753b81a630f55c630535b5b8084434f746dc0a55cf592",
+      "publication_path": "live-cli/retry-original-confirmation-result.json",
+      "publication_sha256": "bed0a36a7f8aa2d37662d9b9ffbce4b231b8d9b9b3ec7f6d010c62d13ccafa23",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/live-outcomes-summary.json",
+      "original_sha256": "a1f18669021061ecf65f7cfe0b5a6f7434050581db46f4033d6595f027cdd9d5",
+      "publication_path": "live-outcomes-summary.json",
+      "publication_sha256": "a1f18669021061ecf65f7cfe0b5a6f7434050581db46f4033d6595f027cdd9d5",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    },
+    {
+      "original_path": "audit_runs/20261021-workspace-audit/level2-clarification-repair/preservation-summary.json",
+      "original_sha256": "b28efca4f12bb457db8a2b437e69a55a315c6f50bd7249a0f55de065e88cb7ab",
+      "publication_path": "preservation-summary.json",
+      "publication_sha256": "b28efca4f12bb457db8a2b437e69a55a315c6f50bd7249a0f55de065e88cb7ab",
+      "transform": "Canonical UTF-8/LF; private paths replaced; log trailing whitespace removed; outcomes unchanged"
+    }
+  ]
+}

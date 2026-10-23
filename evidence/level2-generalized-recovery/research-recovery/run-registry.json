@@ -1,0 +1,139 @@
+[
+  {
+    "run_id": "20261022T005130-de9aff61",
+    "raw_user_request": null,
+    "mode": "auto",
+    "status": "budget_exhausted",
+    "root_verified": false,
+    "model_calls": 32,
+    "tool_calls": 28,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 425.42,
+    "workspace": "list/project-10"
+  },
+  {
+    "run_id": "20261022T223807-7d3afde8",
+    "raw_user_request": "Create exactly two text files in the workspace.File 1:Name: student.txtContent:Name: SaraAge: 21Department: Computer ScienceFile 2:Name: course.txtContent:Course: Software EngineeringSemester: Fall 2026Status: ActiveVerify that both files exist and that each file contains exactly the specified three lines, in the correct order, without additional text.",
+    "mode": "auto",
+    "status": "clarification_required",
+    "root_verified": false,
+    "model_calls": 0,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 0.01,
+    "workspace": "list/project-11"
+  },
+  {
+    "run_id": "20261022T224051-03e24342",
+    "raw_user_request": "{\"student.txt\":\"Name: Sara\\nAge: 21\\nDepartment: Computer Science\",\"course.txt\":\"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"}\n\nThese are the exact UTF-8 contents for the two requested files. The \\n sequences represent line breaks. Neither file should have a final newline. Create both files and verify their exact contents, then complete the original task.",
+    "mode": "auto",
+    "status": "clarification_required",
+    "root_verified": false,
+    "model_calls": 0,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 0.0,
+    "workspace": "list/project-11"
+  },
+  {
+    "run_id": "20261022T234739-c8d73cc5",
+    "raw_user_request": "Create exactly two UTF-8 text files in the workspace.\n\nFile 1: student.txt\nThe exact content must be:\nName: Sara\nAge: 21\nDepartment: Computer Science\n\nFile 2: course.txt\nThe exact content must be:\nCourse: Software Engineering\nSemester: Fall 2026\nStatus: Active\n\nEach file must contain exactly three lines, in the specified order. Use LF line separators and no trailing newline at the end of either file.\n\nVerify both files independently against the exact requested contents. Do not add extra files or extra text.",
+    "mode": "auto",
+    "status": "clarification_required",
+    "root_verified": false,
+    "model_calls": 0,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 0.01,
+    "workspace": "list/project-12"
+  },
+  {
+    "run_id": "20261022T234812-4819d2e2",
+    "raw_user_request": "Create a small inventory record using exactly three UTF-8 text files.\n\nFile: products.txt\nExact content:\nProduct: Keyboard\nQuantity: 12\nPrice: 250\n\nFile: supplier.txt\nExact content:\nSupplier: Nile Tech\nCity: Cairo\nStatus: Active\n\nFile: shipment.txt\nExact content:\nShipment: SH-2026\nItems: 12\nStatus: Pending\n\nEach file must contain exactly three lines, with LF line separators and no trailing newline.\n\nDo not create any other files.\n\nVerify that all three files exist and independently confirm their exact contents before reporting the task as complete.",
+    "mode": "auto",
+    "status": "clarification_required",
+    "root_verified": false,
+    "model_calls": 0,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 0.0,
+    "workspace": "list/project-12"
+  },
+  {
+    "run_id": "20261022T235215-179d65fd",
+    "raw_user_request": "Here is the clarification for my original two-file request.\n\n{\n  \"student.txt\": \"Name: Sara\\nAge: 21\\nDepartment: Computer Science\",\n  \"course.txt\": \"Course: Software Engineering\\nSemester: Fall 2026\\nStatus: Active\"\n}\n\nBoth files must use UTF-8 encoding and LF (\\n) line separators. Neither file should have a trailing newline.\n\nThese are the exact contents. Please continue the original task, create both files, and verify their contents.",
+    "mode": "auto",
+    "status": "clarification_required",
+    "root_verified": false,
+    "model_calls": 0,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 0.0,
+    "workspace": "list/project-12"
+  },
+  {
+    "run_id": "20261022T235253-8db69c4f",
+    "raw_user_request": "create File 1: student.txt\nThe exact content must be:\nName: Sara\nAge: 21\nDepartment: Computer Science",
+    "mode": "auto",
+    "status": "clarification_required",
+    "root_verified": false,
+    "model_calls": 0,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 0.0,
+    "workspace": "list/project-12"
+  },
+  {
+    "run_id": "20261023T002611-991b46bd",
+    "raw_user_request": "Create exactly two UTF-8 text files in the workspace.\n\nFile 1: student.txt\nThe exact content must be:\nName: Sara\nAge: 21\nDepartment: Computer Science\n\nFile 2: course.txt\nThe exact content must be:\nCourse: Software Engineering\nSemester: Fall 2026\nStatus: Active\n\nEach file must contain exactly three lines, in the specified order. Use LF line separators and no trailing newline at the end of either file.\n\nVerify both files independently against the exact requested contents. Do not add extra files or extra text.",
+    "mode": "auto",
+    "status": "failed",
+    "root_verified": false,
+    "model_calls": 2,
+    "tool_calls": 0,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 172.85,
+    "workspace": "list/project-15"
+  },
+  {
+    "run_id": "20261023T004235-79109aeb",
+    "raw_user_request": "Create exactly two UTF-8 text files in the workspace.\n\nFile 1: student.txt\nThe exact content must be:\nName: Sara\nAge: 21\nDepartment: Computer Science\n\nFile 2: course.txt\nThe exact content must be:\nCourse: Software Engineering\nSemester: Fall 2026\nStatus: Active\n\nEach file must contain exactly three lines, in the specified order. Use LF line separators and no trailing newline at the end of either file.\n\nVerify both files independently against the exact requested contents. Do not add extra files or extra text.",
+    "mode": "auto",
+    "status": "done",
+    "root_verified": true,
+    "model_calls": 9,
+    "tool_calls": 7,
+    "falsifier_calls": 1,
+    "elapsed_seconds": 385.02,
+    "workspace": "list/project-18"
+  },
+  {
+    "run_id": "20261023T005124-a828f3dd",
+    "raw_user_request": "Create a small inventory record using exactly three UTF-8 text files in the workspace.\n\nFile 1: products.txt\nThe exact content must be:\nProduct: Keyboard\nQuantity: 12\nPrice: 250\n\nFile 2: supplier.txt\nThe exact content must be:\nSupplier: Nile Tech\nCity: Cairo\nStatus: Active\n\nFile 3: shipment.txt\nThe exact content must be:\nShipment: SH-2026\nItems: 12\nStatus: Pending\n\nEach file must contain exactly three lines, in the specified order.\n\nUse LF line separators and no trailing newline at the end of any file.\n\nDo not add extra files or extra text.\n\nVerify all three files independently against their exact requested contents before reporting the task as complete.",
+    "mode": "auto",
+    "status": "failed",
+    "root_verified": false,
+    "model_calls": 39,
+    "tool_calls": 28,
+    "falsifier_calls": 0,
+    "elapsed_seconds": 1077.97,
+    "workspace": "list/project-18"
+  },
+  {
+    "run_id": null,
+    "workspace": "audit_runs/20261021-workspace-audit/level2-research-recovery/live-final-reviewed/structured-blocks/workspace",
+    "status": "HOST_PREFLIGHT_FAILED",
+    "boundary": "CANARY_PROVIDER_FAILURE",
+    "model": "gemma4:e4b",
+    "source_sha256": {
+      "mini.py": "45e76a7e165ef1b1d5420fa7e4ba7574a636d2d5bc09dd6a25f8e58f5c3294ca",
+      "hivo/artifact_progress.py": "2eca277fcb33e9030e60446b624b59f75fe21181035466f1efcf572181930b7e",
+      "hivo/literal_source.py": "c7b1700ea7208ef80aac95ee3fdd0476ab2364f5c3c450a1754a64ac18db4c84",
+      "hivo/literal_clarification.py": "5a63638fff54e3afc45e816b2b3403597efd9516710a2a4167259205e5274c18",
+      "hivo/requirements.py": "85de898719fe86073f392659c4e1798077f4b0c30ef57ad8ac092cc908234104",
+      "hivo/pre_mutation_impact.py": "99d041fd17ab4c7497a6f8055c52aa2757498b980ef84f093e4ac5093a210217",
+      "hivo/verification_routing.py": "02590f685cf5edade620bbd4e2cb38ac84ba70064b6d2fe7da0f5dd3a87a73a3"
+    },
+    "final_source_after_child_scope": false
+  }
+]
