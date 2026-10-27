@@ -2168,9 +2168,18 @@ class AdaptiveArchitectureTests(unittest.TestCase):
             )
 
         for call_index in (2, 7):
+            # Successful context feedback now survives reanchoring. Check the
+            # edit result by identity instead of assuming it is the first tool.
+            context_message = next(
+                message for message in ask.call_args_list[call_index].args[0]
+                if message.get("role") == "tool"
+                and message.get("tool_name") == "context_sufficiency_check"
+            )
+            self.assertTrue(json.loads(context_message["content"])["mutation_allowed"])
             tool_message = next(
                 message for message in ask.call_args_list[call_index].args[0]
                 if message.get("role") == "tool"
+                and message.get("tool_name") == "edit_file"
             )
             self.assertIn("MUTATION_RECOVERY", tool_message["content"])
         self.assertEqual(result_a["status"], "done", result_a)
