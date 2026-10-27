@@ -370,6 +370,10 @@ def _default_canary_call(model, prompt, timeout, base_url):
         "stream": False,
         "options": {"temperature": 0, "seed": 0, "num_ctx": 512, "num_predict": 32},
     }
+    if str(model) == "gpt-oss:20b-cloud":
+        # GPT-OSS spends output tokens on reasoning before the visible reply.
+        payload["think"] = "low"
+        payload["options"]["num_predict"] = 256
     response = post_json(str(base_url).rstrip("/") + "/api/chat", timeout=timeout, payload=payload)
     try:
         body = response.json()

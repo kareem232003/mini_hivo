@@ -857,7 +857,7 @@ def fetch_local_ollama_models():
     result = []
     for item in models:
         name = item.get("name") or item.get("model")
-        if name and not is_cloud_model_name(name):
+        if name and (not is_cloud_model_name(name) or name == MODEL_POLICY.model_name):
             result.append(item)
     return result
 
@@ -937,7 +937,8 @@ def select_local_ollama_model(explicit=None):
     ROUTER_MODEL = required
     FALLBACK_MODEL = ""
     print(f"[MODEL] {MODEL}")
-    print("[PROVIDER] local Ollama only")
+    print("[PROVIDER] Ollama cloud via local Ollama" if is_cloud_model_name(required)
+          else "[PROVIDER] local Ollama only")
     print(f"[CAPACITY] {MODEL_TASK_CAPACITY}/4 (PARAMETER-SIZE HEURISTIC; NOT A BENCHMARK)")
     return by_name[required]
 
@@ -29636,7 +29637,8 @@ def parse_args():
         "auto", "baseline", "recursive", "current_recursive",
         "decomposition_first_recursive",
     ), default="auto")
-    parser.add_argument("--model", help=f"Compatibility option; only {GEMMA_MODEL} is accepted")
+    parser.add_argument("--model", choices=(GEMMA_MODEL, "gpt-oss:20b-cloud"),
+                        help=f"Pin every role to this model (default: {GEMMA_MODEL})")
     parser.add_argument("--prompt-file")
     parser.add_argument("--experiment-case-id")
     parser.add_argument("--mission-advice-policy", choices=("strict", "contract_fallback"),
@@ -29674,7 +29676,7 @@ def ollama_reachable():
 
 
 def main():
-    global WORKSPACE, HOST_PREFLIGHT_RESULT
+    global WORKSPACE, HOST_PREFLIGHT_RESULT, MODEL_POLICY
     configure_console_streams()
     args = parse_args()
     # The architecture self-test is deterministic and must remain runnable on
@@ -29685,6 +29687,7 @@ def main():
         raise SystemExit(0 if ok else 1)
     if not ensure_dependencies(auto_install=not args.no_bootstrap):
         raise SystemExit(2)
+    MODEL_POLICY = SingleModelPolicy(args.model or GEMMA_MODEL)
     try:
         selected_model = MODEL_POLICY.validate(args.model)
     except ValueError as exc:
