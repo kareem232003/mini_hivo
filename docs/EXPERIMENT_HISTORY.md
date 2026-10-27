@@ -1,5 +1,11 @@
 # Experiment history on `main`
 
+## Isolated follow-up on this branch — 27 October 2026
+
+Experiment 20 integrates Tasneem's PR #7 (including #2), #3 and #4 on `codex/experiment20-tasneem`, preserving local cloud-model support. Source merges: `68000c7`, `0cd4a77`, `2420473`; test-only correction: `a4ad142`. [Report](../reports/experiment20/experiment20-report.md), [protocol](../reports/experiment20/PROTOCOL.md), [results](../reports/experiment20/experiment20-results.json). All 91 focused checks pass with installed Edge; the full comparison has no new failure/error IDs after the test correction, but retains existing suite/architecture failures. This entry does not claim these commits are published on main or that a new live application run succeeded.
+
+## Previously recorded main history
+
 Checkpoint: 2026-10-03. The core feature work preceding these experiments is already a linear series of commits on `main`. Experiments 1–17 continue that same line. Old feature branches are historical snapshots; merging their divergent ancestry again would duplicate earlier work. The branch names can remain for navigation, while `main` carries the reviewable commit sequence.
 
 | Experiment | Commit(s) | What the commit records |
