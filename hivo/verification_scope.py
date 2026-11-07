@@ -62,7 +62,12 @@ def scope_contract(task, contract, source_contract):
             result["verification_requirements"] = list(dict.fromkeys(
                 _strings(result.get("verification_requirements", [])) + _strings(source_contract.get("requirements", []))))
         return result
-    if not task.get("parent_id") or task.get("children") or task.get("kind") == "integration":
+    # Production make_task uses "parent"; parent_id is a legacy fixture/ledger
+    # spelling. An explicit canonical value wins, including None at a root.
+    parent = task.get("parent") if "parent" in task else task.get("parent_id")
+    conflicting_parent = ("parent" in task and "parent_id" in task
+                          and task.get("parent") != task.get("parent_id"))
+    if not parent or task.get("children") or task.get("kind") == "integration":
         return result
     if not _strings(full_source.get("requirements")):
         return result  # Do not narrow without a retained authoritative root.
@@ -70,6 +75,8 @@ def scope_contract(task, contract, source_contract):
     if kind != "game":
         return result
     result["browser_fallback_contract"] = full_source
+    if conflicting_parent:
+        return result  # Ambiguous lineage must not reduce verification duties.
     conditions = _strings(task.get("done_when"))
     if not conditions or len(conditions) != len(task.get("done_when", [])):
         return result

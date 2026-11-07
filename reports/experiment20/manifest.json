@@ -37,5 +37,11 @@
     "Pinned tracked Python runtime and test inputs; inherited inputs also identical to baseline",
     "Expected per-case assertion outcomes and selected-method counts required; skips rejected",
     "Python/platform/package versions and normalized source/runner hashes recorded"
-  ]
+  ],
+  "live_campaign": {
+    "results": "supporting/live-results-20261107.json",
+    "protocol": "supporting/live-protocol-20261107.json",
+    "evidence": "supporting/live-evidence-20261107.json",
+    "historical_fields_scope": "Existing source/hash/count pins describe the original offline study, not this later campaign or updated checkout."
+  }
 }

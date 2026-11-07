@@ -70,6 +70,32 @@ class Experiment20ScopeTests(unittest.TestCase):
         self.assertEqual(self.profiles[-1].required_interactions, ())
         self.assertTrue(self.profiles[-1].require_canvas)
 
+    def test_production_constructor_foundation_activates_scope(self):
+        seed = self.child()
+        task = mini.make_task(seed["id"], seed["goal"], parent="ROOT",
+                              done_when=seed["done_when"], scope_hint=seed["scope_hint"])
+        self.assertNotIn("parent_id", task)
+        self.assertTrue(self.check(task)["passed"])
+        self.assertEqual(self.profiles[-1].required_interactions, ())
+
+    def test_production_constructor_movement_keeps_only_assigned_behavior(self):
+        seed = self.child(2)
+        task = mini.make_task(seed["id"], seed["goal"], parent="ROOT",
+                              done_when=seed["done_when"], scope_hint=seed["scope_hint"])
+        self.assertTrue(self.check(task, ["keyboard_movement"], bridge=True)["passed"])
+        self.assertEqual(set(self.profiles[-1].required_interactions), {"keyboard_movement"})
+
+    def test_production_constructor_without_parent_cannot_narrow(self):
+        seed = self.child()
+        task = mini.make_task("standalone", seed["goal"], done_when=seed["done_when"])
+        self.assertFalse(self.check(task)["passed"])
+
+    def test_conflicting_parent_aliases_cannot_narrow(self):
+        seed = self.child()
+        task = mini.make_task(seed["id"], seed["goal"], parent="ROOT", done_when=seed["done_when"])
+        task["parent_id"] = "OTHER"
+        self.assertFalse(self.check(task)["passed"])
+
     def test_foundation_worker_tool_uses_same_scope(self):
         result = self.check(self.child(), tool=True)
         self.assertTrue(result["passed"], result.get("failures"))

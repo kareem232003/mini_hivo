@@ -1,9 +1,13 @@
 # Experiment 20 — Reproduce Locally
 
+**Recorded live campaign:** production observations lead the [report](experiment20-report.md). See [live results](supporting/live-results-20261107.json), [protocol](supporting/live-protocol-20261107.json) and [evidence](supporting/live-evidence-20261107.json). Raw harnesses remain local-only; this is not a portable live runner. No new execution was performed for this update.
+
+**Historical commands below:** require their original pinned source/test revision. Updated parent recognition/tests intentionally fail historical pin/count checks; do not relax those checks or relabel results. Future historical reproduction requires its immutable revision in a separately approved isolated checkout; current-revision checks need a separately defined cohort. None were run for this preparation.
+
 ## Fixed inputs
 
 Baseline `d15b6068f78dd5b9e46daacd81f5543af5c2cf89` includes Experiment 19.
-Treatment implementation `a91062551c9b346a35eb4abb5f18a6f64f95a72b` is local.
+Historical treatment implementation: `a91062551c9b346a35eb4abb5f18a6f64f95a72b`.
 Both objects must exist in Git. Use existing Python 3.11+ and Mini Hivo test
 dependencies. Do not install/download anything for this protocol.
 
@@ -77,10 +81,7 @@ git diff d15b6068f78dd5b9e46daacd81f5543af5c2cf89 --check
 git diff d15b6068f78dd5b9e46daacd81f5543af5c2cf89 --name-only
 ```
 
-Review only this dependency-relative delta for Experiment 20. A future team
-main comparison may include unmerged inherited work and requires a separate
-publication decision. Everything here remains local; do not push/merge as part
-of reproduction.
+Review only this dependency-relative delta for Experiment 20. PR #10 already targets team main with the disclosed inherited PR #9 dependency. This update remains local; do not push or merge as part of reproduction.
 
 Passing controlled snapshots do not establish physical browser behavior, new
 game code, all detailed user acceptance criteria or live E2E completion. Missing
