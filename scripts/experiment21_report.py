@@ -25,6 +25,7 @@ def main():
         "experiment": 21, "date": "2026-11-08", "baseline_revision": before["revision"],
         "pr5": "cca388daa3537030abdb7b6cf175d847f23b99ec",
         "pr6_includes_pr5": "9957271c8e66d10bdfa5b408c74d26fcd7b78be2",
+        "implementation_revision": "cc8706ef871c933ffe5ee55a4b9768ac7932112c",
         "scope": "Controlled functional and regression; no fresh live-model outcome",
         "merge_resolution": "mini.py: retain Tasneem's two context-progress variables and Rodina's context_start_retries",
         "new_failures_or_errors": sorted(new - old),

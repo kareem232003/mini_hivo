@@ -54,6 +54,8 @@ def main():
     args = parser.parse_args()
     out = ROOT / "reports" / "experiment21" / "results"
     out.mkdir(parents=True, exist_ok=True)
+    if any((out / (args.label + suffix)).exists() for suffix in (".log", ".json")):
+        parser.error("Choose a fresh label; existing experiment evidence cannot be overwritten")
     loader = unittest.TestLoader()
     missing = []
     if args.focused:

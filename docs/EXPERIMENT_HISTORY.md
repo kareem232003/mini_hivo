@@ -1,5 +1,9 @@
 # Experiment history on `main`
 
+## Isolated follow-up on this branch — 8 November 2026
+
+Experiment 21 builds on Experiment 20 and integrates Rodina's PR #6 (including #5), fixing compact literal-colon parsing. Implementation: `cc8706e`, branch `codex/experiment21-rodina`. [Report](../reports/experiment21/experiment21-report.md), [protocol](../reports/experiment21/PROTOCOL.md), [results](../reports/experiment21/experiment21-results.json). All 167 focused checks pass with Edge and three scripted-provider functional replays verify exact file bytes and root completion. Full regression retains the same baseline failure/error IDs. This is local integration, not a published-main or live-model success claim.
+
 ## Isolated follow-up on this branch — 27 October 2026
 
 Experiment 20 integrates Tasneem's PR #7 (including #2), #3 and #4 on `codex/experiment20-tasneem`, preserving local cloud-model support. Source merges: `68000c7`, `0cd4a77`, `2420473`; test-only correction: `a4ad142`. [Report](../reports/experiment20/experiment20-report.md), [protocol](../reports/experiment20/PROTOCOL.md), [results](../reports/experiment20/experiment20-results.json). All 91 focused checks pass with installed Edge; the full comparison has no new failure/error IDs after the test correction, but retains existing suite/architecture failures. This entry does not claim these commits are published on main or that a new live application run succeeded.
