@@ -97,6 +97,7 @@ from hivo.requirements import deterministic_requirement_candidates
 from hivo.requirements import freeze
 from hivo.requirements import has_explicit_requirement_signal
 from hivo.requirements import ledger_requirements
+from hivo.requirements import literal_file_request
 from hivo.requirements import normalize_question
 from hivo.requirements import question_is_eligible
 from hivo.requirements import question_priority
@@ -1003,7 +1004,7 @@ TOOLS = [
         "parameters": {"type": "object", "properties": {}, "required": [], "additionalProperties": False},
     }},
     {"type": "function", "function": {
-        "name": "run_file", "description": "Run a .py, .js, .cpp/.cc file or inspect an HTML entry in Chromium.",
+        "name": "run_file", "description": "Run a .py, .js, .cpp/.cc file, inspect HTML in Chromium, or verify a literal text artifact against its controller-bound exact bytes.",
         "parameters": {"type": "object", "properties": {"path": {"type": "string"}},
                        "required": ["path"], "additionalProperties": False},
     }},
@@ -1753,6 +1754,19 @@ def run_file(path):
         return f"error: file does not exist: {target}"
     ext = target.suffix.lower()
     try:
+        active = ACTIVE_IMPACT_CONTRACT or (ACTIVE_TOOL_CONTRACT or {}).get("impact_contract")
+        if isinstance(active, dict) and not stage10_impact.impact_mutation_block_reason(active):
+            relative = target.relative_to(Path(WORKSPACE).resolve()).as_posix()
+            expected = next((item.get("post_state_sha256") for item in active.get("expected_targets", [])
+                             if item.get("path") == relative), None)
+            if expected:
+                observed = hashlib.sha256(target.read_bytes()).hexdigest()
+                return json.dumps({
+                    "verification_kind": "LITERAL_ARTIFACT", "path": relative,
+                    "status": "PASS" if observed == expected else "FAIL", "passed": observed == expected,
+                    "expected_sha256": expected, "actual_sha256": observed,
+                    "impact_contract_hash": active["contract_hash"],
+                }, ensure_ascii=False)
         if ext == ".py":
             cmd = [sys.executable, str(target)]
         elif ext == ".js":
@@ -2123,6 +2137,8 @@ def _activate_impact_contract(candidate, *, context_anchor=None,
         _impact_record_metrics({"valid": False, "errors": accepted.get("errors", [])})
         return accepted
     ACTIVE_IMPACT_CONTRACT = copy.deepcopy(accepted["contract"])
+    if ACTIVE_IMPACT_CONTRACT.get("scope_required") and isinstance(ACTIVE_TOOL_CONTRACT, dict):
+        ACTIVE_TOOL_CONTRACT["impact_contract"] = copy.deepcopy(ACTIVE_IMPACT_CONTRACT)
     ACTIVE_IMPACT_REQUIRED = True
     RUN["impact_contract_required"] = True
     _impact_record_metrics(authorized=True)
@@ -2178,6 +2194,15 @@ def _impact_gate_mutation_guard(name, role="System", target=None):
         ACTIVE_IMPACT_CONTRACT, required=True,
         world_model=_world_model_for_workspace(),
     )
+    if not issue and target is not None:
+        allowed = ACTIVE_IMPACT_CONTRACT.get("authorized_mutation_paths", [])
+        relative = _normalized_workspace_relative_path(target)
+        outside = (relative not in allowed if ACTIVE_IMPACT_CONTRACT.get("scope_required")
+                   else not stage10_impact._allowed_path(relative, allowed))
+        if allowed and outside:
+            issue = (f"error: {stage10_impact.UNEXPECTED_AND_OUT_OF_SCOPE}: "
+                     f"'{target}' is outside the accepted impact mutation paths. "
+                     f"Use only these authorized targets: {json.dumps(allowed, ensure_ascii=False)}")
     if issue:
         _impact_record_metrics(blocked=True)
         record_run_event(
@@ -2343,6 +2368,27 @@ def _prepare_task_impact_contract(task, contract=None):
         return None
     effective = _impact_effective_contract(contract)
     explicit = task.get("impact_contract_candidate")
+    # A named literal artifact has source-defined scope even in an empty repo.
+    # This is local contract compilation, not existing-repository impact planning.
+    literal = None
+    if (RUN.get("project_mode") == NEW_PROJECT and not isinstance(explicit, dict)
+            and not _current_execution_contract(task)):
+        source = contract if isinstance(contract, dict) else {}
+        # An abbreviated model goal must not erase additional source duties.
+        literal = literal_file_request(source.get("original_goal", source.get("goal")))
+        if literal:
+            name = literal["name"]
+            relative = name if Path(name).suffix else name + ".txt"
+            target = safe_path(relative)
+            if target is None or target.exists() or any(part.startswith('.') for part in Path(relative).parts):
+                relative = ""  # Fail closed; never authorize overwrite or metadata paths.
+            effective = copy.deepcopy(effective)
+            effective["allowed_mutation_paths"] = [relative] if relative else []
+            effective["expected_targets"] = [{
+                "target": relative, "path": relative, "kind": "path", "required": True,
+                "post_state_sha256": hashlib.sha256(literal["content"].encode("utf-8")).hexdigest(),
+            }] if relative else []
+            task["scope_hint"] = list(effective["allowed_mutation_paths"])
     mutation_required = not bool(task.get("verification_only"))
     if isinstance(effective, dict) and "worker_required" in effective:
         mutation_required = bool(effective.get("worker_required"))
@@ -2363,6 +2409,26 @@ def _prepare_task_impact_contract(task, contract=None):
         execution_contract=effective,
         mutation_required=mutation_required,
     )
+    if literal:
+        # Bind every retained requirement to a concrete implementation and
+        # verification obligation, without claiming a missing Specifier mapping.
+        records = ledger_requirements(_source_ledger_for_contract(contract))
+        candidate["source_requirements"] = copy.deepcopy(records)
+        candidate["scope_required"] = True
+        candidate["path_resolution"] = {
+            "source_name": literal["name"], "path": task["scope_hint"][0] if task["scope_hint"] else "",
+            "provenance": "DERIVED" if not Path(literal["name"]).suffix else USER_STATED,
+            "rule": "A text-file basename without a suffix receives .txt; explicit suffixes are preserved.",
+        }
+        candidate["verification_obligations"] = [{
+            "id": record["requirement_id"], "category": "POST_STATE",
+            "meaning": record["text"], "target": task["scope_hint"][0] if task["scope_hint"] else "",
+            "required": True, "mode": "controller", "verification_kind": "existing_gate",
+            "provenance": [{"source_identity": record["requirement_id"],
+                            "evidence_kind": record.get("provenance", USER_STATED),
+                            "excerpt": record["text"]}],
+        } for record in records[:stage10_impact.MAX_IMPACT_OBLIGATIONS]]
+        candidate = stage10_impact.PreMutationImpactContract(stage10_impact._refresh_contract_hash(candidate))
     task["impact_contract_candidate"] = copy.deepcopy(candidate)
     task["impact_contract_status"] = stage10_impact.IMPACT_INCOMPLETE
     task["impact_contract_hash"] = candidate.get("contract_hash")
@@ -2606,7 +2672,7 @@ def _context_sufficiency_failed(result):
     """Identify a bounded context stop before verification/recovery routing."""
     if not isinstance(result, dict):
         return False
-    if result.get("failure_type") == CONTEXT_INSUFFICIENT_FAILURE:
+    if result.get("failure_type") in {CONTEXT_INSUFFICIENT_FAILURE, "CONTEXT_SUFFICIENCY_REQUIRED"}:
         return True
     snapshot = result.get("context_sufficiency")
     return isinstance(snapshot, dict) and snapshot.get("failure_code") == CONTEXT_INSUFFICIENT_FAILURE
@@ -5492,6 +5558,16 @@ def get_goal_contract(raw_goal, interactive=True, structured_call=None, clarifie
             model_contract = understand_goal(raw_goal, prior_answers)
             if model_contract.get("status") == "ready":
                 contract = normalize_goal_contract(raw_goal, model_contract)
+                if not records:
+                    # Adapt the Goal Contract once, before Stage 2. Previously
+                    # Project Brain invented these IDs later, leaving Source
+                    # Contract and Task Brain with a different empty ledger.
+                    ledger = _record_source_ledger_metrics(_source_ledger_for_contract(contract))
+                    records = ledger_requirements(ledger)
+                    RUN["source_requirement_ledger"] = ledger
+                    record_run_event("source_requirement_ledger_reconciled",
+                                     requirement_ids=[item["requirement_id"] for item in records],
+                                     source="goal_contract_interpretation")
         except ProviderError:
             # Source extraction remains the authoritative fallback for a
             # temporary weak-provider failure.
@@ -13407,6 +13483,16 @@ def _append_impact_contract_projection(packet, task):
     if not projection:
         return packet
     section = "\n\nPRE-MUTATION IMPACT CONTRACT (bounded controller projection):\n" + projection
+    candidate = (task or {}).get("impact_contract_candidate") or (task or {}).get("impact_contract") or {}
+    if candidate.get("scope_required"):
+        resolution = candidate.get("path_resolution", {})
+        prefix = ("NAMED LITERAL ARTIFACT PLAN (controller-compiled; source requirements remain authoritative):\n"
+                  + json.dumps(resolution, ensure_ascii=False) + "\n"
+                  + "Use the resolved path above for write_file and run_file. "
+                    "Do not write the suffix-less source basename as another file. "
+                    "run_file verifies the exact source-bound UTF-8 bytes.\n\n")
+        limit = min(MAX_NODE_PACKET_CHARS, MAX_WORKER_MISSION_CHARS)
+        return prefix + packet[:max(0, limit - len(prefix) - len(section))] + section
     if len(packet) + len(section) > min(MAX_NODE_PACKET_CHARS, MAX_WORKER_MISSION_CHARS):
         return packet
     return packet + section
@@ -13619,8 +13705,26 @@ def build_node_context(task, root_contract, memory_store, repo_snapshot, parent_
 # ONE REUSABLE MODEL/TOOL LOOP FOR BUILDER, REPAIRER, FALSIFIER
 # ---------------------------------------------------------------------------
 
+def _literal_artifact_verification_paths():
+    """Offer native readback only from accepted, source-bound literal authority."""
+    active = ACTIVE_IMPACT_CONTRACT
+    if (not isinstance(active, dict) or not active.get("scope_required")
+            or stage10_impact.impact_mutation_block_reason(active)):
+        return []
+    return [item["path"] for item in active.get("expected_targets", [])
+            if item.get("path") in active.get("authorized_mutation_paths", [])
+            and item.get("post_state_sha256")]
+
+
 def tool_recovery_hint(tool_name, result, repeated_failures):
     lower = str(result).casefold()
+    if tool_name == "run_command" and result_is_tool_rejection(result):
+        paths = _literal_artifact_verification_paths()
+        if paths:
+            return ("The shell command was refused and did not verify the artifact. "
+                    "Do not retry cat, echo, ls, type or another shell command. "
+                    "Call run_file with the exact path to verify the source-bound UTF-8 bytes: "
+                    + json.dumps([{"path": path} for path in paths], ensure_ascii=False))
     if tool_name == "edit_file" and repeated_failures >= 2 and ("exact replacement" in lower or "found 0" in lower):
         return "Stop repeating the exact edit. Read numbered lines, then use one small edit_file_range."
     if "incomplete or truncated" in lower and repeated_failures >= 2:
@@ -14046,22 +14150,17 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
             )
             impact_validation = impact_authorization
             if not impact_authorization.get("accepted"):
-                # There is no useful model work to perform when no context gate
-                # exists.  Fail closed before any provider/tool seam.
-                if context_gate is None:
-                    _clear_impact_attempt()
-                    return {
-                        "status": "failed",
-                        "failure_type": impact_authorization.get("status") or stage10_impact.IMPACT_INVALID,
-                        "summary": "pre-mutation impact contract was not accepted",
-                        "memory": memory,
-                        "impact_contract": impact_candidate,
-                        "impact_validation": impact_authorization,
-                        "impact_authorized": False,
-                        "mutation_authorized": False,
-                        "worker_calls": 0,
-                        "builder_calls": 0,
-                    }
+                _clear_impact_attempt()
+                return {
+                    "status": "failed",
+                    "failure_type": impact_authorization.get("status") or stage10_impact.IMPACT_INVALID,
+                    "summary": "impact contract rejected: " + "; ".join(
+                        item.get("reason", "") for item in impact_authorization.get("errors", [])[:4]),
+                    "memory": memory, "impact_contract": impact_candidate,
+                    "impact_validation": impact_authorization,
+                    "impact_authorized": False, "mutation_authorized": False,
+                    "worker_calls": 0, "builder_calls": 0,
+                }
     if RUN.get("stage6c_enabled") and role in {"Builder", "Worker"}:
         authority_gate = stage6c.worker_authorization_gate(
             RUN.get("execution_authorization"),
@@ -14376,6 +14475,7 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
     # until a fresh source check or valid source mutation clears it.
     verification_cycle = {"syntax_failures": {}}
     repeated_failures = {}
+    literal_command_rejections = 0
     mutation_failure_counts = {}
     mutation_failure_records = []
     last_verification_signature = ()
@@ -14438,6 +14538,7 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
     grounding_terminal = False
     last_sufficient_context_anchor = None
     repeated_sufficient_context_checks = 0
+    context_start_retries = 0
     if (role == "Builder" and isinstance(execution_contract, dict)
             and recovery_state is None
             and execution_contract.get("allowed_mutation_paths")):
@@ -14529,6 +14630,17 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
         tool_calls = assistant_message.get("tool_calls", [])
         if not tool_calls:
             if context_gate is not None and not context_gate.mutation_allowed:
+                if (context_gate.snapshot().get("state") == stage7_context.PREPARING_CONTEXT
+                        and context_start_retries < 1 and _step + 1 < int(step_budget)):
+                    context_start_retries += 1
+                    messages.append({"role": "user", "content": (
+                        "No context decision was submitted. Your completion text cannot authorize work. "
+                        "Call context_sufficiency_check now with a structured sufficient/insufficient "
+                        "decision grounded in the supplied goal and requirements. Do not write or "
+                        "claim completion before the runtime gates pass."
+                    )})
+                    record_run_event("context_decision_retry", task_id=task_id, retry=context_start_retries)
+                    continue
                 status = "failed"
                 summary = (
                     "CONTEXT_SUFFICIENCY_REQUIRED: Worker must submit the structured "
@@ -14832,6 +14944,12 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
                         task_id=task_id,
                     )
                     impact_validation = impact_authorization
+                    if not impact_authorization.get("accepted"):
+                        status = "failed"
+                        summary = (f"{impact_authorization.get('status', stage10_impact.IMPACT_INVALID)}: "
+                                   "impact contract rejected; " + "; ".join(
+                                       item.get("reason", "") for item in impact_authorization.get("errors", [])[:4]))
+                        stop = True
                 unlocked_offered_tools = list(unlocked_offered_tools)
                 offered_tools = _context_tool_projection(unlocked_offered_tools, context_gate)
                 if progress is not None and progress_policy == "progress_constrained" and context_gate.mutation_allowed:
@@ -15527,6 +15645,26 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
             if hint:
                 messages.append({"role": "user", "content": hint})
 
+            if (name == "run_command" and result_is_tool_rejection(result)
+                    and _literal_artifact_verification_paths()):
+                # Keep the refusal as failed evidence; never translate shell
+                # input into execution or manufacture a passing native proof.
+                literal_command_rejections += 1
+                unlocked_offered_tools = [item for item in unlocked_offered_tools
+                                          if item["function"]["name"] != "run_command"]
+                offered_tools = [item for item in offered_tools
+                                 if item["function"]["name"] != "run_command"]
+                offered_names = {item["function"]["name"] for item in offered_tools}
+                record_run_event("literal_verification_command_rejected", role=role,
+                                 task_id=task_id, count=literal_command_rejections,
+                                 native_paths=_literal_artifact_verification_paths())
+                if literal_command_rejections >= 3:
+                    status = "failed"
+                    summary = ("LITERAL_VERIFICATION_RETRY_EXHAUSTED: rejected shell commands "
+                               "were repeated despite native run_file guidance; no verification claimed")
+                    stop = True
+                    break
+
             if role == "Builder" and name in {"write_file", "edit_file", "edit_file_range"} and tool_result_failed(result) and not context_mutation_blocked:
                 mutation_failure_counts[str(target)] = mutation_failure_counts.get(str(target), 0) + 1
                 if recovery_state is not None and recovery_observation is not None and (
@@ -15594,7 +15732,8 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
         # A Worker cannot turn an incomplete gate into a normal budget or
         # completion outcome. Preserve the explicit bounded failure model.
         status = "failed"
-        if context_gate.snapshot().get("failure_code") == CONTEXT_INSUFFICIENT_FAILURE:
+        if (context_gate.snapshot().get("failure_code") == CONTEXT_INSUFFICIENT_FAILURE
+                or context_gate.snapshot().get("context_status") == "insufficient"):
             summary = (
                 f"{CONTEXT_INSUFFICIENT_FAILURE}: bounded context completion ended "
                 "without sufficient semantic evidence"
@@ -15606,10 +15745,14 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
             )
         execution_budget_exhausted = False
         context_sufficiency_snapshot = context_gate.snapshot()
-    if impact_required and ACTIVE_IMPACT_CONTRACT is None and status not in {"provider_failure", "structured_response_failure"}:
+    if (impact_required and ACTIVE_IMPACT_CONTRACT is None
+            and status not in {"provider_failure", "structured_response_failure"}
+            and (context_gate is None or context_gate.mutation_allowed)):
         status = "failed"
-        summary = "pre-mutation impact contract was not accepted; Worker cannot proceed to mutation"
-    impact_contract_snapshot = copy.deepcopy(ACTIVE_IMPACT_CONTRACT) if impact_required else None
+        summary = (f"{(impact_validation or {}).get('status', stage10_impact.IMPACT_REQUIRED)}: "
+                   "pre-mutation impact contract was not accepted; " + "; ".join(
+                       item.get("reason", "") for item in (impact_validation or {}).get("errors", [])[:4]))
+    impact_contract_snapshot = copy.deepcopy(ACTIVE_IMPACT_CONTRACT or impact_candidate) if impact_required else None
     impact_authorized = bool(
         impact_required
         and ACTIVE_IMPACT_CONTRACT is not None
@@ -15692,7 +15835,9 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
             (impact_validation or {}).get("status", stage10_impact.IMPACT_REQUIRED)
             if impact_required and status == "failed" and not impact_authorized and not provider_error and not structured_response_error and (context_sufficiency_snapshot or {}).get("mutation_allowed", True)
             else
-            CONTEXT_INSUFFICIENT_FAILURE if context_gate is not None and status == "failed" and not provider_error and not structured_response_error and not (context_sufficiency_snapshot or {}).get("mutation_allowed") else
+            ((context_sufficiency_snapshot or {}).get("failure_code") or
+             (CONTEXT_INSUFFICIENT_FAILURE if (context_sufficiency_snapshot or {}).get("context_status") == "insufficient"
+              else "CONTEXT_SUFFICIENCY_REQUIRED")) if context_gate is not None and status == "failed" and not provider_error and not structured_response_error and not (context_sufficiency_snapshot or {}).get("mutation_allowed") else
             "TASK_TOO_BROAD" if status == "too_broad" else
             EXECUTION_BUDGET_EXHAUSTED if execution_budget_exhausted else
             "STRUCTURED_OUTPUT_INVALID" if status == "structured_response_failure" else
@@ -18742,7 +18887,13 @@ def diagnose_failure(task, result, evidence=None):
         or _verification_target_is_unresolved(result)
         or _verification_target_is_unresolved(evidence)
     )
-    if budget_exhausted and _budget_evidence_is_environmental(searchable, result, evidence):
+    if failure_type == "CONTEXT_SUFFICIENCY_REQUIRED" or failure_type.startswith("IMPACT_CONTRACT_"):
+        category = "orchestration_failure"
+        confidence = "high"
+        rationale = ("The context/impact authorization lifecycle did not reach a valid mutation permission. "
+                     "Inspect the recorded gate state and validation errors; do not infer missing repository "
+                     "context or an implementation failure from an unsubmitted decision.")
+    elif budget_exhausted and _budget_evidence_is_environmental(searchable, result, evidence):
         category = "environment_failure"
         confidence = "high"
         rationale = (
@@ -19970,9 +20121,17 @@ def execute_leaf(task, contract, memory, repo_snapshot, parent_summary="", depen
             "mutation_grounding": builder.get("mutation_grounding"),
             "failure_evidence": _compact_failure_evidence(_worker_failure_evidence(builder)),
         }
+    if str(builder.get("failure_type", "")).startswith("IMPACT_CONTRACT_"):
+        rollback_transaction()
+        return {"status": "failed", "failure_type": builder["failure_type"],
+                "summary": builder.get("summary", "impact contract was not authorized"),
+                "memory": memory, "builder": builder,
+                "impact_validation": builder.get("impact_validation"),
+                "failure_evidence": [{"kind": "impact_contract_validation",
+                                      "status": "FAIL", "result": builder.get("impact_validation")}]}
     if _context_sufficiency_failed(builder):
         rollback_transaction()
-        return {"status": "failed", "failure_type": CONTEXT_INSUFFICIENT_FAILURE,
+        return {"status": "failed", "failure_type": builder.get("failure_type") or CONTEXT_INSUFFICIENT_FAILURE,
                 "summary": builder.get("summary", CONTEXT_INSUFFICIENT_FAILURE),
                 "memory": memory, "builder": builder,
                 "context_sufficiency": builder.get("context_sufficiency"),

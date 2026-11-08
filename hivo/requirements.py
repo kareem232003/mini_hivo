@@ -384,8 +384,59 @@ def _append_candidate_text(candidate, text):
     candidate["_raw_text"] = f"{current} {text}".strip()
 
 
+def literal_file_request(text):
+    """Recognize an explicit single-file request; never guess executable code or paths."""
+    text = str(text or "")
+    if "\r" in text or "\n" in text:
+        return None
+    token = r"(?:`[^`\n]*`|'[^'\n]*'|\"[^\"\n]*\"|[^\s'\"`]+)"
+    prefix = (rf"\s*(?:create|make|write)\s+(?:a\s+)?(?P<kind>text|txt)\s+file\s+"
+              rf"(?:named|called)\s+(?P<name>{token})\s+containing\s+")
+    # Explicit delimiters take precedence: the generic token grammar would
+    # otherwise consume `exactly:Hello` itself as the requested file content.
+    # Match empty payloads too so malformed colon syntax cannot fall through.
+    match = re.fullmatch(
+        prefix + r"exactly\s*:\s*(?P<content>[^\r\n]*)", text, re.IGNORECASE,
+    )
+    if match:
+        # A colon explicitly delimits a single-line literal payload, including
+        # spaces. Keep this separate from arbitrary unquoted prose requests.
+        content = match['content'].strip()
+        if not content or re.search(
+                r"(?:[.!?;]\s+|\s+)(?:also|then|and\s+(?:create|make|write|change|delete|run))\b",
+                content, re.IGNORECASE):
+            return None
+        if content[0] in {"'", '"', '`'}:
+            quote = content[0]
+            quoted = re.fullmatch(rf"{re.escape(quote)}([^\r\n{re.escape(quote)}]*){re.escape(quote)}\.?", content)
+            if not quoted:
+                return None
+            content = quoted[1]
+        elif any(quote in content for quote in ("'", '"', '`')):
+            return None
+        name = match['name']
+        name = name[1:-1] if name[:1] in {"'", '"', '`'} else name.rstrip('.')
+        return {"name": name, "content": content, "kind": "text"} if name else None
+    match = re.fullmatch(
+        prefix + rf"(?:exactly\s+)?(?:the\s+text\s+)?(?P<content>{token})\s*\.?\s*",
+        text, re.IGNORECASE,
+    )
+    if not match:
+        return None
+    def literal(value):
+        return value[1:-1] if value[:1] in {"'", '"', '`'} else value.rstrip('.')
+    name, content = literal(match['name']), literal(match['content'])
+    return {"name": name, "content": content, "kind": "text"} if name else None
+
+
 def deterministic_requirement_candidates(segment_text, source_segment):
     """Extract obvious explicit statements without pretending to understand everything."""
+    artifact = literal_file_request(segment_text)
+    if artifact:
+        return [{"text": text, "category": "functional", "source_segment": source_segment}
+                for text in ("Create a text file.",
+                             f"The file name must be {artifact['name']!r}.",
+                             f"The content of the file must be exactly {artifact['content']!r}.")]
     raw_lines = [line for line in str(segment_text or "").splitlines() if line.strip()]
     lines = [(line.strip(), len(line) - len(line.lstrip())) for line in raw_lines]
     has_bullets = any(_BULLET_RE.match(line) for line, _indent in lines)
@@ -1056,11 +1107,17 @@ def specification_coverage(ledger, specification):
             fields[field] = [str(item) for item in value]
         elif isinstance(value, str):
             fields[field] = [value]
+    def coverage_tokens(value):
+        # A filename assertion and "a file named X" express the same surface.
+        # Keep the actual identifier tokens, so a different filename cannot map.
+        normalized = re.sub(r"\bfilename\b", "file name", str(value), flags=re.IGNORECASE)
+        normalized = re.sub(r"\bnamed\b", "name", normalized, flags=re.IGNORECASE)
+        return _overlap_tokens(normalized, normalized)[0]
     result = []
     for record in ledger_requirements(ledger):
         text = str(record.get("text", ""))
         key = _requirement_key(text)
-        tokens, _ = _overlap_tokens(text, text)
+        tokens = coverage_tokens(text)
         matched_fields = []
         for field, values in fields.items():
             for value in values:
@@ -1068,7 +1125,7 @@ def specification_coverage(ledger, specification):
                 if key and (key in value_key or value_key in key):
                     matched_fields.append(field)
                     break
-                value_tokens, _ = _overlap_tokens(value, value)
+                value_tokens = coverage_tokens(value)
                 needed = max(2, math.ceil(len(tokens) * 0.7)) if tokens else 99
                 if len(tokens & value_tokens) >= needed:
                     matched_fields.append(field)

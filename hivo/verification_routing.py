@@ -24,6 +24,7 @@ from typing import Any, Callable, Iterable
 FOCUSED_TEST = "FOCUSED_TEST"
 SYNTAX_STATIC_GATE = "SYNTAX_STATIC_GATE"
 BROWSER = "BROWSER"
+LITERAL_ARTIFACT = "LITERAL_ARTIFACT"
 
 # Route authority is deliberately separate from the legacy ``kind`` field.
 # ``kind`` remains compatible with the existing Stage 5 aggregator, while the
@@ -788,6 +789,20 @@ def _test_target(
 def _is_focused_test_evidence(item: dict) -> bool:
     if not isinstance(item, dict) or item.get("tool") not in {"run_file", "run_command"}:
         return False
+    from .evidence import result_is_tool_rejection
+    if result_is_tool_rejection(item.get("result", "")):
+        return False
+    payload = item.get("result")
+    if isinstance(payload, str):
+        try:
+            payload = json.loads(payload)
+        except (TypeError, ValueError):
+            payload = None
+    if (item.get("tool") == "run_file" and isinstance(payload, dict)
+            and payload.get("verification_kind") == LITERAL_ARTIFACT):
+        # A literal filename such as test_level_1.txt is not an executable
+        # test. Its typed proof is checked by its own required route.
+        return False
     text = " ".join((str(item.get("target", "")), str(item.get("result", ""))))
     return not (
         item.get("tool") == "run_command" and _SYNTAX_EVIDENCE_MARKERS.search(text)
@@ -1199,6 +1214,19 @@ def analyze_verification_applicability(
     )
 
     routes = [route for route in (test_route, syntax_route, browser_route) if route is not None][:_MAX_ROUTES]
+    literal = task.get("impact_contract") or contract.get("impact_contract")
+    if isinstance(literal, dict) and literal.get("scope_required"):
+        from .pre_mutation_impact import impact_mutation_block_reason
+        if not impact_mutation_block_reason(literal):
+            for target in literal.get("expected_targets", []):
+                if target.get("path") and target.get("post_state_sha256"):
+                    routes.insert(0, _route(
+                        LITERAL_ARTIFACT, True, True, target["path"],
+                        ["SOURCE_BOUND_LITERAL_POST_STATE"], [literal["contract_hash"]],
+                        expected_sha256=target["post_state_sha256"],
+                        impact_contract_hash=literal["contract_hash"],
+                    ))
+            routes = routes[:_MAX_ROUTES]
     artifact = {
         "schema_version": "V20.5A",
         "child_id": child_id,
@@ -1618,6 +1646,32 @@ def _evidence_is_related(route: dict[str, Any], item: dict[str, Any]) -> bool:
 
 
 def _evidence_matches(route: dict, item: dict) -> bool:
+    if route.get("kind") == LITERAL_ARTIFACT:
+        if item.get("tool") != "run_file" or _path(item.get("target")) != _path(route.get("target")):
+            return False
+        payload = item.get("result")
+        if isinstance(payload, str):
+            try:
+                payload = json.loads(payload)
+            except (TypeError, ValueError):
+                return False
+        if not isinstance(payload, dict):
+            return False
+        identity_matches = (
+            payload.get("verification_kind") == LITERAL_ARTIFACT
+            and _path(payload.get("path")) == _path(route.get("target"))
+            and payload.get("impact_contract_hash") == route.get("impact_contract_hash")
+            and payload.get("expected_sha256") == route.get("expected_sha256")
+        )
+        passed = payload.get("passed")
+        observed = payload.get("actual_sha256")
+        if not isinstance(passed, bool) or not re.fullmatch(r"[0-9a-f]{64}", str(observed)):
+            return False
+        if payload.get("status") != (PASS if passed else FAIL):
+            return False
+        if passed != (observed == route.get("expected_sha256")):
+            return False
+        return identity_matches
     tool = str(item.get("tool", ""))
     if tool not in {"run_file", "run_command", "verify_web_app"}:
         return False
