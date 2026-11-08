@@ -2,6 +2,10 @@
 
 ## Isolated follow-up on this branch — 8 November 2026
 
+Experiment 22 builds on Experiment 21 `56b328d` and integrates PR #9's verification-outcome integrity implementation once with PR #10's child-scoped verification changes. It fixes a reproduced parser case where `{"status":"ERROR","passed":true}` was treated as PASS. The parser now requires recognized, mutually consistent statuses; unknown/conflicting receipts are unavailable and explicit failures remain failures. [Report](../reports/experiment22/experiment22-report.md), [protocol](../reports/experiment22/PROTOCOL.md), and [181-method selected regression results](../reports/experiment22/experiment22-results.json). PRs #11/#12 are unrelated retrospective documentation submissions with stale PR #7 status claims; neither was merged into this experiment. No live-model or full E2E result is claimed.
+
+## Isolated follow-up on this branch — 8 November 2026
+
 Experiment 21 builds on Experiment 20 and integrates Rodina's PR #6 (including #5), fixing compact literal-colon parsing. Implementation: `cc8706e`, branch `codex/experiment21-rodina`. [Report](../reports/experiment21/experiment21-report.md), [protocol](../reports/experiment21/PROTOCOL.md), [results](../reports/experiment21/experiment21-results.json). All 167 focused checks pass with Edge and three scripted-provider functional replays verify exact file bytes and root completion. Full regression retains the same baseline failure/error IDs. This is local integration, not a published-main or live-model success claim.
 
 ## Isolated follow-up on this branch — 27 October 2026

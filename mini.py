@@ -26,6 +26,7 @@ from hivo.context import compact_messages
 from hivo.evidence import evidence_for_review
 from hivo.evidence import MUTATION_TOOLS
 from hivo.evidence import mutation_failure_record
+from hivo.evidence import project_tool_evidence_result
 from hivo.evidence import result_failed as evidence_result_failed
 from hivo.evidence import result_not_applicable
 from hivo.evidence import result_is_tool_rejection
@@ -107,6 +108,7 @@ from hivo.requirements import specification_coverage
 from hivo.requirements import thaw
 from hivo.verification import GAME_BRIDGE_EXPRESSION, GAME_BRIDGE_NAME
 from hivo.verification import evaluate_web_snapshot, infer_web_profile
+from hivo import verification_scope
 from hivo.verification_routing import AMBIGUOUS_SUPPORTED_TARGET
 from hivo.verification_routing import BLOCKED_REQUIRED_TARGET_MISSING
 from hivo.verification_routing import BROWSER as BROWSER_VERIFICATION
@@ -3194,9 +3196,8 @@ def run_tool(name, args, role="System"):
                 route_artifact, None, BROWSER_VERIFICATION, unresolved,
             )
             return json.dumps(unresolved, ensure_ascii=False)
-        profile = infer_web_profile(
-            str(active.get("goal") or "web"), active,
-            classification_policy=RUN.get("verification_classification_policy", "current"),
+        profile = _scoped_browser_profile(
+            str(active.get("goal") or "web"), active, (browser_route or {}).get("target"),
         )
         target_evidence = {
             "requested_from_node": args["path"],
@@ -15283,8 +15284,8 @@ def execute_agent_task(task_text, memory, messages=None, role="Builder", task_id
                         summary = recovery_terminal_state
                         stop = True
                         break
-            projected = str(result)[:1600]
-            evidence.append({"tool": name, "target": target, "result": projected})
+            projected = project_tool_evidence_result(name, result)
+            evidence.append({"tool": name, "target": target, "result": projected, "role": role})
             memory = update_memory(memory, name, args, result, role=role, task_id=task_id)
             messages.append({"role": "tool", "tool_name": name, "content": str(result)})
             event(f"[TOOL] {name} {compact_text(target, 80)}", role=role, task=task_id, tool=name)
@@ -16888,8 +16889,28 @@ def discover_web_entrypoint(task, contract=None):
     return {"path": resolved} if resolved != VERIFICATION_TARGET_UNRESOLVED else None
 
 
+def _task_web_verification_contract(task, contract):
+    if RUN.get("project_mode") != NEW_PROJECT or isinstance(_current_execution_contract(task), dict):
+        return dict(contract or {})
+    return verification_scope.scope_contract(task, contract, RUN.get("source_contract"))
+
+
+def _scoped_browser_profile(goal, contract, target=None):
+    return verification_scope.scoped_profile(
+        goal, contract,
+        classification_policy=RUN.get("verification_classification_policy", "current"),
+        completed_profiles=RUN.get("committed_browser_profiles", {}), target=target,
+    )
+
+
+def _retain_committed_browser_profile(result):
+    if RUN.get("project_mode") == NEW_PROJECT:
+        verification_scope.retain_committed_profile(RUN.setdefault("committed_browser_profiles", {}), result)
+
+
 def optional_browser_check(task, contract=None, syntax_failures=None, execution_evidence=None):
     """Route browser verification only after deterministic applicability analysis."""
+    contract = _task_web_verification_contract(task, contract)
     requested = _task_browser_requested_path(task)
     artifact = analyze_verification_applicability(
         task, contract, requested_path=requested,
@@ -16914,10 +16935,7 @@ def optional_browser_check(task, contract=None, syntax_failures=None, execution_
         )
         return result
 
-    profile = infer_web_profile(
-        task.get("goal", ""), contract or {},
-        classification_policy=RUN.get("verification_classification_policy", "current"),
-    )
+    profile = _scoped_browser_profile(task.get("goal", ""), contract or {}, route.get("target"))
     semantic_before = (_semantic_subject(task.get("id"), route.get("target"))["hash"]
                        if RUN.get("semantic_evidence_policy") in {"compatible", "monotonic", "strict"} else None)
     current_syntax_failures = _syntax_failures_for_target(syntax_failures, requested)
@@ -20051,6 +20069,7 @@ def execute_leaf(task, contract, memory, repo_snapshot, parent_summary="", depen
         "execution_contract_child": task.get("execution_contract_child"),
     }
     ACTIVE_TOOL_CONTRACT.update(_active_plan_tool_contract_fields(task))
+    ACTIVE_TOOL_CONTRACT = _task_web_verification_contract(task, ACTIVE_TOOL_CONTRACT)
     worker_execution_contract = _current_execution_contract(task)
     builder = execute_agent_task(
         task["goal"], memory, role="Builder", task_id=task["id"], extra_context=node_context,
@@ -20153,7 +20172,9 @@ def execute_leaf(task, contract, memory, repo_snapshot, parent_summary="", depen
     event(f"[{verify_label}] {'PASS' if gate['passed'] else 'FAIL'}", role="Quality Review",
           task=task["id"], action="deterministic evidence gate")
     if gate["passed"]:
-        return _commit_verified_leaf(task, contract, builder, falsifier, browser, gate, memory)
+        result = _commit_verified_leaf(task, contract, builder, falsifier, browser, gate, memory)
+        _retain_committed_browser_profile(result)
+        return result
 
     failure_type = classify_failure(builder, gate, browser, falsifier)
     if failure_type != "IMPLEMENTATION_ERROR":
@@ -20261,6 +20282,7 @@ def execute_leaf(task, contract, memory, repo_snapshot, parent_summary="", depen
                       "impact_contract": task.get("impact_contract") or impact_contract,
                       "impact_comparison": task.get("impact_contract_comparison")}
             attach_verified_manifest(task, result)
+            _retain_committed_browser_profile(result)
             return result
         failure_type = classify_failure(repaired, current_gate, current_browser, None)
         if failure_type != "IMPLEMENTATION_ERROR":
@@ -22105,6 +22127,7 @@ def aggregate_task(task, contract, child_results, memory, repo_snapshot=None, ro
         "task_id": label, "project_invariants": RUN.get("project_invariants", []),
     }
     ACTIVE_TOOL_CONTRACT.update(_active_plan_tool_contract_fields(task))
+    ACTIVE_TOOL_CONTRACT = _task_web_verification_contract(task, ACTIVE_TOOL_CONTRACT)
     context = (
         f"PROJECT BRAIN ALIGNMENT:\n{json.dumps(integration_contract.get('project_brain_alignment', {}), ensure_ascii=False)[:MAX_BRAIN_PROJECTION_CHARS]}\n"
         f"HIERARCHICAL INTEGRATION CONTRACT:\n{json.dumps(integration_contract, ensure_ascii=False)[:9000]}\n"
